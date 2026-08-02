@@ -448,7 +448,7 @@ function loadSession(idx) {
   currentSessionIdx = parseInt(idx);
   const session = data.sessions[currentSessionIdx];
   audioEl.pause();
-  audioEl.src = `Audio/${session.source_file}`;
+  audioEl.src = session.source_url || `Audio/${session.source_file}`;
   audioEl.load();
   clearActiveMarker();
   if (playerNoteEl) playerNoteEl.textContent = '—';
@@ -584,7 +584,7 @@ function preloadExercise(marker, navGi) {
   // Seek audio to position but don't play
   const doSeek = () => { audioEl.currentTime = marker.seconds; };
   if (!audioEl.src || !audioEl.src.includes(session.source_file.replace(/ /g,'%20')) && !audioEl.src.includes(session.source_file)) {
-    audioEl.src = `Audio/${session.source_file}`;
+    audioEl.src = session.source_url || `Audio/${session.source_file}`;
     audioEl.load();
     audioEl.addEventListener('canplay', doSeek, { once: true });
   } else {
@@ -615,7 +615,7 @@ function jumpTo(marker, navGi, rowEl, iconId) {
   };
 
   if (!audioEl.src || !audioEl.src.includes(encodeURIComponent(session.source_file).replace(/%20/g,' ').replace(/ /g,'%20')) && !audioEl.src.includes(session.source_file)) {
-    audioEl.src = `Audio/${session.source_file}`;
+    audioEl.src = session.source_url || `Audio/${session.source_file}`;
     audioEl.load();
     audioEl.addEventListener('canplay', doSeek, { once: true });
   } else {
