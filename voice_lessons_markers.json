@@ -1,0 +1,1570 @@
+{
+  "sessions": [
+    {
+      "file": "Voice 260611_095930_voice_lesson_bonnie",
+      "duration": "33:29",
+      "csv": "regions_markers_voice260611.csv",
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:09.000000",
+          "note": "Intro",
+          "tags": [],
+          "audio_clip": "lesson_01-001.mp3",
+          "seconds": 9.0
+        },
+        {
+          "id": "M2",
+          "time": "0:02:11.000000",
+          "note": "Take it easy....that G...making it easier",
+          "tags": [],
+          "audio_clip": "lesson_01-002.mp3",
+          "seconds": 131.0
+        },
+        {
+          "id": "M3",
+          "time": "0:04:22.000000",
+          "note": "ex: 13531 ascending lip trills",
+          "tags": [],
+          "audio_clip": "lesson_01-003.mp3",
+          "seconds": 262.0
+        },
+        {
+          "id": "M4",
+          "time": "0:05:26.000000",
+          "note": "first strain detected here...very obvious. B14",
+          "tags": [],
+          "audio_clip": "lesson_01-004.mp3",
+          "seconds": 326.0
+        },
+        {
+          "id": "M5",
+          "time": "0:05:28.000000",
+          "note": "ti: advice tongue engage explain...remedy just be aware",
+          "tags": [],
+          "audio_clip": "lesson_01-005.mp3",
+          "seconds": 328.0
+        },
+        {
+          "id": "M6",
+          "time": "0:06:31.000000",
+          "note": "ti: go dumber and be aware of tongue",
+          "tags": [],
+          "audio_clip": "lesson_01-006.mp3",
+          "seconds": 391.0
+        },
+        {
+          "id": "M7",
+          "time": "0:07:32.000000",
+          "note": "ti: increase hootiness and keep round",
+          "tags": [],
+          "audio_clip": "lesson_01-007.mp3",
+          "seconds": 452.0
+        },
+        {
+          "id": "M8",
+          "time": "0:08:34.000000",
+          "note": "second passagio chat",
+          "tags": [],
+          "audio_clip": "lesson_01-008.mp3",
+          "seconds": 514.0
+        },
+        {
+          "id": "M9",
+          "time": "0:10:10.000000",
+          "note": "ex: jaw wag ooo - 1358531",
+          "tags": [],
+          "audio_clip": "lesson_01-009.mp3",
+          "seconds": 610.0
+        },
+        {
+          "id": "M10",
+          "time": "0:10:36.000000",
+          "note": "ti: just slide on by don't sing pretty",
+          "tags": [],
+          "audio_clip": "lesson_01-010.mp3",
+          "seconds": 636.0
+        },
+        {
+          "id": "M11",
+          "time": "0:11:26.000000",
+          "note": "ti: suggestion to be sadder at top",
+          "tags": [],
+          "audio_clip": "lesson_01-011.mp3",
+          "seconds": 686.0
+        },
+        {
+          "id": "M12",
+          "time": "0:11:38.000000",
+          "note": "Bonnie noted a little more resistance",
+          "tags": [],
+          "audio_clip": "lesson_01-012.mp3",
+          "seconds": 698.0
+        },
+        {
+          "id": "M13",
+          "time": "0:12:22.000000",
+          "note": "ti: keep nice speaking voice at bottom",
+          "tags": [],
+          "audio_clip": "lesson_01-013.mp3",
+          "seconds": 742.0
+        },
+        {
+          "id": "M14",
+          "time": "0:12:41.000000",
+          "note": "ti: keep yawn space",
+          "tags": [],
+          "audio_clip": "lesson_01-014.mp3",
+          "seconds": 761.0
+        },
+        {
+          "id": "M15",
+          "time": "0:13:23.000000",
+          "note": "ex: 8531358531 Ah (Hah)",
+          "tags": [],
+          "audio_clip": "lesson_01-015.mp3",
+          "seconds": 803.0
+        },
+        {
+          "id": "M16",
+          "time": "0:14:14.000000",
+          "note": "ti: whimper on note, Ah, Ah, Ah",
+          "tags": [],
+          "audio_clip": "lesson_01-016.mp3",
+          "seconds": 854.0
+        },
+        {
+          "id": "M17",
+          "time": "0:14:23.000000",
+          "note": "ti: watch tongue in back...obviously not quite right",
+          "tags": [],
+          "audio_clip": "lesson_01-017.mp3",
+          "seconds": 863.0
+        },
+        {
+          "id": "M18",
+          "time": "0:14:45.000000",
+          "note": "ti: keep the yawn",
+          "tags": [],
+          "audio_clip": "lesson_01-018.mp3",
+          "seconds": 885.0
+        },
+        {
+          "id": "M19",
+          "time": "0:15:25.000000",
+          "note": "feeling of imposed larynx",
+          "tags": [],
+          "audio_clip": "lesson_01-019.mp3",
+          "seconds": 925.0
+        },
+        {
+          "id": "M20",
+          "time": "0:16:00.000000",
+          "note": "ti: continue to throw it away",
+          "tags": [],
+          "audio_clip": "lesson_01-020.mp3",
+          "seconds": 960.0
+        },
+        {
+          "id": "M21",
+          "time": "0:17:13.000000",
+          "note": "Compliment Tenorland",
+          "tags": [],
+          "audio_clip": "lesson_01-021.mp3",
+          "seconds": 1033.0
+        },
+        {
+          "id": "M22",
+          "time": "0:18:04.000000",
+          "note": "Bonnie explanation of female singer who likes her head voice",
+          "tags": [],
+          "audio_clip": "lesson_01-022.mp3",
+          "seconds": 1084.0
+        },
+        {
+          "id": "M23",
+          "time": "0:19:02.000000",
+          "note": "lu: Buh, think book for more resistance (not Bwa)",
+          "tags": [],
+          "audio_clip": "lesson_01-023.mp3",
+          "seconds": 1142.0
+        },
+        {
+          "id": "M24",
+          "time": "0:19:52.000000",
+          "note": "ex: 135 888 8531 Buh, Buh",
+          "tags": [],
+          "audio_clip": "lesson_01-024.mp3",
+          "seconds": 1192.0
+        },
+        {
+          "id": "M25",
+          "time": "0:20:09.000000",
+          "note": "ti: keep it sad",
+          "tags": [],
+          "audio_clip": "lesson_01-025.mp3",
+          "seconds": 1209.0
+        },
+        {
+          "id": "M26",
+          "time": "0:20:27.000000",
+          "note": "ti: check in with your jaw",
+          "tags": [],
+          "audio_clip": "lesson_01-026.mp3",
+          "seconds": 1227.0
+        },
+        {
+          "id": "M27",
+          "time": "0:20:56.000000",
+          "note": "ti: Buh will help find chestier mix",
+          "tags": [],
+          "audio_clip": "lesson_01-027.mp3",
+          "seconds": 1256.0
+        },
+        {
+          "id": "M28",
+          "time": "0:21:21.000000",
+          "note": "ti: The 'pout' is key when using 'buh' and ascending",
+          "tags": [],
+          "audio_clip": "lesson_01-028.mp3",
+          "seconds": 1281.0
+        },
+        {
+          "id": "M29",
+          "time": "0:21:31.000000",
+          "note": "ti: If not enough 'air' support, 'b' cons. to 'f' as in foot",
+          "tags": [],
+          "audio_clip": "lesson_01-029.mp3",
+          "seconds": 1291.0
+        },
+        {
+          "id": "M30",
+          "time": "0:21:58.000000",
+          "note": "B gets you more chest, F gets you more head",
+          "tags": [],
+          "audio_clip": "lesson_01-030.mp3",
+          "seconds": 1318.0
+        },
+        {
+          "id": "M31",
+          "time": "0:23:16.000000",
+          "note": "Bonnie's Philosophy - the pattern you use, what ru promote",
+          "tags": [],
+          "audio_clip": "lesson_01-031.mp3",
+          "seconds": 1396.0
+        },
+        {
+          "id": "M32",
+          "time": "0:24:54.000000",
+          "note": "ex: fuh 8888531 Blow through your teeth",
+          "tags": [],
+          "audio_clip": "lesson_01-032.mp3",
+          "seconds": 1494.0
+        },
+        {
+          "id": "M33",
+          "time": "0:25:47.000000",
+          "note": "ti: keep it pouty",
+          "tags": [],
+          "audio_clip": "lesson_01-033.mp3",
+          "seconds": 1547.0
+        },
+        {
+          "id": "M34",
+          "time": "0:26:29.000000",
+          "note": "ex: Shift to a longer pattern 1.5 octave",
+          "tags": [],
+          "audio_clip": "lesson_01-034.mp3",
+          "seconds": 1589.0
+        },
+        {
+          "id": "M35",
+          "time": "0:27:09.000000",
+          "note": "ti: fuh through the teeth",
+          "tags": [],
+          "audio_clip": "lesson_01-035.mp3",
+          "seconds": 1629.0
+        },
+        {
+          "id": "M36",
+          "time": "0:27:37.000000",
+          "note": "ti: pout to build resistance",
+          "tags": [],
+          "audio_clip": "lesson_01-036.mp3",
+          "seconds": 1657.0
+        },
+        {
+          "id": "M37",
+          "time": "0:28:19.000000",
+          "note": "ti: check your tongue",
+          "tags": [],
+          "audio_clip": "lesson_01-037.mp3",
+          "seconds": 1699.0
+        },
+        {
+          "id": "M38",
+          "time": "0:29:02.000000",
+          "note": "Bonnie mentioned. I already have a great baseline for my mix",
+          "tags": [],
+          "audio_clip": "lesson_01-038.mp3",
+          "seconds": 1742.0
+        },
+        {
+          "id": "M39",
+          "time": "0:30:45.000000",
+          "note": "ex: creak on 'dumb m' 1.5 octave",
+          "tags": [],
+          "audio_clip": "lesson_01-039.mp3",
+          "seconds": 1845.0
+        },
+        {
+          "id": "M40",
+          "time": "0:33:03.000000",
+          "note": "end",
+          "tags": [],
+          "audio_clip": "lesson_01-040.mp3",
+          "seconds": 1983.0
+        }
+      ],
+      "tags": [],
+      "source_file": "Voice 260611_095930_voice_lesson_bonnie.mp3"
+    },
+    {
+      "file": "Voice 260618_103323_voice_lesson_bonnie",
+      "duration": "30:49",
+      "csv": "regions_markers_voice260618.csv",
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Intro",
+          "tags": [],
+          "audio_clip": "lesson_02-001.mp3",
+          "seconds": 0.0
+        },
+        {
+          "id": "M2",
+          "time": "0:00:59.000000",
+          "note": "Bonnie question",
+          "tags": [],
+          "audio_clip": "lesson_02-002.mp3",
+          "seconds": 59.0
+        },
+        {
+          "id": "M3",
+          "time": "0:01:41.000000",
+          "note": "Brett Manning and following Discussion",
+          "tags": [],
+          "audio_clip": "lesson_02-003.mp3",
+          "seconds": 101.0
+        },
+        {
+          "id": "M4",
+          "time": "0:04:34.000000",
+          "note": "Chewing Hum explain",
+          "tags": [],
+          "audio_clip": "lesson_02-004.mp3",
+          "seconds": 274.0
+        },
+        {
+          "id": "M5",
+          "time": "0:04:49.000000",
+          "note": "Babysitting explanation - redirection",
+          "tags": [],
+          "audio_clip": "lesson_02-005.mp3",
+          "seconds": 289.0
+        },
+        {
+          "id": "M6",
+          "time": "0:06:03.000000",
+          "note": "Golf explain",
+          "tags": [],
+          "audio_clip": "lesson_02-006.mp3",
+          "seconds": 363.0
+        },
+        {
+          "id": "M7",
+          "time": "0:07:16.000000",
+          "note": "Bonnie student story",
+          "tags": [],
+          "audio_clip": "lesson_02-007.mp3",
+          "seconds": 436.0
+        },
+        {
+          "id": "M8",
+          "time": "0:09:17.000000",
+          "note": "How is my voice question",
+          "tags": [],
+          "audio_clip": "lesson_02-008.mp3",
+          "seconds": 557.0
+        },
+        {
+          "id": "M9",
+          "time": "0:11:05.000000",
+          "note": "Start of vocalizing",
+          "tags": [],
+          "audio_clip": "lesson_02-009.mp3",
+          "seconds": 665.0
+        },
+        {
+          "id": "M10",
+          "time": "0:11:19.000000",
+          "note": "lu: Make tiny OH with lips",
+          "tags": [],
+          "audio_clip": "lesson_02-010.mp3",
+          "seconds": 679.0
+        },
+        {
+          "id": "M11",
+          "time": "0:11:29.000000",
+          "note": "ex: Ooo 13531",
+          "tags": [],
+          "audio_clip": "lesson_02-011.mp3",
+          "seconds": 689.0
+        },
+        {
+          "id": "M12",
+          "time": "0:14:36.000000",
+          "note": "lu: Jack and the bean stalk - fe, fi, fo, fum",
+          "tags": [],
+          "audio_clip": "lesson_02-012.mp3",
+          "seconds": 876.0
+        },
+        {
+          "id": "M13",
+          "time": "0:14:54.000000",
+          "note": "ex: fee 1234 fi 5432 fo 1234 fum 54321",
+          "tags": [],
+          "audio_clip": "lesson_02-013.mp3",
+          "seconds": 894.0
+        },
+        {
+          "id": "M14",
+          "time": "0:17:02.000000",
+          "note": "ti: Cathedral Height in vocal tract comment",
+          "tags": [],
+          "audio_clip": "lesson_02-014.mp3",
+          "seconds": 1022.0
+        },
+        {
+          "id": "M15",
+          "time": "0:19:33.000000",
+          "note": "ti: Throw it away hooti - fi, fi, fi",
+          "tags": [],
+          "audio_clip": "lesson_02-015.mp3",
+          "seconds": 1173.0
+        },
+        {
+          "id": "M16",
+          "time": "0:20:23.000000",
+          "note": "What are we doing with the vocal tract",
+          "tags": [],
+          "audio_clip": "lesson_02-016.mp3",
+          "seconds": 1223.0
+        },
+        {
+          "id": "M17",
+          "time": "0:20:27.000000",
+          "note": "Down quality, making, you go to a headier of your mix",
+          "tags": [],
+          "audio_clip": "lesson_02-017.mp3",
+          "seconds": 1227.0
+        },
+        {
+          "id": "M18",
+          "time": "0:20:38.000000",
+          "note": "Bonnie provides an example",
+          "tags": [],
+          "audio_clip": "lesson_02-018.mp3",
+          "seconds": 1238.0
+        },
+        {
+          "id": "M19",
+          "time": "0:22:32.000000",
+          "note": "next exercise intro",
+          "tags": [],
+          "audio_clip": "lesson_02-019.mp3",
+          "seconds": 1352.0
+        },
+        {
+          "id": "M20",
+          "time": "0:22:50.000000",
+          "note": "ex: 1358531 hoo, hoo..etc",
+          "tags": [],
+          "audio_clip": "lesson_02-020.mp3",
+          "seconds": 1370.0
+        },
+        {
+          "id": "M21",
+          "time": "0:22:57.000000",
+          "note": "ti: hootie like owl...cathedral ceiling",
+          "tags": [],
+          "audio_clip": "lesson_02-021.mp3",
+          "seconds": 1377.0
+        },
+        {
+          "id": "M22",
+          "time": "0:23:18.000000",
+          "note": "ti: keep it light, staccato",
+          "tags": [],
+          "audio_clip": "lesson_02-022.mp3",
+          "seconds": 1398.0
+        },
+        {
+          "id": "M23",
+          "time": "0:25:15.000000",
+          "note": "ti: Even shorter, its about precision",
+          "tags": [],
+          "audio_clip": "lesson_02-023.mp3",
+          "seconds": 1515.0
+        },
+        {
+          "id": "M24",
+          "time": "0:26:06.000000",
+          "note": "ti: add whimper suggestion, whimpering dog 'that really hurt'",
+          "tags": [],
+          "audio_clip": "lesson_02-024.mp3",
+          "seconds": 1566.0
+        },
+        {
+          "id": "M25",
+          "time": "0:26:43.000000",
+          "note": "ti: check with yr jaw",
+          "tags": [],
+          "audio_clip": "lesson_02-025.mp3",
+          "seconds": 1603.0
+        },
+        {
+          "id": "M26",
+          "time": "0:27:04.000000",
+          "note": "ti: keep round, make sure tongue doesn't activate",
+          "tags": [],
+          "audio_clip": "lesson_02-026.mp3",
+          "seconds": 1624.0
+        },
+        {
+          "id": "M27",
+          "time": "0:27:23.000000",
+          "note": "ti: whimper building muscle mem. of resistance",
+          "tags": [],
+          "audio_clip": "lesson_02-027.mp3",
+          "seconds": 1643.0
+        },
+        {
+          "id": "M28",
+          "time": "0:28:00.000000",
+          "note": "healthy adduction",
+          "tags": [],
+          "audio_clip": "lesson_02-028.mp3",
+          "seconds": 1680.0
+        },
+        {
+          "id": "M29",
+          "time": "0:28:46.000000",
+          "note": "these are vocalise choices but you can do any pattern",
+          "tags": [],
+          "audio_clip": "lesson_02-029.mp3",
+          "seconds": 1726.0
+        },
+        {
+          "id": "M30",
+          "time": "0:30:16.000000",
+          "note": "End",
+          "tags": [],
+          "audio_clip": "lesson_02-030.mp3",
+          "seconds": 1816.0
+        }
+      ],
+      "tags": [],
+      "source_file": "Voice 260618_103323_voice_lesson_bonnie.mp3"
+    },
+    {
+      "file": "Voice 260709_113107_voice_lesson_bonnie",
+      "duration": "30:11",
+      "csv": "regions_markers_voice260709.csv",
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:01:26.000000",
+          "note": "Bonnie commenting it's redirection",
+          "tags": [],
+          "audio_clip": "lesson_03-001.mp3",
+          "seconds": 86.0
+        },
+        {
+          "id": "M2",
+          "time": "0:03:46.000000",
+          "note": "About letting go and giving in",
+          "tags": [],
+          "audio_clip": "lesson_03-002.mp3",
+          "seconds": 226.0
+        },
+        {
+          "id": "M3",
+          "time": "0:04:13.000000",
+          "note": "The new layer - Trusting Muscle memory",
+          "tags": [],
+          "audio_clip": "lesson_03-003.mp3",
+          "seconds": 253.0
+        },
+        {
+          "id": "M4",
+          "time": "0:06:15.000000",
+          "note": "Bonnie re her own tongue engagement",
+          "tags": [],
+          "audio_clip": "lesson_03-004.mp3",
+          "seconds": 375.0
+        },
+        {
+          "id": "M5",
+          "time": "0:07:30.000000",
+          "note": "Regarding practicing in the car",
+          "tags": [],
+          "audio_clip": "lesson_03-005.mp3",
+          "seconds": 450.0
+        },
+        {
+          "id": "M6",
+          "time": "0:08:41.000000",
+          "note": "Over analysis is my issue",
+          "tags": [],
+          "audio_clip": "lesson_03-006.mp3",
+          "seconds": 521.0
+        },
+        {
+          "id": "M7",
+          "time": "0:10:23.000000",
+          "note": "ex: Lip Trills 534231291 ascending then descending",
+          "tags": [],
+          "audio_clip": "lesson_03-007.mp3",
+          "seconds": 623.0
+        },
+        {
+          "id": "M8",
+          "time": "0:12:09.000000",
+          "note": "ex: Who, who, who 888531",
+          "tags": [],
+          "audio_clip": "lesson_03-008.mp3",
+          "seconds": 729.0
+        },
+        {
+          "id": "M9",
+          "time": "0:12:21.000000",
+          "note": "ti: Who did that",
+          "tags": [],
+          "audio_clip": "lesson_03-009.mp3",
+          "seconds": 741.0
+        },
+        {
+          "id": "M10",
+          "time": "0:12:26.000000",
+          "note": "ti: Throw it away, don't try to sound pretty",
+          "tags": [],
+          "audio_clip": "lesson_03-010.mp3",
+          "seconds": 746.0
+        },
+        {
+          "id": "M11",
+          "time": "0:13:49.000000",
+          "note": "ex: Woow 13531",
+          "tags": [],
+          "audio_clip": "lesson_03-011.mp3",
+          "seconds": 829.0
+        },
+        {
+          "id": "M12",
+          "time": "0:14:11.000000",
+          "note": "ti: Put a 'sadder' quality",
+          "tags": [],
+          "audio_clip": "lesson_03-012.mp3",
+          "seconds": 851.0
+        },
+        {
+          "id": "M13",
+          "time": "0:14:18.000000",
+          "note": "ti: Sadder and quieter",
+          "tags": [],
+          "audio_clip": "lesson_03-013.mp3",
+          "seconds": 858.0
+        },
+        {
+          "id": "M14",
+          "time": "0:15:12.000000",
+          "note": "Gorgeous compliment",
+          "tags": [],
+          "audio_clip": "lesson_03-014.mp3",
+          "seconds": 912.0
+        },
+        {
+          "id": "M15",
+          "time": "0:16:16.000000",
+          "note": "ex: Poking fingers into cheeks, Fa (fudge)1358531",
+          "tags": [],
+          "audio_clip": "lesson_03-015.mp3",
+          "seconds": 976.0
+        },
+        {
+          "id": "M16",
+          "time": "0:17:04.000000",
+          "note": "ti: Position fingers closer to your molars",
+          "tags": [],
+          "audio_clip": "lesson_03-016.mp3",
+          "seconds": 1024.0
+        },
+        {
+          "id": "M17",
+          "time": "0:17:49.000000",
+          "note": "ti: as you go up, think narrow, don't crimp your sound",
+          "tags": [],
+          "audio_clip": "lesson_03-017.mp3",
+          "seconds": 1069.0
+        },
+        {
+          "id": "M18",
+          "time": "0:21:17.000000",
+          "note": "lu: adhease tip of tongue to bottom teeth back",
+          "tags": [],
+          "audio_clip": "lesson_03-018.mp3",
+          "seconds": 1277.0
+        },
+        {
+          "id": "M19",
+          "time": "0:21:35.000000",
+          "note": "lu: mouth open to space we need",
+          "tags": [],
+          "audio_clip": "lesson_03-019.mp3",
+          "seconds": 1295.0
+        },
+        {
+          "id": "M20",
+          "time": "0:21:55.000000",
+          "note": "lu: breathing in and out",
+          "tags": [],
+          "audio_clip": "lesson_03-020.mp3",
+          "seconds": 1315.0
+        },
+        {
+          "id": "M21",
+          "time": "0:23:12.000000",
+          "note": "ex: Ah 12121 with tongue arch, keep ah shape",
+          "tags": [],
+          "audio_clip": "lesson_03-021.mp3",
+          "seconds": 1392.0
+        },
+        {
+          "id": "M22",
+          "time": "0:24:24.000000",
+          "note": "ti: Less volume and don't change mouth position",
+          "tags": [],
+          "audio_clip": "lesson_03-022.mp3",
+          "seconds": 1464.0
+        },
+        {
+          "id": "M23",
+          "time": "0:26:00.000000",
+          "note": "ti: Go sadder",
+          "tags": [],
+          "audio_clip": "lesson_03-023.mp3",
+          "seconds": 1560.0
+        },
+        {
+          "id": "M24",
+          "time": "0:26:18.000000",
+          "note": "ti: sadder and lower the volume",
+          "tags": [],
+          "audio_clip": "lesson_03-024.mp3",
+          "seconds": 1578.0
+        },
+        {
+          "id": "M25",
+          "time": "0:27:47.000000",
+          "note": "If jaw tongue and teeth were a personified - we try to help",
+          "tags": [],
+          "audio_clip": "lesson_03-025.mp3",
+          "seconds": 1667.0
+        },
+        {
+          "id": "M26",
+          "time": "0:29:27.000000",
+          "note": "Bring a song",
+          "tags": [],
+          "audio_clip": "lesson_03-026.mp3",
+          "seconds": 1767.0
+        }
+      ],
+      "tags": [],
+      "source_file": "Voice 260709_113107_voice_lesson_bonnie.mp3"
+    },
+    {
+      "file": "Voice 260716_120255_voice_lesson_bonnie",
+      "duration": "34:59",
+      "csv": "regions_markers_voice260716.csv",
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Intro",
+          "tags": [],
+          "audio_clip": "lesson_04-001.mp3",
+          "seconds": 0.0
+        },
+        {
+          "id": "M2",
+          "time": "0:00:20.000000",
+          "note": "First mention of Keane 'Somewhere, only we know'",
+          "tags": [],
+          "audio_clip": "lesson_04-002.mp3",
+          "seconds": 20.0
+        },
+        {
+          "id": "M3",
+          "time": "0:02:21.000000",
+          "note": "What Bonnie thinks of the song",
+          "tags": [],
+          "audio_clip": "lesson_04-003.mp3",
+          "seconds": 141.0
+        },
+        {
+          "id": "M4",
+          "time": "0:03:48.000000",
+          "note": "Bonnie's assessment of my voice re baritone, tenor etc",
+          "tags": [],
+          "audio_clip": "lesson_04-004.mp3",
+          "seconds": 228.0
+        },
+        {
+          "id": "M5",
+          "time": "0:05:14.000000",
+          "note": "ex: Lip trill warmup 1.5 octave",
+          "tags": [],
+          "audio_clip": "lesson_04-005.mp3",
+          "seconds": 314.0
+        },
+        {
+          "id": "M6",
+          "time": "0:07:28.000000",
+          "note": "ti: correction, lift your lips correction",
+          "tags": [],
+          "audio_clip": "lesson_04-006.mp3",
+          "seconds": 448.0
+        },
+        {
+          "id": "M7",
+          "time": "0:08:29.000000",
+          "note": "Fear is...the body protecting itself",
+          "tags": [],
+          "audio_clip": "lesson_04-007.mp3",
+          "seconds": 509.0
+        },
+        {
+          "id": "M8",
+          "time": "0:09:01.000000",
+          "note": "ti: BZ comment. Get it to speak",
+          "tags": [],
+          "audio_clip": "lesson_04-008.mp3",
+          "seconds": 541.0
+        },
+        {
+          "id": "M9",
+          "time": "0:09:37.000000",
+          "note": "ti: that's my anchor - emulate on start to help us carry thru",
+          "tags": [],
+          "audio_clip": "lesson_04-009.mp3",
+          "seconds": 577.0
+        },
+        {
+          "id": "M10",
+          "time": "0:09:46.000000",
+          "note": "BZ demo and explain...starting light gets lighter, unwanted",
+          "tags": [],
+          "audio_clip": "lesson_04-010.mp3",
+          "seconds": 586.0
+        },
+        {
+          "id": "M11",
+          "time": "0:09:57.000000",
+          "note": "More connection and pwr, connection and thru line",
+          "tags": [],
+          "audio_clip": "lesson_04-011.mp3",
+          "seconds": 597.0
+        },
+        {
+          "id": "M12",
+          "time": "0:11:16.000000",
+          "note": "The lip trill may have desire to want to engage yr tongue",
+          "tags": [],
+          "audio_clip": "lesson_04-012.mp3",
+          "seconds": 676.0
+        },
+        {
+          "id": "M13",
+          "time": "0:11:33.000000",
+          "note": "Tension creeped in and BZ provided a path forward",
+          "tags": [],
+          "audio_clip": "lesson_04-013.mp3",
+          "seconds": 693.0
+        },
+        {
+          "id": "M14",
+          "time": "0:11:43.000000",
+          "note": "How we might be able to train out tongue engagement @ top",
+          "tags": [],
+          "audio_clip": "lesson_04-014.mp3",
+          "seconds": 703.0
+        },
+        {
+          "id": "M15",
+          "time": "0:12:15.000000",
+          "note": "lu: Tongue stuff - holding tongue with gauze - move side",
+          "tags": [],
+          "audio_clip": "lesson_04-015.mp3",
+          "seconds": 735.0
+        },
+        {
+          "id": "M16",
+          "time": "0:13:02.000000",
+          "note": "ex: Ha, Ha, Ha 111113531 find yawn space",
+          "tags": [],
+          "audio_clip": "lesson_04-016.mp3",
+          "seconds": 782.0
+        },
+        {
+          "id": "M17",
+          "time": "0:14:27.000000",
+          "note": "Excellent BZ liked everything so far",
+          "tags": [],
+          "audio_clip": "lesson_04-017.mp3",
+          "seconds": 867.0
+        },
+        {
+          "id": "M18",
+          "time": "0:14:36.000000",
+          "note": "ti: Adjust...be sadder",
+          "tags": [],
+          "audio_clip": "lesson_04-018.mp3",
+          "seconds": 876.0
+        },
+        {
+          "id": "M19",
+          "time": "0:14:59.000000",
+          "note": "Sadder demo by BZ",
+          "tags": [],
+          "audio_clip": "lesson_04-019.mp3",
+          "seconds": 899.0
+        },
+        {
+          "id": "M20",
+          "time": "0:15:20.000000",
+          "note": "EC attempt",
+          "tags": [],
+          "audio_clip": "lesson_04-020.mp3",
+          "seconds": 920.0
+        },
+        {
+          "id": "M21",
+          "time": "0:16:03.000000",
+          "note": "My answer to 'how did that feel'",
+          "tags": [],
+          "audio_clip": "lesson_04-021.mp3",
+          "seconds": 963.0
+        },
+        {
+          "id": "M22",
+          "time": "0:18:04.000000",
+          "note": "Adding sadder quality adds resistance",
+          "tags": [],
+          "audio_clip": "lesson_04-022.mp3",
+          "seconds": 1084.0
+        },
+        {
+          "id": "M23",
+          "time": "0:18:58.000000",
+          "note": "Now relating to Keane song",
+          "tags": [],
+          "audio_clip": "lesson_04-023.mp3",
+          "seconds": 1138.0
+        },
+        {
+          "id": "M24",
+          "time": "0:19:22.000000",
+          "note": "ex: Who, who, who boo boo 888531",
+          "tags": [],
+          "audio_clip": "lesson_04-024.mp3",
+          "seconds": 1162.0
+        },
+        {
+          "id": "M25",
+          "time": "0:20:40.000000",
+          "note": "ti: BZ Dem. - throw it away - 'who' it should be primal",
+          "tags": [],
+          "audio_clip": "lesson_04-025.mp3",
+          "seconds": 1240.0
+        },
+        {
+          "id": "M26",
+          "time": "0:20:57.000000",
+          "note": "Primal sound discussion",
+          "tags": [],
+          "audio_clip": "lesson_04-026.mp3",
+          "seconds": 1257.0
+        },
+        {
+          "id": "M27",
+          "time": "0:21:26.000000",
+          "note": "To free up our sound and lock into the resonance we want",
+          "tags": [],
+          "audio_clip": "lesson_04-027.mp3",
+          "seconds": 1286.0
+        },
+        {
+          "id": "M28",
+          "time": "0:21:32.000000",
+          "note": "ti: too 'pretty' is eliminating the tech. app. of 'who'",
+          "tags": [],
+          "audio_clip": "lesson_04-028.mp3",
+          "seconds": 1292.0
+        },
+        {
+          "id": "M29",
+          "time": "0:21:46.000000",
+          "note": "ti: Who let the dog out, who did that...",
+          "tags": [],
+          "audio_clip": "lesson_04-029.mp3",
+          "seconds": 1306.0
+        },
+        {
+          "id": "M30",
+          "time": "0:21:58.000000",
+          "note": "BZ explanation as to how exercise relates to song",
+          "tags": [],
+          "audio_clip": "lesson_04-030.mp3",
+          "seconds": 1318.0
+        },
+        {
+          "id": "M31",
+          "time": "0:22:15.000000",
+          "note": "ti: Relate primal sound to Keane lyric 'simple thing'",
+          "tags": [],
+          "audio_clip": "lesson_04-031.mp3",
+          "seconds": 1335.0
+        },
+        {
+          "id": "M32",
+          "time": "0:22:53.000000",
+          "note": "EC attempt",
+          "tags": [],
+          "audio_clip": "lesson_04-032.mp3",
+          "seconds": 1373.0
+        },
+        {
+          "id": "M33",
+          "time": "0:23:17.000000",
+          "note": "ti: Raising eyebrows to redirect fight flight",
+          "tags": [],
+          "audio_clip": "lesson_04-033.mp3",
+          "seconds": 1397.0
+        },
+        {
+          "id": "M34",
+          "time": "0:23:49.000000",
+          "note": "BZ story about clenching glutes",
+          "tags": [],
+          "audio_clip": "lesson_04-034.mp3",
+          "seconds": 1429.0
+        },
+        {
+          "id": "M35",
+          "time": "0:24:35.000000",
+          "note": "Fear complexity and energy redirect to all part of body",
+          "tags": [],
+          "audio_clip": "lesson_04-035.mp3",
+          "seconds": 1475.0
+        },
+        {
+          "id": "M36",
+          "time": "0:25:26.000000",
+          "note": "Song work starts",
+          "tags": [],
+          "audio_clip": "lesson_04-036.mp3",
+          "seconds": 1526.0
+        },
+        {
+          "id": "M37",
+          "time": "0:25:57.000000",
+          "note": "EC getting words",
+          "tags": [],
+          "audio_clip": "lesson_04-037.mp3",
+          "seconds": 1557.0
+        },
+        {
+          "id": "M38",
+          "time": "0:26:28.000000",
+          "note": "EC vocal",
+          "tags": [],
+          "audio_clip": "lesson_04-038.mp3",
+          "seconds": 1588.0
+        },
+        {
+          "id": "M39",
+          "time": "0:28:37.000000",
+          "note": "End",
+          "tags": [],
+          "audio_clip": "lesson_04-039.mp3",
+          "seconds": 1717.0
+        },
+        {
+          "id": "M40",
+          "time": "0:28:56.000000",
+          "note": "ex: Somewhere only song work - Mum lyrics",
+          "tags": [],
+          "audio_clip": "lesson_04-040.mp3",
+          "seconds": 1736.0
+        },
+        {
+          "id": "M41",
+          "time": "0:28:57.000000",
+          "note": "lu: Love on that 'mm' BZ demo..EC attempt 1 rough",
+          "tags": [],
+          "audio_clip": "lesson_04-041.mp3",
+          "seconds": 1737.0
+        },
+        {
+          "id": "M42",
+          "time": "0:29:59.000000",
+          "note": "EC Demo on Mmm after adjustment better",
+          "tags": [],
+          "audio_clip": "lesson_04-042.mp3",
+          "seconds": 1799.0
+        },
+        {
+          "id": "M43",
+          "time": "0:31:22.000000",
+          "note": "Ooo Glotal - vowel sound as in 'zoo'",
+          "tags": [],
+          "audio_clip": "lesson_04-043.mp3",
+          "seconds": 1882.0
+        },
+        {
+          "id": "M44",
+          "time": "0:32:49.000000",
+          "note": "ti: Foo as in Foot...now love on f",
+          "tags": [],
+          "audio_clip": "lesson_04-044.mp3",
+          "seconds": 1969.0
+        },
+        {
+          "id": "M45",
+          "time": "0:34:17.000000",
+          "note": "ti: interchange Foo then words",
+          "tags": [],
+          "audio_clip": "lesson_04-045.mp3",
+          "seconds": 2057.0
+        }
+      ],
+      "tags": [],
+      "source_file": "Voice 260716_120255_voice_lesson_bonnie.mp3"
+    },
+    {
+      "file": "Voice 260723_120543_voice_lesson_bonnie",
+      "duration": "30:47",
+      "csv": "regions_markers_voice260723.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Start",
+          "tags": [],
+          "audio_clip": "lesson_05-001.mp3",
+          "seconds": 0.0
+        },
+        {
+          "id": "M2",
+          "time": "0:05:49.000000",
+          "note": "Lost train of thought - about the 'in the dark' feeling",
+          "tags": [],
+          "audio_clip": "lesson_05-002.mp3",
+          "seconds": 349.0
+        },
+        {
+          "id": "M3",
+          "time": "0:06:53.000000",
+          "note": "ex: lip trill 1.5 octave",
+          "tags": [],
+          "audio_clip": "lesson_05-003.mp3",
+          "seconds": 413.0
+        },
+        {
+          "id": "M4",
+          "time": "0:08:38.000000",
+          "note": "ti: BZ sugg. - Ex. buzzing mmm first then bring lip trill",
+          "tags": [],
+          "audio_clip": "lesson_05-004.mp3",
+          "seconds": 518.0
+        },
+        {
+          "id": "M5",
+          "time": "0:12:07.000000",
+          "note": "ex: Blowfish 8888531",
+          "tags": [],
+          "audio_clip": "lesson_05-005.mp3",
+          "seconds": 727.0
+        },
+        {
+          "id": "M6",
+          "time": "0:13:19.000000",
+          "note": "ti: Put sadder pout",
+          "tags": [],
+          "audio_clip": "lesson_05-006.mp3",
+          "seconds": 799.0
+        },
+        {
+          "id": "M7",
+          "time": "0:14:39.000000",
+          "note": "Resistance and Adduction discussion",
+          "tags": [],
+          "audio_clip": "lesson_05-007.mp3",
+          "seconds": 879.0
+        },
+        {
+          "id": "M8",
+          "time": "0:17:37.000000",
+          "note": "Vibrato discussion",
+          "tags": [],
+          "audio_clip": "lesson_05-008.mp3",
+          "seconds": 1057.0
+        },
+        {
+          "id": "M9",
+          "time": "0:18:54.000000",
+          "note": "Vibrato comes from the change in air flow",
+          "tags": [],
+          "audio_clip": "lesson_05-009.mp3",
+          "seconds": 1134.0
+        },
+        {
+          "id": "M10",
+          "time": "0:22:08.000000",
+          "note": "Tangent",
+          "tags": [],
+          "audio_clip": "lesson_05-010.mp3",
+          "seconds": 1328.0
+        },
+        {
+          "id": "M11",
+          "time": "0:24:29.000000",
+          "note": "Mentioned Dan Callaway",
+          "tags": [],
+          "audio_clip": "lesson_05-011.mp3",
+          "seconds": 1469.0
+        },
+        {
+          "id": "M12",
+          "time": "0:26:36.000000",
+          "note": "BZ comment. Tongue so big",
+          "tags": [],
+          "audio_clip": "lesson_05-012.mp3",
+          "seconds": 1596.0
+        },
+        {
+          "id": "M13",
+          "time": "0:27:42.000000",
+          "note": "Domino effect",
+          "tags": [],
+          "audio_clip": "lesson_05-013.mp3",
+          "seconds": 1662.0
+        },
+        {
+          "id": "M14",
+          "time": "0:28:02.000000",
+          "note": "Massage tongue root while singing",
+          "tags": [],
+          "audio_clip": "lesson_05-014.mp3",
+          "seconds": 1682.0
+        },
+        {
+          "id": "M15",
+          "time": "0:29:37.000000",
+          "note": "What is my tongue doing",
+          "tags": [],
+          "audio_clip": "lesson_05-015.mp3",
+          "seconds": 1777.0
+        },
+        {
+          "id": "M16",
+          "time": "0:30:07.000000",
+          "note": "Make sure to practice Keane song",
+          "tags": [],
+          "audio_clip": "lesson_05-016.mp3",
+          "seconds": 1807.0
+        }
+      ],
+      "source_file": "Voice 260723_120543_voice_lesson_bonnie.mp3"
+    },
+    {
+      "file": "Voice 260730_120226_voice_lesson_bonnie",
+      "duration": "31:37",
+      "csv": "regions_markers_voice260730.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Start",
+          "tags": [],
+          "audio_clip": "lesson_06-001.mp3",
+          "seconds": 0.0
+        },
+        {
+          "id": "M2",
+          "time": "0:05:24.000000",
+          "note": "lu: lip trill rev 3 times explanation",
+          "tags": [],
+          "audio_clip": "lesson_06-002.mp3",
+          "seconds": 324.0
+        },
+        {
+          "id": "M3",
+          "time": "0:05:43.000000",
+          "note": "ex: 8 throw 8 throw 8 throw 531",
+          "tags": [],
+          "audio_clip": "lesson_06-003.mp3",
+          "seconds": 343.0
+        },
+        {
+          "id": "M4",
+          "time": "0:06:42.000000",
+          "note": "ti: check your jaw when getting up high",
+          "tags": [],
+          "audio_clip": "lesson_06-004.mp3",
+          "seconds": 402.0
+        },
+        {
+          "id": "M5",
+          "time": "0:07:27.000000",
+          "note": "ex: lip trills 1358531358531",
+          "tags": [],
+          "audio_clip": "lesson_06-005.mp3",
+          "seconds": 447.0
+        },
+        {
+          "id": "M6",
+          "time": "0:09:18.000000",
+          "note": "ex: woow woow woow woow 8888531 descending",
+          "tags": [],
+          "audio_clip": "lesson_06-006.mp3",
+          "seconds": 558.0
+        },
+        {
+          "id": "M7",
+          "time": "0:09:47.000000",
+          "note": "ti: less 'singy' more throw",
+          "tags": [],
+          "audio_clip": "lesson_06-007.mp3",
+          "seconds": 587.0
+        },
+        {
+          "id": "M8",
+          "time": "0:10:29.000000",
+          "note": "ti: bonnie gives precise demonstration",
+          "tags": [],
+          "audio_clip": "lesson_06-008.mp3",
+          "seconds": 629.0
+        },
+        {
+          "id": "M9",
+          "time": "0:10:40.000000",
+          "note": "ex: same woow exercise but throw 3 punches like boxing",
+          "tags": [],
+          "audio_clip": "lesson_06-009.mp3",
+          "seconds": 640.0
+        },
+        {
+          "id": "M10",
+          "time": "0:11:05.000000",
+          "note": "ti: we want the jaw to move",
+          "tags": [],
+          "audio_clip": "lesson_06-010.mp3",
+          "seconds": 665.0
+        },
+        {
+          "id": "M11",
+          "time": "0:11:19.000000",
+          "note": "ti: your going to (or you want to) feel silly",
+          "tags": [],
+          "audio_clip": "lesson_06-011.mp3",
+          "seconds": 679.0
+        },
+        {
+          "id": "M12",
+          "time": "0:11:24.000000",
+          "note": "ti: throw less 'singy'",
+          "tags": [],
+          "audio_clip": "lesson_06-012.mp3",
+          "seconds": 684.0
+        },
+        {
+          "id": "M13",
+          "time": "0:11:28.000000",
+          "note": "ti: keep it round",
+          "tags": [],
+          "audio_clip": "lesson_06-013.mp3",
+          "seconds": 688.0
+        },
+        {
+          "id": "M14",
+          "time": "0:12:07.000000",
+          "note": "ex: foot 1358888531",
+          "tags": [],
+          "audio_clip": "lesson_06-014.mp3",
+          "seconds": 727.0
+        },
+        {
+          "id": "M15",
+          "time": "0:12:09.000000",
+          "note": "ti: BZ demo",
+          "tags": [],
+          "audio_clip": "lesson_06-015.mp3",
+          "seconds": 729.0
+        },
+        {
+          "id": "M16",
+          "time": "0:13:29.000000",
+          "note": "ti: BZ also wants to play with 'poutiness' and reduced vol",
+          "tags": [],
+          "audio_clip": "lesson_06-016.mp3",
+          "seconds": 809.0
+        },
+        {
+          "id": "M17",
+          "time": "0:13:34.000000",
+          "note": "ti: volume, sad, poutiness, building resistance",
+          "tags": [],
+          "audio_clip": "lesson_06-017.mp3",
+          "seconds": 814.0
+        },
+        {
+          "id": "M18",
+          "time": "0:13:39.000000",
+          "note": "ex: foo foo foo 135888531 taking it slower",
+          "tags": [],
+          "audio_clip": "lesson_06-018.mp3",
+          "seconds": 819.0
+        },
+        {
+          "id": "M19",
+          "time": "0:13:40.000000",
+          "note": "ti: BZ demo",
+          "tags": [],
+          "audio_clip": "lesson_06-019.mp3",
+          "seconds": 820.0
+        },
+        {
+          "id": "M20",
+          "time": "0:15:45.000000",
+          "note": "ti: volume isn't the answer",
+          "tags": [],
+          "audio_clip": "lesson_06-020.mp3",
+          "seconds": 945.0
+        },
+        {
+          "id": "M21",
+          "time": "0:16:52.000000",
+          "note": "ex: mum 123212321",
+          "tags": [],
+          "audio_clip": "lesson_06-021.mp3",
+          "seconds": 1012.0
+        },
+        {
+          "id": "M22",
+          "time": "0:20:29.000000",
+          "note": "lu: checking in on Keane",
+          "tags": [],
+          "audio_clip": "lesson_06-022.mp3",
+          "seconds": 1229.0
+        },
+        {
+          "id": "M23",
+          "time": "0:22:29.000000",
+          "note": "BZ compliment",
+          "tags": [],
+          "audio_clip": "lesson_06-023.mp3",
+          "seconds": 1349.0
+        },
+        {
+          "id": "M24",
+          "time": "0:24:39.000000",
+          "note": "end of audition...start of focused songwork",
+          "tags": [],
+          "audio_clip": "lesson_06-024.mp3",
+          "seconds": 1479.0
+        },
+        {
+          "id": "M25",
+          "time": "0:24:49.000000",
+          "note": "ex: blowfish work 'oh simple thing'",
+          "tags": [],
+          "audio_clip": "lesson_06-025.mp3",
+          "seconds": 1489.0
+        },
+        {
+          "id": "M26",
+          "time": "0:25:08.000000",
+          "note": "ti: change to pure ooo",
+          "tags": [],
+          "audio_clip": "lesson_06-026.mp3",
+          "seconds": 1508.0
+        },
+        {
+          "id": "M27",
+          "time": "0:25:21.000000",
+          "note": "ti: to alleviate jaw tightening move it back and forth",
+          "tags": [],
+          "audio_clip": "lesson_06-027.mp3",
+          "seconds": 1521.0
+        },
+        {
+          "id": "M28",
+          "time": "0:26:47.000000",
+          "note": "ti: hooty...throw it away",
+          "tags": [],
+          "audio_clip": "lesson_06-028.mp3",
+          "seconds": 1607.0
+        },
+        {
+          "id": "M29",
+          "time": "0:27:10.000000",
+          "note": "ti: perfect example of how it should feel",
+          "tags": [],
+          "audio_clip": "lesson_06-029.mp3",
+          "seconds": 1630.0
+        },
+        {
+          "id": "M30",
+          "time": "0:28:06.000000",
+          "note": "ex: chorus with blowfish",
+          "tags": [],
+          "audio_clip": "lesson_06-030.mp3",
+          "seconds": 1686.0
+        },
+        {
+          "id": "M31",
+          "time": "0:28:57.000000",
+          "note": "ti: blowfish free up at top + be hootier + balance airflow",
+          "tags": [],
+          "audio_clip": "lesson_06-031.mp3",
+          "seconds": 1737.0
+        },
+        {
+          "id": "M32",
+          "time": "0:30:05.000000",
+          "note": "Everybody's engagement is different",
+          "tags": [],
+          "audio_clip": "lesson_06-032.mp3",
+          "seconds": 1805.0
+        }
+      ],
+      "source_file": "Voice 260730_120226_voice_lesson_bonnie.mp3"
+    }
+  ]
+}

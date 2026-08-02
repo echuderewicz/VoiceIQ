@@ -1,0 +1,13 @@
+# Audio files — hosted separately, not in Git
+Audio/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+*.swp
+
+# Logs
+*.log

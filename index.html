@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoiceIQ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg:         #0e0e11;
+    --surface:    #16161a;
+    --surface-2:  #1e1e24;
+    --border:     #2a2a35;
+    --accent:     #7c6af7;
+    --accent-dim: #7c6af720;
+    --ex:         #7c6af7;
+    --ex-dim:     #7c6af715;
+    --ti:         #3db88a;
+    --ti-dim:     #3db88a15;
+    --lu:         #e0954a;
+    --lu-dim:     #e0954a15;
+    --text:       #e8e8f0;
+    --muted:      #6b6b80;
+    --mono:       'JetBrains Mono', monospace;
+    --sans:       'Inter', sans-serif;
+    --player-h:   72px;
+    --header-h:   53px;
+    --sidebar-w:  220px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  header {
+    height: var(--header-h);
+    padding: 0 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+
+  .logo { font-size: 18px; font-weight: 600; letter-spacing: -0.5px; }
+  .logo span { color: var(--accent); }
+
+  .session-select {
+    margin-left: auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    max-width: 260px;
+  }
+  .session-select:focus { border-color: var(--accent); }
+
+  /* Hamburger button — mobile only */
+  .hamburger-btn {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger-btn span {
+    width: 20px; height: 2px;
+    background: var(--text);
+    border-radius: 1px;
+    transition: all 0.2s;
+  }
+
+  /* ── Layout ── */
+  .layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 12px 0;
+    background: var(--bg);
+  }
+
+  .sidebar-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 14px 8px;
+  }
+
+  .ex-nav-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 7px 14px;
+    cursor: pointer;
+    border-left: 2px solid transparent;
+    transition: all 0.12s;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .ex-nav-item:hover { background: var(--surface); color: var(--text); }
+  .ex-nav-item.active { border-left-color: var(--accent); background: var(--accent-dim); color: var(--text); }
+  .ex-nav-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 5px; }
+
+  /* Drawer overlay — mobile */
+  .drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 200;
+  }
+  .drawer-overlay.open { display: block; }
+
+  .sidebar.drawer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 280px;
+    height: 100vh;
+    z-index: 201;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    padding-top: 60px;
+    border-right: 1px solid var(--border);
+  }
+  .sidebar.drawer.open { transform: translateX(0); }
+
+  .drawer-close {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: none; border: none;
+    color: var(--muted); font-size: 20px;
+    cursor: pointer; line-height: 1;
+  }
+
+  /* ── Main ── */
+  .main {
+    overflow-y: auto;
+    padding: 20px 24px;
+  }
+
+  .session-meta {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .session-title { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; margin-bottom: 2px; }
+  .session-source { font-size: 11px; color: var(--muted); font-family: var(--mono); }
+
+  .legend {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
+  .legend-dot { width: 7px; height: 7px; border-radius: 2px; }
+
+  /* ── Exercise block ── */
+  .ex-block {
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    scroll-margin-top: 80px;
+  }
+
+  .ex-block > *:last-child { border-bottom: none; }
+
+  .ex-header {
+    background: var(--ex-dim);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .ex-header:hover { background: var(--accent-dim); }
+  .ex-header.playing { background: var(--accent-dim); border-left: 3px solid var(--accent); }
+
+  .ex-badge {
+    font-size: 9px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; padding: 2px 6px; border-radius: 4px;
+    background: var(--ex); color: #fff; flex-shrink: 0;
+  }
+  .ex-title { font-size: 13px; font-weight: 500; flex: 1; min-width: 0; }
+  .ex-time { font-family: var(--mono); font-size: 11px; color: var(--muted); flex-shrink: 0; }
+
+  /* ── Marker rows ── */
+  .marker-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+    cursor: pointer;
+  }
+  .marker-row:last-child { border-bottom: none; }
+  .marker-row:hover { background: var(--surface-2); }
+  .marker-row.lu { background: var(--lu-dim); }
+  .marker-row.ti { background: var(--ti-dim); }
+  .marker-row.playing { outline: 1px solid var(--accent); }
+  .general-row { border-bottom: none; margin-bottom: 12px; }
+
+  .prefix-badge {
+    font-size: 9px; font-weight: 600; letter-spacing: 0.8px;
+    text-transform: uppercase; padding: 1px 5px; border-radius: 3px;
+    flex-shrink: 0; width: 22px; text-align: center;
+  }
+  .prefix-badge.lu { background: var(--lu); color: #fff; }
+  .prefix-badge.ti { background: var(--ti); color: #fff; }
+
+  .marker-time { font-family: var(--mono); font-size: 11px; color: var(--muted); flex-shrink: 0; width: 46px; }
+  .marker-note { flex: 1; font-size: 12px; color: var(--text); min-width: 0; }
+
+  .play-icon {
+    width: 24px; height: 24px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--muted); display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0; transition: all 0.12s;
+  }
+  .play-icon svg { width: 8px; height: 8px; }
+  .marker-row:hover .play-icon,
+  .ex-header:hover .play-icon { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+  .play-icon.playing { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* ── Player bar ── */
+  .player-bar {
+    height: var(--player-h);
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 20px;
+    flex-shrink: 0;
+  }
+
+  .player-info { min-width: 0; flex: 0 0 180px; }
+  .player-lesson { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
+  .player-note { font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .player-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+  .ctrl-btn {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--surface-2);
+    color: var(--text); cursor: pointer; display: flex;
+    align-items: center; justify-content: center; transition: all 0.12s;
+    font-size: 10px; font-family: var(--mono);
+  }
+  .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .ctrl-btn.primary {
+    width: 38px; height: 38px;
+    background: var(--accent); border-color: var(--accent); color: #fff;
+  }
+  .ctrl-btn.primary:hover { opacity: 0.85; }
+  .ctrl-btn svg { width: 11px; height: 11px; }
+
+  .player-progress { flex: 1; display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .time-label { font-family: var(--mono); font-size: 11px; color: var(--muted); flex-shrink: 0; }
+
+  .progress-track {
+    flex: 1; height: 4px; background: var(--border);
+    border-radius: 2px; cursor: pointer; position: relative; min-width: 0;
+  }
+  .progress-fill {
+    height: 100%; background: var(--accent);
+    border-radius: 2px; width: 0%;
+    pointer-events: none;
+  }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE BREAKPOINTS
+  ══════════════════════════════════════ */
+
+  /* Tablet (≤900px) — narrower sidebar */
+  @media (max-width: 900px) {
+    :root { --sidebar-w: 180px; }
+    .session-select { max-width: 180px; font-size: 12px; }
+    .player-info { flex: 0 0 140px; }
+    .main { padding: 16px; }
+  }
+
+  /* Mobile (≤640px) — hamburger, no sidebar in layout */
+  @media (max-width: 640px) {
+    .hamburger-btn { display: flex; }
+
+    .layout { grid-template-columns: 1fr; }
+
+    /* Sidebar becomes a drawer on mobile */
+    .sidebar { display: none; }
+    .sidebar.drawer { display: block; }
+
+    .session-select { max-width: 150px; font-size: 11px; padding: 5px 8px; }
+
+    .player-info { display: none; }
+
+    .player-bar { gap: 8px; padding: 0 12px; }
+
+    .main { padding: 12px; }
+
+    .ex-title { font-size: 12px; }
+    .marker-note { font-size: 11px; }
+
+    .ctrl-btn { width: 28px; height: 28px; }
+    .ctrl-btn.primary { width: 34px; height: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open exercise list" onclick="openDrawer()">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="logo">Voice<span>IQ</span></div>
+  <select class="session-select" id="sessionSelect" onchange="loadSession(this.value)"></select>
+</header>
+
+<div class="layout">
+  <!-- Desktop sidebar -->
+  <nav class="sidebar" id="desktopSidebar"></nav>
+  <!-- Mobile drawer -->
+  <nav class="sidebar drawer" id="drawerSidebar">
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">✕</button>
+  </nav>
+  <main class="main" id="main"></main>
+</div>
+
+<!-- Drawer overlay -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
+<!-- Player bar -->
+<div class="player-bar">
+  <div class="player-info">
+    <div class="player-lesson" id="playerLesson">No lesson loaded</div>
+    <div class="player-note" id="playerNote">—</div>
+  </div>
+  <div class="player-controls">
+    <button class="ctrl-btn" onclick="skip(-10)" title="−10s">−10</button>
+    <button class="ctrl-btn primary" id="mainPlayBtn" onclick="toggleMainPlay()">
+      <svg id="mainPlayIcon" viewBox="0 0 12 12" fill="currentColor"><polygon points="3,1 11,6 3,11"/></svg>
+    </button>
+    <button class="ctrl-btn" onclick="skip(10)" title="+10s">+10</button>
+  </div>
+  <div class="player-progress">
+    <span class="time-label" id="currentTime">0:00</span>
+    <div class="progress-track" id="progressTrack" onclick="seekTo(event)">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <span class="time-label" id="totalTime">0:00</span>
+  </div>
+</div>
+
+<audio id="audioEl"></audio>
+
+<script>
+let data = null;
+let currentSessionIdx = 0;
+let currentMarkerEl = null;
+
+const audioEl = document.getElementById('audioEl');
+const progressFill = document.getElementById('progressFill');
+const currentTimeEl = document.getElementById('currentTime');
+const totalTimeEl = document.getElementById('totalTime');
+const playerNoteEl = document.getElementById('playerNote');
+const playerLessonEl = document.getElementById('playerLesson');
+const mainPlayIcon = document.getElementById('mainPlayIcon');
+
+// ── Drawer ──
+function openDrawer() {
+  document.getElementById('drawerSidebar').classList.add('open');
+  document.getElementById('drawerOverlay').classList.add('open');
+}
+function closeDrawer() {
+  document.getElementById('drawerSidebar').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('open');
+}
+
+// ── Data ──
+fetch('voice_lessons_markers.json')
+  .then(r => r.json())
+  .then(d => {
+    data = d;
+    buildSessionSelect();
+    loadSession(data.sessions.length - 1);
+  })
+  .catch(() => {
+    document.getElementById('main').innerHTML =
+      `<div style="color:var(--muted);padding:40px;font-size:13px">
+        Could not load <code>voice_lessons_markers.json</code>
+      </div>`;
+  });
+
+function buildSessionSelect() {
+  const sel = document.getElementById('sessionSelect');
+  data.sessions.forEach((s, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    const match = s.file.match(/(\d{6})_(\d{6})/);
+    const d = match ? `20${match[1].slice(0,2)}-${match[1].slice(2,4)}-${match[1].slice(4)}` : '';
+    opt.textContent = `Lesson ${i+1} — ${d} (${s.duration})`;
+    sel.appendChild(opt);
+  });
+  sel.value = data.sessions.length - 1;
+}
+
+function loadSession(idx) {
+  currentSessionIdx = parseInt(idx);
+  const session = data.sessions[currentSessionIdx];
+  audioEl.pause();
+  audioEl.src = `Audio/${session.source_file}`;
+  audioEl.load();
+  clearActiveMarker();
+  if (playerNoteEl) playerNoteEl.textContent = '—';
+  if (playerLessonEl) playerLessonEl.textContent = `Lesson ${currentSessionIdx + 1}`;
+  progressFill.style.width = '0%';
+  currentTimeEl.textContent = '0:00';
+  totalTimeEl.textContent = session.duration;
+  setPlayIcon(false);
+  buildView(session);
+}
+
+function getPrefix(note) {
+  if (note.startsWith('ex:')) return 'ex';
+  if (note.startsWith('ti:')) return 'ti';
+  if (note.startsWith('lu:')) return 'lu';
+  return null;
+}
+function strip(note) { return note.replace(/^(ex|ti|lu):\s*/, ''); }
+function fmtTime(s) {
+  const m = Math.floor(s / 60);
+  return `${m}:${Math.floor(s % 60).toString().padStart(2,'0')}`;
+}
+
+function buildSidebar(groups, containerId) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = containerId === 'drawerSidebar'
+    ? `<button class="drawer-close" onclick="closeDrawer()" aria-label="Close">✕</button><div class="sidebar-label">Exercises</div>`
+    : `<div class="sidebar-label">Exercises</div>`;
+
+  groups.forEach((g, gi) => {
+    if (!g.ex) return;
+    const item = document.createElement('div');
+    item.className = 'ex-nav-item';
+    item.innerHTML = `<div class="ex-nav-dot"></div><span>${strip(g.ex.note)}</span>`;
+    item.onclick = () => {
+      preloadExercise(g.ex, gi);
+      document.getElementById(`ex-${gi}`)?.scrollIntoView({ behavior: 'smooth' });
+      closeDrawer();
+    };
+    item.dataset.nav = gi;
+    el.appendChild(item);
+  });
+}
+
+function buildView(session) {
+  const groups = [];
+  let cur = null;
+  let pending_lu = [];
+
+  session.markers.forEach(m => {
+    const p = getPrefix(m.note);
+    if (p === 'lu') { pending_lu.push(m); }
+    else if (p === 'ex') {
+      if (cur) groups.push(cur);
+      cur = { ex: m, lead_ups: pending_lu, instructions: [] };
+      pending_lu = [];
+    } else if (p === 'ti') {
+      if (cur) cur.instructions.push(m);
+    } else {
+      if (cur) { groups.push(cur); cur = null; }
+      pending_lu = [];
+      groups.push({ general: m });
+    }
+  });
+  if (cur) groups.push(cur);
+
+  buildSidebar(groups, 'desktopSidebar');
+  buildSidebar(groups, 'drawerSidebar');
+
+  const main = document.getElementById('main');
+  main.innerHTML = `
+    <div class="session-meta">
+      <div class="session-title">Lesson ${currentSessionIdx + 1}</div>
+      <div class="session-source">${session.source_file} · ${session.duration}</div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--ex)"></div>Exercise</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--lu)"></div>Lead Up</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--ti)"></div>Teacher Instruction</div>
+    </div>
+  `;
+
+  groups.forEach((g, gi) => {
+    if (g.general) { main.appendChild(buildRow(g.general, 'general', gi)); return; }
+    const block = document.createElement('div');
+    block.className = 'ex-block';
+    block.id = `ex-${gi}`;
+
+    const header = document.createElement('div');
+    header.className = 'ex-header';
+    header.id = `ex-header-${gi}`;
+    header.innerHTML = `
+      <span class="ex-badge">ex</span>
+      <span class="ex-title">${strip(g.ex.note)}</span>
+      <span class="ex-time">${g.ex.time.slice(0,7)}</span>
+      <div class="play-icon" id="icon-ex-${gi}">
+        <svg viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>
+      </div>
+    `;
+    header.onclick = () => jumpTo(g.ex, gi, header, `icon-ex-${gi}`);
+    block.appendChild(header);
+
+    g.lead_ups.forEach((m, li) => block.appendChild(buildRow(m, 'lu', `${gi}-lu-${li}`)));
+    g.instructions.forEach((m, ti) => block.appendChild(buildRow(m, 'ti', `${gi}-ti-${ti}`)));
+    main.appendChild(block);
+  });
+}
+
+function buildRow(m, type, key) {
+  const row = document.createElement('div');
+  row.className = `marker-row ${type !== 'general' ? type : 'general-row'}`;
+  row.id = `row-${key}`;
+  const badge = (type === 'lu' || type === 'ti')
+    ? `<span class="prefix-badge ${type}">${type}</span>`
+    : `<span style="width:22px;flex-shrink:0"></span>`;
+  const iconId = `icon-${key}`;
+  row.innerHTML = `
+    ${badge}
+    <span class="marker-time">${m.time.slice(0,7)}</span>
+    <span class="marker-note">${strip(m.note)}</span>
+    <div class="play-icon" id="${iconId}">
+      <svg viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>
+    </div>
+  `;
+  row.onclick = () => jumpTo(m, null, row, iconId);
+  return row;
+}
+
+function preloadExercise(marker, navGi) {
+  clearActiveMarker();
+  const session = data.sessions[currentSessionIdx];
+
+  // Seek audio to position but don't play
+  const doSeek = () => { audioEl.currentTime = marker.seconds; };
+  if (!audioEl.src || !audioEl.src.includes(session.source_file.replace(/ /g,'%20')) && !audioEl.src.includes(session.source_file)) {
+    audioEl.src = `Audio/${session.source_file}`;
+    audioEl.load();
+    audioEl.addEventListener('canplay', doSeek, { once: true });
+  } else {
+    doSeek();
+  }
+
+  // Highlight exercise header with left bar
+  const header = document.getElementById(`ex-header-${navGi}`);
+  if (header) { header.classList.add('playing'); currentMarkerEl = header; }
+
+  // Activate sidebar items
+  document.querySelectorAll('.ex-nav-item').forEach(e => e.classList.remove('active'));
+  document.querySelectorAll(`[data-nav="${navGi}"]`).forEach(e => e.classList.add('active'));
+
+  // Update player bar info
+  if (playerNoteEl) playerNoteEl.textContent = strip(marker.note);
+  if (playerLessonEl) playerLessonEl.textContent = `Lesson ${currentSessionIdx + 1} · ${marker.time.slice(0,7)}`;
+}
+
+function jumpTo(marker, navGi, rowEl, iconId) {
+  clearActiveMarker();
+  const session = data.sessions[currentSessionIdx];
+
+  const doSeek = () => {
+    audioEl.currentTime = marker.seconds;
+    audioEl.play().catch(e => console.error('Play failed:', e, audioEl.src));
+    setPlayIcon(true);
+  };
+
+  if (!audioEl.src || !audioEl.src.includes(encodeURIComponent(session.source_file).replace(/%20/g,' ').replace(/ /g,'%20')) && !audioEl.src.includes(session.source_file)) {
+    audioEl.src = `Audio/${session.source_file}`;
+    audioEl.load();
+    audioEl.addEventListener('canplay', doSeek, { once: true });
+  } else {
+    doSeek();
+  }
+
+  if (playerNoteEl) playerNoteEl.textContent = strip(marker.note);
+  if (playerLessonEl) playerLessonEl.textContent = `Lesson ${currentSessionIdx + 1} · ${marker.time.slice(0,7)}`;
+  if (rowEl) { rowEl.classList.add('playing'); currentMarkerEl = rowEl; }
+  if (navGi !== null && navGi !== undefined) {
+    document.querySelectorAll('.ex-nav-item').forEach(e => e.classList.remove('active'));
+    document.querySelectorAll(`[data-nav="${navGi}"]`).forEach(e => e.classList.add('active'));
+  }
+  if (iconId) {
+    const icon = document.getElementById(iconId);
+    if (icon) icon.classList.add('playing');
+  }
+}
+
+function clearActiveMarker() {
+  if (currentMarkerEl) { currentMarkerEl.classList.remove('playing'); currentMarkerEl = null; }
+  document.querySelectorAll('.play-icon.playing').forEach(e => e.classList.remove('playing'));
+  document.querySelectorAll('.ex-header.playing').forEach(e => e.classList.remove('playing'));
+  document.querySelectorAll('.marker-row.playing').forEach(e => e.classList.remove('playing'));
+}
+
+function toggleMainPlay() {
+  if (audioEl.paused) { audioEl.play(); setPlayIcon(true); }
+  else { audioEl.pause(); setPlayIcon(false); }
+}
+
+function setPlayIcon(playing) {
+  mainPlayIcon.innerHTML = playing
+    ? `<svg viewBox="0 0 12 12" fill="currentColor"><rect x="2" y="1" width="3" height="10"/><rect x="7" y="1" width="3" height="10"/></svg>`
+    : `<svg viewBox="0 0 12 12" fill="currentColor"><polygon points="3,1 11,6 3,11"/></svg>`;
+}
+
+function skip(secs) { audioEl.currentTime = Math.max(0, audioEl.currentTime + secs); }
+
+function seekTo(e) {
+  const track = document.getElementById('progressTrack');
+  const rect = track.getBoundingClientRect();
+  const pct = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+  if (audioEl.duration) audioEl.currentTime = pct * audioEl.duration;
+}
+
+audioEl.addEventListener('timeupdate', () => {
+  if (!audioEl.duration) return;
+  progressFill.style.width = (audioEl.currentTime / audioEl.duration * 100) + '%';
+  currentTimeEl.textContent = fmtTime(audioEl.currentTime);
+});
+audioEl.addEventListener('loadedmetadata', () => { totalTimeEl.textContent = fmtTime(audioEl.duration); });
+audioEl.addEventListener('ended', () => { setPlayIcon(false); clearActiveMarker(); });
+audioEl.addEventListener('pause', () => setPlayIcon(false));
+audioEl.addEventListener('play', () => setPlayIcon(true));
+
+// Global spacebar play/pause
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'SELECT') {
+    e.preventDefault();
+    toggleMainPlay();
+  }
+});
+</script>
+</body>
+</html>
