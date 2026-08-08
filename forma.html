@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --canvas:    #F7F5F0;
+  --surface:   #FFFFFF;
+  --border:    #E0DDD8;
+  --border-2:  #C8C4BE;
+  --ink:       #1C1C1E;
+  --ink-2:     #5A5A5C;
+  --ink-3:     #9A9A9C;
+  --amber:     #C4862A;
+  --amber-dim: #C4862A18;
+  --amber-mid: #C4862A40;
+  --ex:        #4A5568;
+  --ti:        #276749;
+  --lu:        #9C4221;
+  --serif:     'DM Serif Display', Georgia, serif;
+  --sans:      'Inter', sans-serif;
+  --mono:      'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+header {
+  padding: 0 28px;
+  height: 56px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  margin-right: 32px;
+}
+
+.wordmark em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.nav-tabs {
+  display: flex;
+  height: 100%;
+  gap: 0;
+}
+
+.nav-tab {
+  height: 100%;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-3);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s;
+  text-decoration: none;
+  user-select: none;
+}
+
+.nav-tab:hover { color: var(--ink); }
+.nav-tab.active { color: var(--amber); border-bottom-color: var(--amber); }
+
+.header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.voiceiq-link {
+  font-size: 12px;
+  color: var(--ink-3);
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: all 0.12s;
+}
+.voiceiq-link:hover { color: var(--ink); border-color: var(--border-2); }
+
+/* ── Layout ── */
+.app {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Left panel — exercise list ── */
+.ex-panel {
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.ex-panel-header {
+  padding: 14px 18px 10px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.ex-panel-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.12s;
+}
+.search-input:focus { border-color: var(--amber); }
+.search-input::placeholder { color: var(--ink-3); }
+
+.sort-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.sort-pill {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: all 0.12s;
+  font-family: var(--sans);
+}
+.sort-pill:hover { border-color: var(--border-2); color: var(--ink); }
+.sort-pill.active { background: var(--amber-dim); border-color: var(--amber-mid); color: var(--amber); }
+
+.ex-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.ex-item {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.1s;
+  position: relative;
+}
+.ex-item:hover { background: var(--canvas); }
+.ex-item.active { background: var(--amber-dim); border-left: 3px solid var(--amber); padding-left: 15px; }
+.ex-item:last-child { border-bottom: none; }
+
+.ex-item-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.lesson-chip {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--ink-3);
+  background: var(--canvas);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 5px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ex-item.active .lesson-chip { background: var(--surface); }
+
+.ex-name {
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--ink);
+  flex: 1;
+}
+
+.ex-item-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ti-bar-wrap {
+  flex: 1;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.ti-bar-fill {
+  height: 100%;
+  background: var(--amber);
+  border-radius: 2px;
+}
+
+.ti-count {
+  font-size: 11px;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  flex-shrink: 0;
+  min-width: 36px;
+  text-align: right;
+}
+
+.ti-count.has-ti { color: var(--amber); font-weight: 500; }
+
+.pattern-chip {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ex);
+  background: #EEF2F7;
+  padding: 1px 5px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Right panel — detail ── */
+.detail-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--canvas);
+}
+
+.detail-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--ink-3);
+  padding: 40px;
+  text-align: center;
+}
+
+.detail-empty-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-style: italic;
+  color: var(--ink-2);
+}
+
+.detail-empty-sub { font-size: 13px; }
+
+.detail-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 32px;
+  display: none;
+}
+
+.detail-content.visible { display: block; }
+
+.detail-lesson {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+
+.detail-title {
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-date {
+  font-size: 12px;
+  color: var(--ink-3);
+  font-family: var(--mono);
+}
+
+.detail-pattern {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ex);
+  background: #EEF2F7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.detail-time-link {
+  font-size: 12px;
+  color: var(--amber);
+  font-family: var(--mono);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.detail-time-link:hover { opacity: 0.75; }
+
+/* ── Sections ── */
+.section {
+  margin-bottom: 24px;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* TI items */
+.ti-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: all 0.12s;
+  align-items: flex-start;
+}
+.ti-item:hover { border-color: var(--border-2); background: #FEFEFE; }
+.ti-item.playing { border-color: var(--amber); background: var(--amber-dim); }
+
+.ti-marker {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--ti);
+  align-self: stretch;
+  flex-shrink: 0;
+  min-height: 20px;
+}
+
+.ti-body { flex: 1; min-width: 0; }
+
+.ti-note {
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.ti-time {
+  font-size: 11px;
+  color: var(--ink-3);
+  font-family: var(--mono);
+}
+
+.ti-play {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--canvas);
+  color: var(--ink-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.12s;
+  cursor: pointer;
+  margin-top: 2px;
+}
+.ti-play:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-dim); }
+.ti-play.playing { background: var(--amber); border-color: var(--amber); color: #fff; }
+.ti-play svg { width: 9px; height: 9px; }
+
+/* LU items */
+.lu-item {
+  display: flex;
+  gap: 12px;
+  padding: 8px 14px;
+  background: #FFF8F3;
+  border: 1px solid #F0D5BE;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--lu);
+  align-items: center;
+}
+
+.lu-marker {
+  width: 3px;
+  min-height: 16px;
+  border-radius: 2px;
+  background: var(--lu);
+  flex-shrink: 0;
+}
+
+/* ── Mini player bar ── */
+.player-bar {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding: 10px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  height: 60px;
+}
+
+.player-info { flex: 0 0 200px; min-width: 0; }
+.player-label { font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.8px; }
+.player-note { font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink); }
+
+.player-ctrl { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+.p-btn {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--canvas);
+  color: var(--ink-2); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.12s; font-size: 11px; font-family: var(--mono);
+}
+.p-btn:hover { border-color: var(--amber); color: var(--amber); }
+.p-btn.primary {
+  width: 36px; height: 36px;
+  background: var(--amber); border-color: var(--amber); color: #fff;
+}
+.p-btn.primary:hover { opacity: 0.85; }
+.p-btn svg { width: 10px; height: 10px; }
+
+.player-progress { flex: 1; display: flex; align-items: center; gap: 8px; min-width: 0; }
+.p-time { font-family: var(--mono); font-size: 11px; color: var(--ink-3); flex-shrink: 0; }
+
+.progress-track {
+  flex: 1; height: 3px; background: var(--border);
+  border-radius: 2px; cursor: pointer; position: relative;
+}
+.progress-fill {
+  height: 100%; background: var(--amber);
+  border-radius: 2px; width: 0%; pointer-events: none;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── Tab views ── */
+.tab-view { display: none; flex: 1; overflow: hidden; }
+.tab-view.active { display: flex; }
+
+/* ── Favorites ── */
+.fav-btn {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: none; background: transparent;
+  cursor: pointer; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+  transition: all 0.15s; padding: 0;
+  color: var(--border-2);
+  font-size: 14px; line-height: 1;
+}
+.fav-btn:hover { color: var(--amber); transform: scale(1.15); }
+.fav-btn.active { color: var(--amber); }
+.fav-badge {
+  font-size: 9px; font-weight: 600; letter-spacing: 0.5px;
+  padding: 1px 5px; border-radius: 3px;
+  background: var(--amber-dim); color: var(--amber);
+  border: 1px solid var(--amber-mid);
+}
+
+/* My Exercises & Key Moments views */
+.insights-wrap { padding: 20px 24px; overflow-y: auto; flex: 1; }
+.insights-section { margin-bottom: 28px; }
+.insights-section-title {
+  font-size: 10px; font-weight: 600; letter-spacing: 1.4px;
+  text-transform: uppercase; color: var(--ink-3);
+  margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+}
+.insights-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.insight-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; margin-bottom: 8px; overflow: hidden;
+}
+.insight-card-header {
+  padding: 10px 14px; display: flex; align-items: center; gap: 10px;
+  cursor: pointer; transition: background 0.1s;
+  border-bottom: 1px solid var(--border);
+}
+.insight-card-header:hover { background: var(--canvas); }
+.insight-card-title { font-family: var(--serif); font-size: 15px; flex: 1; }
+.insight-card-meta { font-size: 11px; color: var(--ink-3); font-family: var(--mono); }
+.insight-ti {
+  display: flex; gap: 10px; padding: 8px 14px;
+  border-bottom: 1px solid var(--border); cursor: pointer;
+  transition: background 0.1s; align-items: flex-start;
+}
+.insight-ti:last-child { border-bottom: none; }
+.insight-ti:hover { background: var(--canvas); }
+.insight-ti-marker { width: 3px; min-height: 16px; border-radius: 2px; background: var(--ti); flex-shrink: 0; margin-top: 3px; }
+.insight-ti-note { font-size: 13px; color: var(--ink); flex: 1; }
+.insight-ti-time { font-size: 11px; color: var(--ink-3); font-family: var(--mono); }
+.empty-state { padding: 40px 20px; text-align: center; color: var(--ink-3); }
+.empty-state-title { font-family: var(--serif); font-size: 20px; font-style: italic; color: var(--ink-2); margin-bottom: 8px; }
+.empty-state-sub { font-size: 13px; }
+.save-fav-btn {
+  padding: 6px 14px; border-radius: 4px; font-size: 12px;
+  font-family: var(--sans); cursor: pointer; transition: all 0.12s;
+  border: 1px solid var(--amber-mid); background: var(--amber-dim);
+  color: var(--amber); font-weight: 500;
+}
+.save-fav-btn:hover { background: var(--amber); color: #fff; }
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .app { grid-template-columns: 1fr; }
+  .detail-panel { display: none; }
+  .app.detail-open .ex-panel { display: none; }
+  .app.detail-open .detail-panel { display: flex; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">For<em>ma</em></div>
+  <nav class="nav-tabs">
+    <div class="nav-tab active" onclick="showTab('library')">Exercise Library</div>
+    <div class="nav-tab" onclick="showTab('priority')">Practice Priority</div>
+    <div class="nav-tab" onclick="showTab('myex')">My Exercises</div>
+    <div class="nav-tab" onclick="showTab('insights')">Insight Journal</div>
+  </nav>
+  <div class="header-right">
+    <button class="save-fav-btn" onclick="saveFavorites()">Save favorites</button>
+    <a href="index.html" class="voiceiq-link">← VoiceIQ</a>
+  </div>
+</header>
+
+<!-- Exercise Library Tab -->
+<div class="tab-view active" id="tab-library">
+  <div class="app" id="appLibrary">
+    <div class="ex-panel">
+      <div class="ex-panel-header">
+        <div class="ex-panel-title">All exercises</div>
+        <input class="search-input" id="libSearch" placeholder="Search exercises or patterns..." oninput="renderLibrary()" />
+        <div class="sort-row">
+          <button class="sort-pill active" id="sort-lesson" onclick="setSort('lesson')">By lesson</button>
+          <button class="sort-pill" id="sort-ti" onclick="setSort('ti')">By TI count</button>
+          <button class="sort-pill" id="sort-alpha" onclick="setSort('alpha')">A–Z</button>
+        </div>
+      </div>
+      <div class="ex-list" id="libList"></div>
+    </div>
+    <div class="detail-panel" id="libDetail">
+      <div class="detail-empty" id="libEmpty">
+        <div class="detail-empty-title">Select an exercise</div>
+        <div class="detail-empty-sub">Choose from the list to see BZ's instructions and play the audio</div>
+      </div>
+      <div class="detail-content" id="libContent"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Practice Priority Tab -->
+<div class="tab-view" id="tab-priority">
+  <div class="app" id="appPriority">
+    <div class="ex-panel">
+      <div class="ex-panel-header">
+        <div class="ex-panel-title">Ranked by teacher attention</div>
+        <input class="search-input" id="priSearch" placeholder="Search..." oninput="renderPriority()" />
+      </div>
+      <div class="ex-list" id="priList"></div>
+    </div>
+    <div class="detail-panel" id="priDetail">
+      <div class="detail-empty" id="priEmpty">
+        <div class="detail-empty-title">Your priority list</div>
+        <div class="detail-empty-sub">Exercises BZ has given the most instruction — these deserve your most deliberate attention</div>
+      </div>
+      <div class="detail-content" id="priContent"></div>
+    </div>
+  </div>
+</div>
+
+<!-- My Exercises Tab -->
+<div class="tab-view" id="tab-myex">
+  <div class="insights-wrap" id="myexWrap"></div>
+</div>
+
+<!-- Insight Journal Tab -->
+<div class="tab-view" id="tab-insights">
+  <div class="insights-wrap" id="insightsWrap"></div>
+</div>
+
+<!-- Player bar -->
+<div class="player-bar">
+  <div class="player-info">
+    <div class="player-label" id="playerLabel">No audio loaded</div>
+    <div class="player-note" id="playerNote">—</div>
+  </div>
+  <div class="player-ctrl">
+    <button class="p-btn" onclick="skip(-10)">−10</button>
+    <button class="p-btn primary" id="mainPlayBtn" onclick="togglePlay()">
+      <svg id="mainPlayIcon" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <button class="p-btn" onclick="skip(10)">+10</button>
+  </div>
+  <div class="player-progress">
+    <span class="p-time" id="currentTime">0:00</span>
+    <div class="progress-track" onclick="seekTo(event)">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <span class="p-time" id="totalTime">0:00</span>
+  </div>
+</div>
+
+<audio id="audioEl"></audio>
+
+<script>
+let data = null;
+let exercises = [];
+let currentSort = 'lesson';
+let activeExIdx = null;
+let activeTab = 'library';
+let currentPlayBtn = null;
+let loadedSessionIdx = null;
+
+const audioEl = document.getElementById('audioEl');
+
+// ── Fetch JSON ──
+fetch('voice_lessons_markers.json')
+  .then(r => r.json())
+  .then(d => {
+    data = d;
+    buildExercises();
+    renderLibrary();
+    renderPriority();
+  })
+  .catch(() => {
+    document.getElementById('libList').innerHTML =
+      '<div style="padding:20px;color:#9A9A9C;font-size:13px;">Could not load voice_lessons_markers.json</div>';
+  });
+
+function buildExercises() {
+  exercises = [];
+  data.sessions.forEach((session, si) => {
+    const lessonNum = si + 1;
+    const dm = session.file.match(/(\d{6})_/);
+    let date = '';
+    if (dm) { const d = dm[1]; date = `20${d.slice(0,2)}-${d.slice(2,4)}-${d.slice(4)}`; }
+
+    let currentEx = null;
+    session.markers.forEach(m => {
+      const note = m.note;
+      if (note.startsWith('ex:')) {
+        if (currentEx) exercises.push(currentEx);
+        const exNote = note.slice(3).trim();
+        const patMatch = exNote.match(/[\d]+(?:[,\s]+[\d]+)+/);
+        currentEx = {
+          sessionIdx: si,
+          lessonNum,
+          date,
+          time: m.time.slice(0,7),
+          seconds: m.seconds || 0,
+          note: exNote,
+          pattern: patMatch ? patMatch[0].trim() : '',
+          markerId: m.id,
+          favorite: m.favorite || false,
+          ti: [],
+          lu: []
+        };
+      } else if (note.startsWith('ti:') && currentEx) {
+        currentEx.ti.push({ note: note.slice(3).trim(), time: m.time.slice(0,7), seconds: m.seconds || 0, markerId: m.id, favorite: m.favorite || false });
+      } else if (note.startsWith('lu:') && currentEx) {
+        currentEx.lu.push({ note: note.slice(3).trim(), time: m.time.slice(0,7), seconds: m.seconds || 0, markerId: m.id, favorite: m.favorite || false });
+      }
+    });
+    if (currentEx) exercises.push(currentEx);
+  });
+}
+
+const maxTi = () => Math.max(...exercises.map(e => e.ti.length), 1);
+
+// ── Tab switching ──
+function showTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(`tab-${tab}`).classList.add('active');
+  const labels = { library: 'library', priority: 'priority', myex: 'my exercises', insights: 'insight' };
+  document.querySelectorAll('.nav-tab').forEach(t => {
+    if (t.textContent.toLowerCase().includes(labels[tab])) t.classList.add('active');
+  });
+  activeExIdx = null;
+  if (tab === 'myex') renderMyExercises();
+  if (tab === 'insights') renderInsightJournal();
+}
+
+// ── Sort ──
+function setSort(s) {
+  currentSort = s;
+  document.querySelectorAll('.sort-pill').forEach(p => p.classList.remove('active'));
+  document.getElementById(`sort-${s}`).classList.add('active');
+  renderLibrary();
+}
+
+function sortedExercises(list, q) {
+  let filtered = q ? list.filter(e =>
+    e.note.toLowerCase().includes(q) || e.pattern.toLowerCase().includes(q)
+  ) : [...list];
+
+  if (currentSort === 'lesson') filtered.sort((a,b) => a.lessonNum - b.lessonNum || a.seconds - b.seconds);
+  else if (currentSort === 'ti') filtered.sort((a,b) => b.ti.length - a.ti.length);
+  else filtered.sort((a,b) => a.note.localeCompare(b.note));
+  return filtered;
+}
+
+// ── Render library ──
+function renderLibrary() {
+  const q = document.getElementById('libSearch').value.toLowerCase();
+  const list = sortedExercises(exercises, q);
+  const container = document.getElementById('libList');
+  const mx = maxTi();
+
+  container.innerHTML = list.map((e, i) => {
+    const pct = Math.round(e.ti.length / mx * 100);
+    const tiLabel = e.ti.length > 0 ? `${e.ti.length} TI` : '—';
+    const exIdx = exercises.indexOf(e);
+    return `<div class="ex-item" id="lib-item-${i}" onclick="selectExercise(${exIdx}, 'lib')">
+      <div class="ex-item-top">
+        <span class="lesson-chip">L${e.lessonNum}</span>
+        <span class="ex-name">${e.note}</span>
+        <button class="fav-btn ${e.favorite ? 'active' : ''}" onclick="event.stopPropagation();toggleFavEx(${exIdx})" title="${e.favorite ? 'Remove from My Exercises' : 'Add to My Exercises'}">★</button>
+      </div>
+      <div class="ex-item-bottom">
+        <div class="ti-bar-wrap"><div class="ti-bar-fill" style="width:${pct}%"></div></div>
+        <span class="ti-count ${e.ti.length > 0 ? 'has-ti' : ''}">${tiLabel}</span>
+        ${e.pattern ? `<span class="pattern-chip">${e.pattern}</span>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Render priority ──
+function renderPriority() {
+  const q = document.getElementById('priSearch').value.toLowerCase();
+  let list = [...exercises].sort((a,b) => b.ti.length - a.ti.length);
+  if (q) list = list.filter(e => e.note.toLowerCase().includes(q) || e.ti.some(t => t.note.toLowerCase().includes(q)));
+  const mx = maxTi();
+  const container = document.getElementById('priList');
+
+  container.innerHTML = list.map((e, i) => {
+    const pct = Math.round(e.ti.length / mx * 100);
+    const rank = i + 1;
+    return `<div class="ex-item" id="pri-item-${i}" onclick="selectExercise(${exercises.indexOf(e)}, 'pri')">
+      <div class="ex-item-top">
+        <span class="lesson-chip">#${rank}</span>
+        <span class="ex-name">${e.note}</span>
+      </div>
+      <div class="ex-item-bottom">
+        <div class="ti-bar-wrap"><div class="ti-bar-fill" style="width:${pct}%"></div></div>
+        <span class="ti-count ${e.ti.length > 0 ? 'has-ti' : ''}">${e.ti.length > 0 ? e.ti.length + ' TI' : '—'}</span>
+        <span class="lesson-chip" style="margin-left:auto">L${e.lessonNum}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Select exercise ──
+function selectExercise(exIdx, panel) {
+  const e = exercises[exIdx];
+  activeExIdx = exIdx;
+
+  document.querySelectorAll('.ex-item').forEach(el => el.classList.remove('active'));
+  const itemId = panel === 'lib' ? `lib-item-${getFilteredIdx(exIdx, panel)}` : `pri-item-${getPriIdx(exIdx)}`;
+  document.getElementById(itemId)?.classList.add('active');
+
+  const emptyId = panel === 'lib' ? 'libEmpty' : 'priEmpty';
+  const contentId = panel === 'lib' ? 'libContent' : 'priContent';
+
+  document.getElementById(emptyId).style.display = 'none';
+  const content = document.getElementById(contentId);
+  content.classList.add('visible');
+
+  // Load audio for this session if not already loaded
+  loadAudioForSession(e.sessionIdx);
+
+  content.innerHTML = `
+    <div class="detail-lesson">Lesson ${e.lessonNum} &nbsp;·&nbsp; ${e.date}</div>
+    <div class="detail-title">${e.note}</div>
+    <div class="detail-meta">
+      ${e.pattern ? `<span class="detail-pattern">${e.pattern}</span>` : ''}
+      <span class="detail-date">${e.time}</span>
+      <span class="detail-time-link" onclick="jumpTo(${e.seconds}, '${e.note}', null)">▶ jump to exercise</span>
+    </div>
+
+    ${e.lu.length > 0 ? `
+    <div class="section">
+      <div class="section-label">Lead up</div>
+      ${e.lu.map(lu => `
+        <div class="lu-item">
+          <div class="lu-marker"></div>
+          <span>${lu.note}</span>
+        </div>
+      `).join('')}
+    </div>` : ''}
+
+    ${e.ti.length > 0 ? `
+    <div class="section">
+      <div class="section-label">Teacher instructions — click to hear</div>
+      ${e.ti.map((ti, i) => `
+        <div class="ti-item" id="ti-${exIdx}-${i}" onclick="jumpTo(${ti.seconds}, '${ti.note.replace(/'/g,"\\'")}', 'ti-${exIdx}-${i}')">
+          <div class="ti-marker"></div>
+          <div class="ti-body">
+            <div class="ti-note">${ti.note}</div>
+            <div class="ti-time">${ti.time}</div>
+          </div>
+          <button class="fav-btn ${ti.favorite ? 'active' : ''}" onclick="event.stopPropagation();toggleFavTi(${exIdx},${i})" title="${ti.favorite ? 'Remove from Insight Journal' : 'Add to Insight Journal'}">★</button>
+          <div class="ti-play ${currentPlayBtn === `ti-${exIdx}-${i}` ? 'playing' : ''}" id="btn-ti-${exIdx}-${i}">
+            <svg viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>
+          </div>
+        </div>
+      `).join('')}
+    </div>` : `
+    <div class="section">
+      <div class="section-label">Teacher instructions</div>
+      <div style="font-size:13px;color:var(--ink-3);font-style:italic;padding:8px 0;">No specific instructions recorded for this exercise</div>
+    </div>`}
+  `;
+}
+
+function getFilteredIdx(exIdx, panel) {
+  const q = document.getElementById('libSearch').value.toLowerCase();
+  const list = sortedExercises(exercises, q);
+  return list.findIndex(e => exercises.indexOf(e) === exIdx);
+}
+
+function getPriIdx(exIdx) {
+  const list = [...exercises].sort((a,b) => b.ti.length - a.ti.length);
+  return list.findIndex(e => exercises.indexOf(e) === exIdx);
+}
+
+// ── Audio ──
+function loadAudioForSession(sessionIdx) {
+  if (loadedSessionIdx === sessionIdx) return;
+  const session = data.sessions[sessionIdx];
+  const isLocal = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost';
+  audioEl.src = isLocal ? `Audio/${session.source_file}` : (session.source_url || `Audio/${session.source_file}`);
+  audioEl.load();
+  loadedSessionIdx = sessionIdx;
+  document.getElementById('playerLabel').textContent = `Lesson ${sessionIdx + 1}`;
+  document.getElementById('totalTime').textContent = session.duration;
+}
+
+function jumpTo(seconds, note, btnId) {
+  const doSeek = () => {
+    audioEl.currentTime = seconds;
+    audioEl.play().catch(e => console.error(e));
+  };
+
+  if (audioEl.readyState >= 2) doSeek();
+  else audioEl.addEventListener('canplay', doSeek, { once: true });
+
+  document.getElementById('playerNote').textContent = note;
+
+  if (currentPlayBtn) {
+    const oldBtn = document.getElementById(`btn-${currentPlayBtn}`);
+    if (oldBtn) {
+      oldBtn.classList.remove('playing');
+      oldBtn.innerHTML = `<svg viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>`;
+    }
+    const oldItem = document.getElementById(currentPlayBtn);
+    if (oldItem) oldItem.classList.remove('playing');
+  }
+
+  if (btnId) {
+    currentPlayBtn = btnId;
+    const btn = document.getElementById(`btn-${btnId}`);
+    if (btn) {
+      btn.classList.add('playing');
+      btn.innerHTML = `<svg viewBox="0 0 10 10" fill="currentColor"><rect x="1.5" y="1" width="3" height="8"/><rect x="5.5" y="1" width="3" height="8"/></svg>`;
+    }
+    const item = document.getElementById(btnId);
+    if (item) item.classList.add('playing');
+  }
+  setPlayIcon(true);
+}
+
+function togglePlay() {
+  if (audioEl.paused) { audioEl.play(); }
+  else { audioEl.pause(); }
+}
+
+function skip(s) { audioEl.currentTime = Math.max(0, audioEl.currentTime + s); }
+
+function seekTo(e) {
+  const track = e.currentTarget;
+  const rect = track.getBoundingClientRect();
+  const pct = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+  if (audioEl.duration) audioEl.currentTime = pct * audioEl.duration;
+}
+
+function fmtTime(s) {
+  return `${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`;
+}
+
+function setPlayIcon(playing) {
+  document.getElementById('mainPlayIcon').innerHTML = playing
+    ? `<svg viewBox="0 0 10 10" fill="currentColor"><rect x="1.5" y="1" width="3" height="8"/><rect x="5.5" y="1" width="3" height="8"/></svg>`
+    : `<polygon points="2,1 9,5 2,9"/>`;
+}
+
+audioEl.addEventListener('timeupdate', () => {
+  if (!audioEl.duration) return;
+  document.getElementById('progressFill').style.width = (audioEl.currentTime / audioEl.duration * 100) + '%';
+  document.getElementById('currentTime').textContent = fmtTime(audioEl.currentTime);
+});
+audioEl.addEventListener('loadedmetadata', () => {
+  document.getElementById('totalTime').textContent = fmtTime(audioEl.duration);
+});
+audioEl.addEventListener('play', () => setPlayIcon(true));
+audioEl.addEventListener('pause', () => setPlayIcon(false));
+audioEl.addEventListener('ended', () => {
+  setPlayIcon(false);
+  if (currentPlayBtn) {
+    const btn = document.getElementById(`btn-${currentPlayBtn}`);
+    if (btn) {
+      btn.classList.remove('playing');
+      btn.innerHTML = `<svg viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>`;
+    }
+    const item = document.getElementById(currentPlayBtn);
+    if (item) item.classList.remove('playing');
+    currentPlayBtn = null;
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); skip(-10); }
+  if (e.key === 'ArrowRight') { e.preventDefault(); skip(10); }
+});
+
+// ── Favorite toggles ──
+function toggleFavEx(exIdx) {
+  exercises[exIdx].favorite = !exercises[exIdx].favorite;
+  updateMarkerFavorite(exercises[exIdx].sessionIdx, exercises[exIdx].markerId, exercises[exIdx].favorite);
+  renderLibrary();
+  if (activeExIdx === exIdx) selectExercise(exIdx, activeTab === 'priority' ? 'pri' : 'lib');
+}
+
+function toggleFavTi(exIdx, tiIdx) {
+  exercises[exIdx].ti[tiIdx].favorite = !exercises[exIdx].ti[tiIdx].favorite;
+  updateMarkerFavorite(exercises[exIdx].sessionIdx, exercises[exIdx].ti[tiIdx].markerId, exercises[exIdx].ti[tiIdx].favorite);
+  if (activeExIdx === exIdx) selectExercise(exIdx, activeTab === 'priority' ? 'pri' : 'lib');
+}
+
+function updateMarkerFavorite(sessionIdx, markerId, value) {
+  const session = data.sessions[sessionIdx];
+  const marker = session.markers.find(m => m.id === markerId);
+  if (marker) marker.favorite = value;
+}
+
+// ── My Exercises ──
+function renderMyExercises() {
+  const favEx = exercises.filter(e => e.favorite);
+  const wrap = document.getElementById('myexWrap');
+  if (favEx.length === 0) {
+    wrap.innerHTML = `<div class="empty-state">
+      <div class="empty-state-title">No exercises yet</div>
+      <div class="empty-state-sub">Star any exercise in the Library to add it to your collection</div>
+    </div>`;
+    return;
+  }
+  wrap.innerHTML = `<div class="insights-section">
+    <div class="insights-section-title">My exercises — ${favEx.length} curated</div>
+    ${favEx.map(e => `
+      <div class="insight-card">
+        <div class="insight-card-header" onclick="loadAudioForSession(${e.sessionIdx});jumpTo(${e.seconds},'${e.note.replace(/'/g,"\'")}',null)">
+          <div>
+            <div class="insight-card-title">${e.note}</div>
+            <div class="insight-card-meta">Lesson ${e.lessonNum} &nbsp;·&nbsp; ${e.date} &nbsp;·&nbsp; ${e.time} ${e.pattern ? `&nbsp;·&nbsp; <span style="color:var(--ex);font-family:var(--mono)">${e.pattern}</span>` : ''}</div>
+          </div>
+          <span style="color:var(--amber);font-size:13px">▶ play</span>
+        </div>
+        ${e.ti.length > 0 ? `<div>
+          ${e.ti.map((ti,i) => `
+            <div class="insight-ti" onclick="loadAudioForSession(${e.sessionIdx});jumpTo(${ti.seconds},'${ti.note.replace(/'/g,"\'")}',null)">
+              <div class="insight-ti-marker"></div>
+              <div style="flex:1">
+                <div class="insight-ti-note">${ti.note} ${ti.favorite ? '<span class="fav-badge">★ journal</span>' : ''}</div>
+                <div class="insight-ti-time">${ti.time}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>` : ''}
+      </div>
+    `).join('')}
+  </div>`;
+}
+
+// ── Insight Journal ──
+function renderInsightJournal() {
+  const wrap = document.getElementById('insightsWrap');
+  const favTi = exercises.filter(e => e.ti.some(t => t.favorite));
+  if (favTi.length === 0) {
+    wrap.innerHTML = `<div class="empty-state">
+      <div class="empty-state-title">Your insight journal</div>
+      <div class="empty-state-sub">Star any teacher instruction to capture it as a key moment</div>
+    </div>`;
+    return;
+  }
+  wrap.innerHTML = `<div class="insights-section">
+    <div class="insights-section-title">Key moments — ${favTi.reduce((a,e) => a + e.ti.filter(t=>t.favorite).length, 0)} captured</div>
+    ${favTi.map(e => `
+      <div class="insight-card">
+        <div class="insight-card-header" onclick="loadAudioForSession(${e.sessionIdx});jumpTo(${e.seconds},'${e.note.replace(/'/g,"\'")}',null)">
+          <div>
+            <div class="insight-card-title">${e.note}</div>
+            <div class="insight-card-meta">Lesson ${e.lessonNum} &nbsp;·&nbsp; ${e.date}</div>
+          </div>
+        </div>
+        ${e.ti.filter(t => t.favorite).map(ti => `
+          <div class="insight-ti" onclick="loadAudioForSession(${e.sessionIdx});jumpTo(${ti.seconds},'${ti.note.replace(/'/g,"\'")}',null)">
+            <div class="insight-ti-marker"></div>
+            <div style="flex:1">
+              <div class="insight-ti-note">${ti.note}</div>
+              <div class="insight-ti-time">${ti.time} &nbsp;·&nbsp; <span style="color:var(--amber)">▶ click to hear</span></div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `).join('')}
+  </div>`;
+}
+
+// ── Save favorites to JSON ──
+function saveFavorites() {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'voice_lessons_markers.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
