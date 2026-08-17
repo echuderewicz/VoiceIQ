@@ -1382,6 +1382,280 @@
       ],
       "source_file": "Voice 260730_120226_voice_lesson_bonnie.mp3",
       "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20260730_120226_voice_lesson_bonnie.mp3"
+    },
+    {
+      "file": "Voice 260813_153000_voice_lesson_bonnie",
+      "duration": "32:06",
+      "source_file": "Voice 260813_153000_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20260813_153000_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice260813.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Start",
+          "tags": [],
+          "seconds": 0.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:01:00.000000",
+          "note": "BZ good with 'cook' vocal setup",
+          "tags": [],
+          "seconds": 60.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:02:14.000000",
+          "note": "Tongue awareness, Letting tongue be limp",
+          "tags": [],
+          "seconds": 134.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:03:26.000000",
+          "note": "ex: 135 on a lip trill",
+          "tags": [],
+          "seconds": 206.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:04:22.000000",
+          "note": "ti: 'hootie sound'",
+          "tags": [],
+          "seconds": 262.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:05:23.000000",
+          "note": "ex: blowfish 1358531",
+          "tags": [],
+          "seconds": 323.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:05:55.000000",
+          "note": "ti: this is a great exercise to check the tongue",
+          "tags": [],
+          "seconds": 355.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:06:13.000000",
+          "note": "ti: 'beautiful' compliment",
+          "tags": [],
+          "seconds": 373.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:06:38.000000",
+          "note": "ti: loves way throwing it around",
+          "tags": [],
+          "seconds": 398.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:07:17.000000",
+          "note": "ex: Buzzy N 123212321 - Three Note Pattern",
+          "tags": [],
+          "seconds": 437.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:07:30.000000",
+          "note": "ti: get that 'buzzy, nasty'",
+          "tags": [],
+          "seconds": 450.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:07:38.000000",
+          "note": "ti: use hands, massage chest or mask",
+          "tags": [],
+          "seconds": 458.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:09:23.000000",
+          "note": "ti: nnnnnasty - BZ demo",
+          "tags": [],
+          "seconds": 563.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:10:13.000000",
+          "note": "ti: make it tiny",
+          "tags": [],
+          "seconds": 613.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:11:05.000000",
+          "note": "ex: Nah, Nah, Nah 1358531",
+          "tags": [],
+          "seconds": 665.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:11:37.000000",
+          "note": "ex: Nee 1358531",
+          "tags": [],
+          "seconds": 697.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:11:44.000000",
+          "note": "ti: tinier at top",
+          "tags": [],
+          "seconds": 704.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:13:10.000000",
+          "note": "ex: Nay, Nay, Nay 13583'5'4'2'75421 Octave and Half",
+          "tags": [],
+          "seconds": 790.0,
+          "favorite": false
+        },
+        {
+          "id": "M19",
+          "time": "0:13:17.000000",
+          "note": "ti: show your teeth like cartoon eating corn on cob",
+          "tags": [],
+          "seconds": 797.0,
+          "favorite": false
+        },
+        {
+          "id": "M20",
+          "time": "0:14:02.000000",
+          "note": "ti: more 'bite' BZ gives good demo",
+          "tags": [],
+          "seconds": 842.0,
+          "favorite": false
+        },
+        {
+          "id": "M21",
+          "time": "0:15:18.000000",
+          "note": "ex: tongue arching reverse 12121",
+          "tags": [],
+          "seconds": 918.0,
+          "favorite": false
+        },
+        {
+          "id": "M22",
+          "time": "0:15:54.000000",
+          "note": "ti: make more nasty, bratty",
+          "tags": [],
+          "seconds": 954.0,
+          "favorite": false
+        },
+        {
+          "id": "M23",
+          "time": "0:17:20.000000",
+          "note": "ex: Bee, Bee, Bee 1358888531",
+          "tags": [],
+          "seconds": 1040.0,
+          "favorite": false
+        },
+        {
+          "id": "M24",
+          "time": "0:17:23.000000",
+          "note": "ti: staccato",
+          "tags": [],
+          "seconds": 1043.0,
+          "favorite": false
+        },
+        {
+          "id": "M25",
+          "time": "0:18:26.000000",
+          "note": "ti: BZ demo",
+          "tags": [],
+          "seconds": 1106.0,
+          "favorite": false
+        },
+        {
+          "id": "M26",
+          "time": "0:19:28.000000",
+          "note": "ex: 18531 'I love to song'",
+          "tags": [],
+          "seconds": 1168.0,
+          "favorite": false
+        },
+        {
+          "id": "M27",
+          "time": "0:20:39.000000",
+          "note": "ti: get rounder, I was flat, listen to BZ explain and demo",
+          "tags": [],
+          "seconds": 1239.0,
+          "favorite": false
+        },
+        {
+          "id": "M28",
+          "time": "0:23:30.000000",
+          "note": "Somewhere only we know",
+          "tags": [],
+          "seconds": 1410.0,
+          "favorite": false
+        },
+        {
+          "id": "M29",
+          "time": "0:27:37.000000",
+          "note": "End",
+          "tags": [],
+          "seconds": 1657.0,
+          "favorite": false
+        },
+        {
+          "id": "M30",
+          "time": "0:29:09.000000",
+          "note": "ex: 'And if' 1818 Buh, Buh",
+          "tags": [],
+          "seconds": 1749.0,
+          "favorite": false
+        },
+        {
+          "id": "M31",
+          "time": "0:29:22.000000",
+          "note": "ti: don't linger, throw it away, more hootie and spoken feel",
+          "tags": [],
+          "seconds": 1762.0,
+          "favorite": false
+        },
+        {
+          "id": "M32",
+          "time": "0:30:52.000000",
+          "note": "ti: identified correct sound on last try. Work this exercise",
+          "tags": [],
+          "seconds": 1852.0,
+          "favorite": false
+        },
+        {
+          "id": "M33",
+          "time": "0:31:55.000000",
+          "note": "end of lesson",
+          "tags": [],
+          "seconds": 1915.0,
+          "favorite": false
+        }
+      ]
     }
   ]
 }
