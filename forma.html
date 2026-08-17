@@ -798,7 +798,6 @@ function renderLibrary() {
       <div class="ex-item-bottom">
         <div class="ti-bar-wrap"><div class="ti-bar-fill" style="width:${pct}%"></div></div>
         <span class="ti-count ${e.ti.length > 0 ? 'has-ti' : ''}">${tiLabel}</span>
-        ${e.pattern ? `<span class="pattern-chip">${e.pattern}</span>` : ''}
       </div>
     </div>`;
   }).join('');
@@ -859,11 +858,15 @@ function selectExercise(exIdx, panel) {
 
     ${e.lu.length > 0 ? `
     <div class="section">
-      <div class="section-label">Lead up</div>
-      ${e.lu.map(lu => `
-        <div class="lu-item">
+      <div class="section-label">Lead up — click to hear</div>
+      ${e.lu.map((lu, i) => `
+        <div class="lu-item" style="cursor:pointer;transition:opacity 0.1s" onclick="loadAudioForSession(${e.sessionIdx});jumpTo(${lu.seconds},'${lu.note.replace(/'/g,"\'")}',null)" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
           <div class="lu-marker"></div>
-          <span>${lu.note}</span>
+          <div style="flex:1">
+            <div style="font-size:13px">${lu.note}</div>
+            <div style="font-size:11px;color:var(--lu);font-family:var(--mono);margin-top:2px">${lu.time}</div>
+          </div>
+          <div style="font-size:11px;color:var(--lu);padding-right:4px">▶</div>
         </div>
       `).join('')}
     </div>` : ''}

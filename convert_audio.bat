@@ -1,31 +1,40 @@
 @echo off
-echo VoiceIQ — M4A to MP3 Converter
+chcp 65001 >nul
+echo VoiceIQ - M4A to MP3 Converter
 echo ================================
 echo.
 
-set AUDIO_DIR=%~dp0Audio
+set M4A_DIR=%~dp0Audio\m4a
+set MP3_DIR=%~dp0Audio
 
-if not exist "%AUDIO_DIR%" (
-    echo ERROR: Audio folder not found at %AUDIO_DIR%
+if not exist "%M4A_DIR%" (
+    echo ERROR: Audio\m4a folder not found.
+    echo Please create it at: %M4A_DIR%
     pause
     exit /b 1
 )
 
-cd /d "%AUDIO_DIR%"
-
 set COUNT=0
-for %%f in (*.m4a) do (
-    echo Converting: %%f
-    ffmpeg -i "%%f" -codec:a libmp3lame -qscale:a 2 -y "%%~nf.mp3" -loglevel error
-    if errorlevel 1 (
-        echo   ERROR converting %%f
+set SKIP=0
+
+for %%f in ("%M4A_DIR%\*.m4a") do (
+    set "BASENAME=%%~nf"
+    if exist "%MP3_DIR%\%%~nf.mp3" (
+        echo Skipping: %%~nxf  [already converted]
+        set /a SKIP+=1
     ) else (
-        echo   Done: %%~nf.mp3
-        set /a COUNT+=1
+        echo Converting: %%~nxf
+        ffmpeg -i "%%f" -codec:a libmp3lame -qscale:a 2 -y "%MP3_DIR%\%%~nf.mp3" -loglevel error
+        if errorlevel 1 (
+            echo   ERROR converting %%~nxf
+        ) else (
+            echo   Done: %%~nf.mp3
+            set /a COUNT+=1
+        )
     )
 )
 
 echo.
-echo Converted %COUNT% file(s).
+echo Converted %COUNT% new file(s). Skipped %SKIP% already converted.
 echo.
 pause

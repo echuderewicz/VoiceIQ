@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vocalise Starter — abcjs</title>
+
+    <!-- abcjs: renderer + synth, and the stylesheet for the audio control -->
+    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.6.4/dist/abcjs-basic-min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/abcjs@6.6.4/abcjs-audio.css"
+    />
+
+    <style>
+      :root {
+        --bg: #f6f7fa;
+        --surface: #ffffff;
+        --ink: #15171d;
+        --muted: #6f7688;
+        --line: #e2e5ee;
+        --accent: #2e4bdb;
+        --accent-soft: #eceffc;
+        --mono:
+          ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+        --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 24px 20px 64px;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin: 0 0 2px;
+      }
+
+      .sub {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0 0 28px;
+      }
+
+      .label {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 20px;
+      }
+
+      /* --- exercise picker --- */
+      .picker {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .picker button {
+        font: inherit;
+        font-size: 13px;
+        padding: 6px 12px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        border-radius: 999px;
+        cursor: pointer;
+      }
+      .picker button[aria-pressed="true"] {
+        background: var(--accent-soft);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* --- semitone ladder: the climb, laid out as it's actually practiced --- */
+      .ladder {
+        display: flex;
+        gap: 3px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        scrollbar-width: thin;
+      }
+
+      .rung {
+        flex: 0 0 auto;
+        width: 46px;
+        padding: 7px 0 6px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: center;
+        font-family: var(--mono);
+        line-height: 1.25;
+        transition:
+          background 0.12s ease,
+          border-color 0.12s ease;
+      }
+      .rung .k {
+        font-size: 13px;
+        display: block;
+      }
+      .rung .n {
+        font-size: 10px;
+        color: var(--muted);
+        display: block;
+      }
+      .rung:hover {
+        border-color: var(--accent);
+      }
+      .rung[aria-pressed="true"] {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+      .rung[aria-pressed="true"] .n {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .nudge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .nudge button {
+        font: inherit;
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .nudge button:hover {
+        border-color: var(--accent);
+      }
+      .hint {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .tempo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .tempo input[type="range"] {
+        flex: 1;
+        accent-color: var(--accent);
+        min-width: 0;
+      }
+      .tempo input[type="number"] {
+        width: 68px;
+        font-family: var(--mono);
+        font-size: 14px;
+        padding: 6px 8px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--surface);
+        color: var(--ink);
+      }
+
+      .tempo-lock {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .toggle {
+        font: inherit;
+        font-size: 13px;
+        padding: 6px 12px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        border-radius: 999px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .toggle[aria-pressed="true"] {
+        background: var(--accent-soft);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* --- score --- */
+      #paper {
+        overflow-x: auto;
+      }
+      #paper svg {
+        max-width: 100%;
+      }
+
+      /* --- source / output --- */
+      textarea {
+        width: 100%;
+        min-height: 150px;
+        font-family: var(--mono);
+        font-size: 13px;
+        line-height: 1.6;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--ink);
+        resize: vertical;
+      }
+
+      pre {
+        margin: 0;
+        font-family: var(--mono);
+        font-size: 12.5px;
+        line-height: 1.6;
+        color: var(--muted);
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      details summary {
+        cursor: pointer;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      details[open] summary {
+        margin-bottom: 10px;
+      }
+
+      /* --- audio --- */
+      #enable {
+        font: inherit;
+        font-size: 13px;
+        padding: 8px 16px;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .err {
+        color: #b4232c;
+        font-size: 13px;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Vocalise Starter</h1>
+      <p class="sub">abcjs 6.6.4 — render, transpose by semitone, play back.</p>
+
+      <div class="card">
+        <div class="label">Exercise</div>
+        <div class="picker" id="picker"></div>
+      </div>
+
+      <div class="card">
+        <div class="label">Key</div>
+        <div class="ladder" id="ladder"></div>
+        <div class="nudge">
+          <button id="down" aria-label="Down a semitone">&minus;</button>
+          <button id="up" aria-label="Up a semitone">+</button>
+          <span class="hint">Arrow keys work too.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label">Tempo</div>
+        <div class="tempo">
+          <input
+            id="bpmRange"
+            type="range"
+            min="40"
+            max="200"
+            step="1"
+            value="96"
+            aria-label="Tempo in beats per minute"
+          />
+          <input
+            id="bpmNum"
+            type="number"
+            min="40"
+            max="200"
+            step="1"
+            value="96"
+            aria-label="Tempo in beats per minute"
+          />
+          <span class="hint">BPM</span>
+        </div>
+        <div class="tempo-lock">
+          <button id="lock" class="toggle" type="button" aria-pressed="false">
+            Lock tempo
+          </button>
+          <span id="written" class="hint"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div id="paper"></div>
+        <div id="audio" style="margin-top: 12px"></div>
+        <div id="status" class="hint" style="margin-top: 8px"></div>
+        <button id="enable">Enable sound</button>
+      </div>
+
+      <div class="card">
+        <div class="label">ABC source</div>
+        <textarea id="source" spellcheck="false"></textarea>
+        <p class="hint" style="margin: 8px 0 0">
+          Edits re-render live. This stays in the written key — transposition
+          happens downstream.
+        </p>
+      </div>
+
+      <div class="card">
+        <details>
+          <summary>Transposed output</summary>
+          <pre id="output"></pre>
+        </details>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        // ---------------------------------------------------------------
+        // Exercise library. In your app this comes from JSON — note how
+        // little text a whole vocalise takes.
+        // ---------------------------------------------------------------
+        var EXERCISES = [
+          {
+            name: "Five-note ascending",
+            abc: "X:1\nT:Five-Note Ascending\nM:4/4\nL:1/4\nQ:1/4=96\nK:C\n|: C D E F | G F E D | C4 :|\nw: ah ah ah ah ah ah ah ah ah",
+          },
+          {
+            name: "Arpeggio to the octave",
+            abc: "X:1\nT:Arpeggio to the Octave\nM:4/4\nL:1/4\nQ:1/4=88\nK:C\n|: C E G c | G E C2 :|\nw: ah ah ah ah ah ah ah",
+          },
+          {
+            name: "Descending five-note",
+            abc: "X:1\nT:Descending Five-Note\nM:4/4\nL:1/4\nQ:1/4=80\nK:C\n|: G F E D | C4 :|\nw: ee ee ee ee ee",
+          },
+          {
+            name: "Sustained octave leap",
+            abc: "X:1\nT:Sustained Octave Leap\nM:4/4\nL:1/4\nQ:1/4=66\nK:C\n|: C4 | c4 | G2 E2 | C4 :|\nw: oo oo oo oo",
+          },
+          {
+            name: "Nine-note scale",
+            abc: "X:1\nT:Nine-Note Scale\nM:4/4\nL:1/8\nQ:1/4=100\nK:C\n|: CDEF GABc | BAGF EDC2 :|\nw: ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah",
+          },
+          {
+            name: "Thirds ascending",
+            abc: "X:1\nT:Thirds Ascending\nM:4/4\nL:1/4\nQ:1/4=92\nK:C\n|: C E D F | E G F A | G4 :|\nw: ah ah ah ah ah ah ah ah ah",
+          },
+          {
+            name: "Staccato triad",
+            abc: "X:1\nT:Staccato Triad\nM:4/4\nL:1/4\nQ:1/4=112\nK:C\n|: .C .E .G .c | .G .E .C2 :|\nw: ha ha ha ha ha ha ha",
+          },
+          {
+            name: "Sol-fa triad",
+            abc: "X:1\nT:Sol-Fa Triad\nM:4/4\nL:1/4\nQ:1/4=84\nK:C\n|: C E G E | C4 :|\nw: do mi sol mi do",
+          },
+          {
+            name: "Messa di voce",
+            abc: "X:1\nT:Messa di Voce\nM:4/4\nL:1/4\nQ:1/4=54\nK:C\n|: C4 | C4 :|\nw: ah ah",
+          },
+          {
+            name: "Lip trill glide",
+            abc: "X:1\nT:Lip Trill Glide\nM:4/4\nL:1/4\nQ:1/4=72\nK:C\n|: C2 G2 | c4 :|\nw: brr brr brr",
+          },
+          {
+            name: "Chromatic five-note ascending",
+            abc: "X:1\nT:Chromatic Five-Note\nM:4/4\nL:1/4\nQ:1/4=80\nK:C\n|: C ^C D ^D | E4 :|\nw: ee ee ee ee ee",
+          },
+          {
+            name: "Octave leap with descending return",
+            abc: "X:1\nT:Octave Leap with Descending Return\nM:4/4\nL:1/4\nQ:1/4=84\nK:C\n|: C4 | c B A G | F E D C :|\nw: oh oh oh oh oh oh oh oh oh",
+          },
+        ];
+
+        var LOW = -7,
+          HIGH = 7; // semitone range offered on the ladder
+
+        var sourceAbc = EXERCISES[0].abc;
+        var steps = 0;
+        var bpm = 96;
+
+        // --- tempo helpers -------------------------------------------------
+        // abcjs takes tempo from the tune's own Q: header, so rather than
+        // fighting the built-in percentage widget we rewrite Q: before
+        // rendering. Side benefit: the exported ABC carries the tempo with it.
+        function readBpm(abc) {
+          var m = abc.match(/^Q:\s*(?:\d+\/\d+\s*=\s*)?(\d+)/m);
+          return m ? parseInt(m[1], 10) : 96;
+        }
+
+        function withBpm(abc, n) {
+          if (/^Q:/m.test(abc)) {
+            return abc.replace(/^Q:.*$/m, "Q:1/4=" + n);
+          }
+          // Q: has to sit above K:, which is the last header line.
+          return abc.replace(/^(K:.*)$/m, "Q:1/4=" + n + "\n$1");
+        }
+        var currentVisual = null;
+        var synthControl = null;
+        var audioReady = false;
+        var debounce = null;
+
+        var $ = function (id) {
+          return document.getElementById(id);
+        };
+
+        // ---------------------------------------------------------------
+        // Transposition.
+        //
+        // strTranspose returns real ABC text, not just a different render.
+        // That matters for you: you can store it, diff it, or hand it to
+        // the rest of the pipeline. It needs the parsed original, so we
+        // render headlessly to "*" first.
+        // ---------------------------------------------------------------
+        function transpose(abc, n) {
+          if (!n) return abc;
+          try {
+            var parsed = ABCJS.renderAbc("*", abc);
+            return ABCJS.strTranspose(abc, parsed, n);
+          } catch (e) {
+            console.warn("Transpose failed:", e);
+            return abc;
+          }
+        }
+
+        function keyOf(abc) {
+          var m = abc.match(/^K:\s*(.+)$/m);
+          return m ? m[1].trim() : "?";
+        }
+
+        // ---------------------------------------------------------------
+        // Render
+        // ---------------------------------------------------------------
+        function render() {
+          var abc = withBpm(sourceAbc, bpm);
+
+          // The score transposes at render time. Note that this renders the
+          // UNtransposed source — visualTranspose shifts the display only.
+          var visual = ABCJS.renderAbc("paper", abc, {
+            add_classes: true, // required if you want a playback cursor later
+            visualTranspose: steps,
+            responsive: "resize",
+            staffwidth: 620,
+            paddingleft: 0,
+            paddingright: 0,
+            paddingtop: 4,
+            paddingbottom: 4,
+          });
+
+          currentVisual = visual && visual[0] ? visual[0] : null;
+
+          // strTranspose is still how you get exportable ABC text — it just
+          // isn't what drives the score or the playback any more.
+          $("output").textContent = transpose(abc, steps);
+
+          loadTune();
+        }
+
+        // ---------------------------------------------------------------
+        // Ladder — one rung per semitone, labelled with the key you land in
+        // ---------------------------------------------------------------
+        function buildLadder() {
+          var ladder = $("ladder");
+          ladder.innerHTML = "";
+
+          for (var n = LOW; n <= HIGH; n++) {
+            var btn = document.createElement("button");
+            btn.className = "rung";
+            btn.type = "button";
+            btn.setAttribute("aria-pressed", n === steps ? "true" : "false");
+            btn.innerHTML =
+              '<span class="k">' +
+              keyOf(transpose(sourceAbc, n)) +
+              "</span>" +
+              '<span class="n">' +
+              (n > 0 ? "+" + n : n) +
+              "</span>";
+            btn.dataset.n = n;
+            btn.addEventListener("click", function () {
+              setSteps(parseInt(this.dataset.n, 10));
+            });
+            ladder.appendChild(btn);
+          }
+          scrollToActive();
+        }
+
+        function syncLadder() {
+          var rungs = $("ladder").querySelectorAll(".rung");
+          for (var i = 0; i < rungs.length; i++) {
+            rungs[i].setAttribute(
+              "aria-pressed",
+              parseInt(rungs[i].dataset.n, 10) === steps ? "true" : "false",
+            );
+          }
+          scrollToActive();
+        }
+
+        function scrollToActive() {
+          var active = $("ladder").querySelector('[aria-pressed="true"]');
+          if (active && active.scrollIntoView) {
+            active.scrollIntoView({ block: "nearest", inline: "center" });
+          }
+        }
+
+        function setSteps(n) {
+          steps = Math.max(LOW, Math.min(HIGH, n));
+          syncLadder();
+          render();
+        }
+
+        // ---------------------------------------------------------------
+        // Audio. The AudioContext has to start from a user gesture, which is
+        // why this sits behind a button rather than running on load.
+        // ---------------------------------------------------------------
+        function enableAudio() {
+          if (!ABCJS.synth.supportsAudio()) {
+            $("audio").innerHTML =
+              '<p class="err">This browser can\'t play synthesized audio.</p>';
+            $("enable").remove();
+            return;
+          }
+
+          synthControl = new ABCJS.synth.SynthController();
+          synthControl.load("#audio", null, {
+            displayPlay: true,
+            displayRestart: true,
+            displayLoop: true, // vocalises repeat — you want this
+            displayProgress: true,
+            displayWarp: false, // replaced by the BPM control above
+          });
+
+          audioReady = true;
+          $("enable").remove();
+          loadTune();
+        }
+
+        function setStatus(msg) {
+          $("status").textContent = msg;
+        }
+
+        function loadTune() {
+          if (!audioReady || !currentVisual) return;
+
+          // This is the fix. SynthController holds one CreateSynth in
+          // self.midiBuffer and reuses it across setTune calls, so the sound
+          // buffer built on the first load survives every later one — which is
+          // why both the key and the exercise stayed stuck on whatever loaded
+          // first. destroy() drops the buffer and the timer so go() has to
+          // build a fresh one. It's the same destroy-then-rebuild abcjs runs
+          // internally when you change tempo with the warp control.
+          synthControl.destroy();
+
+          setStatus("Loading\u2026");
+
+          // midiTranspose moves the playback pitch; userAction=true lets the
+          // controller rebuild immediately rather than deferring.
+          synthControl
+            .setTune(currentVisual, true, {
+              midiTranspose: steps,
+              chordsOff: true,
+            })
+            .then(function () {
+              setStatus(
+                "Ready \u2014 " +
+                  keyOf(transpose(sourceAbc, steps)) +
+                  " (" +
+                  (steps > 0 ? "+" : "") +
+                  steps +
+                  ")",
+              );
+            })
+            .catch(function (e) {
+              console.warn("Audio problem:", e);
+              setStatus("Audio problem \u2014 see the console.");
+            });
+        }
+
+        // ---------------------------------------------------------------
+        // Wiring
+        // ---------------------------------------------------------------
+        function buildPicker() {
+          var picker = $("picker");
+          EXERCISES.forEach(function (ex, i) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.textContent = ex.name;
+            btn.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+            btn.addEventListener("click", function () {
+              picker.querySelectorAll("button").forEach(function (b) {
+                b.setAttribute("aria-pressed", "false");
+              });
+              btn.setAttribute("aria-pressed", "true");
+              sourceAbc = ex.abc;
+              $("source").value = sourceAbc;
+              steps = 0;
+              // skipRender: the explicit render() below covers it.
+              if (!lockTempo) setBpm(readBpm(ex.abc), true);
+              updateWrittenHint();
+              buildLadder();
+              render();
+            });
+            picker.appendChild(btn);
+          });
+        }
+
+        var bpmTimer = null;
+        var lockTempo = false;
+
+        // When locked, the tempo you've dialled in survives an exercise change
+        // instead of being replaced by that exercise's written Q:.
+        function updateWrittenHint() {
+          var written = readBpm(sourceAbc);
+          $("written").textContent =
+            lockTempo && written !== bpm ? "overriding written " + written : "";
+        }
+
+        function setLock(on) {
+          lockTempo = on;
+          $("lock").setAttribute("aria-pressed", on ? "true" : "false");
+          updateWrittenHint();
+        }
+
+        function setBpm(n, skipRender) {
+          bpm = Math.max(40, Math.min(200, parseInt(n, 10) || 96));
+          $("bpmRange").value = bpm;
+          $("bpmNum").value = bpm;
+          updateWrittenHint();
+          if (skipRender) return;
+
+          // Changing tempo rebuilds the whole sound buffer, so don't do it on
+          // every pixel of slider travel.
+          clearTimeout(bpmTimer);
+          bpmTimer = setTimeout(render, 250);
+        }
+
+        function init() {
+          if (typeof ABCJS === "undefined") {
+            $("paper").innerHTML =
+              '<p class="err">abcjs failed to load. Check the CDN script tag or your network.</p>';
+            return;
+          }
+
+          buildPicker();
+          $("source").value = sourceAbc;
+          setBpm(readBpm(sourceAbc), true);
+          buildLadder();
+          render();
+
+          $("bpmRange").addEventListener("input", function () {
+            setBpm(this.value);
+          });
+          $("bpmNum").addEventListener("input", function () {
+            setBpm(this.value);
+          });
+          $("lock").addEventListener("click", function () {
+            setLock(!lockTempo);
+          });
+
+          $("up").addEventListener("click", function () {
+            setSteps(steps + 1);
+          });
+          $("down").addEventListener("click", function () {
+            setSteps(steps - 1);
+          });
+          $("enable").addEventListener("click", enableAudio);
+
+          $("source").addEventListener("input", function () {
+            clearTimeout(debounce);
+            debounce = setTimeout(function () {
+              sourceAbc = $("source").value;
+              buildLadder();
+              render();
+            }, 300);
+          });
+
+          document.addEventListener("keydown", function (e) {
+            // Don't steal arrow keys from any field the user is typing in —
+            // the BPM number input needs them to step its own value.
+            var tag = e.target.tagName;
+            if (tag === "TEXTAREA" || tag === "INPUT" || tag === "SELECT")
+              return;
+            if (e.key === "ArrowUp") {
+              e.preventDefault();
+              setSteps(steps + 1);
+            }
+            if (e.key === "ArrowDown") {
+              e.preventDefault();
+              setSteps(steps - 1);
+            }
+          });
+        }
+
+        document.addEventListener("DOMContentLoaded", init);
+      })();
+    </script>
+  </body>
+</html>

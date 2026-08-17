@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signal Bench — browser audio audition rack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --panel:#23261f;
+  --panel-2:#2e322a;
+  --panel-3:#383d33;
+  --edge:#14170f;
+  --silk:#dad6c4;
+  --silk-dim:#8c907e;
+  --amber:#f0a93b;
+  --amber-deep:#8a5f1e;
+  --alarm:#c2472f;
+  --silk-font:"Oswald","Arial Narrow",sans-serif;
+  --data-font:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --body-font:"IBM Plex Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--edge);
+  color:var(--silk);
+  font-family:var(--body-font);
+  line-height:1.5;
+  padding:18px;
+}
+.rack{max-width:1180px;margin:0 auto}
+
+/* ---------- header ---------- */
+.plate{
+  background:linear-gradient(180deg,var(--panel-2),var(--panel));
+  border:1px solid #0d0f0a;
+  border-top-color:#4a5041;
+  border-radius:3px;
+  box-shadow:0 1px 0 #4a5041 inset,0 10px 24px rgba(0,0,0,.45);
+}
+header.plate{padding:20px 22px 16px;margin-bottom:14px}
+h1{
+  font-family:var(--silk-font);font-weight:600;
+  font-size:clamp(26px,4.4vw,42px);
+  letter-spacing:.14em;text-transform:uppercase;
+  margin:0;color:var(--silk);
+}
+.sub{
+  font-family:var(--data-font);font-size:12px;color:var(--silk-dim);
+  margin-top:6px;letter-spacing:.02em;
+}
+.readouts{
+  display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:16px;
+  padding-top:14px;border-top:1px solid #171a13;
+}
+.ro{display:flex;flex-direction:column;gap:2px}
+.ro span:first-child{
+  font-family:var(--silk-font);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--silk-dim);
+}
+.ro span:last-child{font-family:var(--data-font);font-size:14px;color:var(--amber)}
+.lamp{
+  display:inline-block;width:9px;height:9px;border-radius:50%;
+  background:#3c3f36;box-shadow:0 0 0 1px #14170f inset;margin-right:7px;
+  vertical-align:baseline;
+}
+.lamp.on{background:var(--amber);box-shadow:0 0 9px var(--amber)}
+
+/* ---------- scope ---------- */
+.scope-wrap{padding:14px;margin-bottom:14px}
+canvas{
+  display:block;width:100%;height:210px;
+  background:#100f0a;border-radius:2px;border:1px solid #0a0b07;
+}
+.path{
+  margin-top:11px;font-family:var(--data-font);font-size:12.5px;
+  color:var(--amber);background:#100f0a;border:1px solid #0a0b07;
+  padding:9px 11px;border-radius:2px;overflow-x:auto;white-space:nowrap;
+}
+.path b{color:var(--silk-dim);font-weight:400}
+
+/* ---------- controls ---------- */
+.strip{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:12px 16px;margin-bottom:22px}
+label.knob{display:flex;align-items:center;gap:10px;font-family:var(--silk-font);
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--silk-dim)}
+input[type=range]{width:150px;accent-color:var(--amber)}
+
+/* ---------- racks ---------- */
+section{margin-bottom:26px}
+h2{
+  font-family:var(--silk-font);font-weight:500;font-size:12px;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--silk-dim);
+  margin:0 0 4px;display:flex;align-items:baseline;gap:12px;
+}
+h2::after{content:"";flex:1;height:1px;background:#2e322a}
+.rack-note{font-family:var(--data-font);font-size:11.5px;color:#6d7162;margin:0 0 12px}
+.pads{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:9px}
+
+.pad{
+  position:relative;text-align:left;cursor:pointer;
+  padding:11px 12px 12px;border-radius:3px;
+  background:linear-gradient(180deg,var(--panel-3),var(--panel-2));
+  border:1px solid #0d0f0a;border-top-color:#525845;
+  color:var(--silk);font:inherit;
+  box-shadow:0 2px 0 #14170f,0 1px 0 #565c49 inset;
+  transition:transform .04s linear,box-shadow .04s linear;
+  touch-action:none;-webkit-user-select:none;user-select:none;
+}
+.pad:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.pad .name{
+  display:block;font-family:var(--silk-font);font-weight:500;font-size:14px;
+  letter-spacing:.07em;text-transform:uppercase;padding-right:14px;
+}
+.pad .note{
+  display:block;font-family:var(--data-font);font-size:10.5px;
+  color:var(--silk-dim);margin-top:4px;line-height:1.35;
+}
+.pad .dot{
+  position:absolute;top:12px;right:11px;width:7px;height:7px;border-radius:50%;
+  background:#20241c;box-shadow:0 0 0 1px #14170f inset;
+}
+.pad.live{transform:translateY(2px);box-shadow:0 0 0 #14170f,0 2px 5px rgba(0,0,0,.5) inset}
+.pad.live .dot{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.pad.live .name{color:var(--amber)}
+
+/* ---------- limits ---------- */
+.limits{padding:20px 22px}
+.limits h3{
+  font-family:var(--silk-font);font-weight:500;font-size:12px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--silk-dim);margin:0 0 12px;
+}
+.limits dl{margin:0;display:grid;grid-template-columns:minmax(140px,190px) 1fr;gap:9px 20px;font-size:14px}
+.limits dt{font-family:var(--silk-font);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.limits dd{margin:0;color:#b8b5a5}
+@media (max-width:620px){
+  body{padding:10px}
+  .limits dl{grid-template-columns:1fr;gap:2px 0}
+  .limits dd{margin-bottom:10px}
+}
+@media (prefers-reduced-motion:reduce){
+  .pad{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="rack">
+
+<header class="plate">
+  <h1>Signal Bench</h1>
+  <div class="sub">Hold a pad to sound it. Release to stop. Nothing here is a sound file — every voice is generated live, except where a pad says otherwise.</div>
+  <div class="readouts">
+    <div class="ro"><span>Audio engine</span><span id="readout-engine-state"><i class="lamp" id="power-lamp"></i>not started</span></div>
+    <div class="ro"><span>Sample rate</span><span id="readout-sample-rate">—</span></div>
+    <div class="ro"><span>Output latency</span><span id="readout-latency">—</span></div>
+    <div class="ro"><span>Voices held</span><span id="readout-voice-count">0</span></div>
+  </div>
+</header>
+
+<div class="plate scope-wrap">
+  <canvas id="scope-canvas" width="1100" height="210"></canvas>
+  <div class="path" id="signal-path-readout"><b>signal path —</b> idle</div>
+</div>
+
+<div class="plate strip">
+  <label class="knob">Master <input type="range" id="master-volume-slider" min="0" max="100" value="80"></label>
+  <span class="sub" style="margin:0">Keyboard: tab to a pad, hold space or enter.</span>
+</div>
+
+<div id="all-racks"></div>
+
+<div class="plate limits">
+  <h3>What the browser will and won't let you do</h3>
+  <dl>
+    <dt>Needs a gesture</dt>
+    <dd>Sound can't start until you click, tap, or press a key. That's why the engine reads "not started" until your first press — a page cannot make noise on its own.</dd>
+
+    <dt>Latency</dt>
+    <dd>The gap between your press and the sound. Typically 10–30&nbsp;ms on desktop, worse on Bluetooth headphones (100&nbsp;ms+). Fine for playback, marginal for playing an instrument in real time.</dd>
+
+    <dt>Scheduling</dt>
+    <dd>Audio runs on its own thread with its own clock. Anything rhythmic must be scheduled ahead of time against that clock — <code>setInterval</code> alone will drift and stutter whenever the page is busy.</dd>
+
+    <dt>Volume</dt>
+    <dd>No way to set the device's system volume, and on iOS the hardware volume buttons win. You only control your own mix.</dd>
+
+    <dt>Backgrounding</dt>
+    <dd>Switch tabs or lock the phone and the browser may suspend or throttle audio. Generated sound usually stops; a plain media element is more likely to survive.</dd>
+
+    <dt>Mobile quirks</dt>
+    <dd>iOS silences generated audio when the ringer switch is on silent, ignores custom output-device selection, and limits how many audio contexts can exist at once. Test on a real phone, not a simulator.</dd>
+
+    <dt>Polyphony</dt>
+    <dd>Hundreds of simultaneous voices are fine on a laptop; a low-end phone will crackle much sooner. Every voice you don't stop and disconnect keeps costing CPU.</dd>
+
+    <dt>Microphone</dt>
+    <dd>Input requires an explicit permission prompt and a secure (https) page. Pitch detection is possible but is your code's job — the browser gives you samples, not notes.</dd>
+
+    <dt>MIDI</dt>
+    <dd>Web MIDI reaches hardware keyboards and controllers, but it's a separate permission and Safari support has historically lagged. It carries note messages, never audio.</dd>
+
+    <dt>No plugins</dt>
+    <dd>There is no VST or AU support. Every effect is either a built-in node, a hand-written processor, or a WebAssembly build of someone's DSP code.</dd>
+  </dl>
+</div>
+
+</div>
+
+<script>
+"use strict";
+
+/* ============================================================
+   1. THE AUDIO ENGINE
+   ------------------------------------------------------------
+   audioContext is the whole sound system for this page: the
+   clock, the output device, and the factory that makes every
+   node. Everything below hangs off it.
+   ============================================================ */
+
+const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+let audioContext      = null;   // created on the first press, not before
+let masterVolumeNode  = null;   // one gain knob everything passes through
+let scopeAnalyserNode = null;   // taps the signal so the canvas can draw it
+
+const namesOfPadsCurrentlyHeld = new Set();
+
+const byId = elementId => document.getElementById(elementId);
+
+/* Browsers refuse to make sound until the user has interacted with
+   the page, so this runs on the first pad press rather than on load. */
+function startAudioEngineIfNeeded(){
+  if(!audioContext){
+    audioContext = new AudioContextClass();
+
+    masterVolumeNode = audioContext.createGain();
+    masterVolumeNode.gain.value = byId("master-volume-slider").value / 100;
+
+    scopeAnalyserNode = audioContext.createAnalyser();
+    scopeAnalyserNode.fftSize = 2048;              // how many samples it hands us
+    scopeAnalyserNode.smoothingTimeConstant = 0.75; // steadier spectrum bars
+
+    masterVolumeNode.connect(scopeAnalyserNode);
+    scopeAnalyserNode.connect(audioContext.destination); // destination = speakers
+
+    startDrawingScope();
+  }
+  if(audioContext.state === "suspended") audioContext.resume();
+  refreshReadouts();
+  return audioContext;
+}
+
+function refreshReadouts(){
+  const engineIsRunning = !!audioContext && audioContext.state === "running";
+  byId("power-lamp").classList.toggle("on", engineIsRunning);
+  byId("readout-engine-state").lastChild.textContent =
+    audioContext ? audioContext.state : "not started";
+
+  byId("readout-sample-rate").textContent =
+    audioContext ? (audioContext.sampleRate / 1000).toFixed(1) + " kHz" : "—";
+
+  const latencyInSeconds = audioContext
+    ? (audioContext.outputLatency || audioContext.baseLatency)
+    : null;
+  byId("readout-latency").textContent = latencyInSeconds
+    ? (latencyInSeconds * 1000).toFixed(1) + " ms"
+    : (audioContext ? "not reported" : "—");
+
+  byId("readout-voice-count").textContent = namesOfPadsCurrentlyHeld.size;
+}
+
+byId("master-volume-slider").addEventListener("input", event => {
+  if(masterVolumeNode) masterVolumeNode.gain.value = event.target.value / 100;
+});
+
+
+/* ============================================================
+   2. SHARED BUILDING BLOCKS
+   Small helpers that most of the voices below reuse.
+   ============================================================ */
+
+/* The audio clock. Not the same as Date.now() — it counts seconds
+   since the engine started, and it is what you schedule against. */
+const currentAudioTime = () => audioContext.currentTime;
+
+/* A gain node used as the note's on/off switch. Sound is never
+   switched on or off instantly, because an instant jump in level is
+   heard as a click. Fading over ~10 ms removes that. */
+function openVolumeGate(destinationNode, peakLevel = 0.25, attackSeconds = 0.012){
+  const volumeGate = audioContext.createGain();
+  volumeGate.connect(destinationNode);
+
+  volumeGate.gain.setValueAtTime(0.0001, currentAudioTime());
+  volumeGate.gain.exponentialRampToValueAtTime(peakLevel, currentAudioTime() + attackSeconds);
+
+  /* Fades back down and reports the time the fade will finish, so the
+     caller knows when it is safe to stop the sound sources. */
+  volumeGate.fadeOut = (releaseSeconds = 0.05) => {
+    const fadeStartTime = currentAudioTime();
+    volumeGate.gain.cancelScheduledValues(fadeStartTime);
+    volumeGate.gain.setValueAtTime(Math.max(volumeGate.gain.value, 0.0001), fadeStartTime);
+    volumeGate.gain.exponentialRampToValueAtTime(0.0001, fadeStartTime + releaseSeconds);
+    return fadeStartTime + releaseSeconds;
+  };
+
+  return volumeGate;
+}
+
+/* The teardown every voice runs when you let go of the pad: fade out,
+   stop the sources, then unhook the nodes so they stop costing CPU. */
+function stopVoice(volumeGate, sourcesToStop = [], extraCleanup = null, releaseSeconds = 0.05){
+  const fadeEndTime = volumeGate.fadeOut(releaseSeconds);
+
+  sourcesToStop.forEach(source => {
+    try { source.stop(fadeEndTime + 0.01); } catch(ignored){}
+  });
+
+  if(extraCleanup) extraCleanup();
+
+  const millisecondsUntilSilent = (fadeEndTime - currentAudioTime()) * 1000 + 200;
+  setTimeout(() => {
+    try { volumeGate.disconnect(); } catch(ignored){}
+  }, millisecondsUntilSilent);
+}
+
+/* A tone generator: one of the four built-in waveform shapes. */
+function makeOscillator(waveformShape, frequencyInHz){
+  const oscillator = audioContext.createOscillator();
+  oscillator.type = waveformShape;
+  oscillator.frequency.value = frequencyInHz;
+  return oscillator;
+}
+
+/* A low-frequency oscillator — a wave too slow to hear, wired into
+   some other control (volume, pitch, filter cutoff) so it wobbles it.
+   depthOfWobble is measured in whatever units that control uses. */
+function makeSlowWobble(wobblesPerSecond, depthOfWobble, controlToWobble){
+  const wobbleOscillator = makeOscillator("sine", wobblesPerSecond);
+  const wobbleDepthNode  = audioContext.createGain();
+  wobbleDepthNode.gain.value = depthOfWobble;
+
+  wobbleOscillator.connect(wobbleDepthNode);
+  wobbleDepthNode.connect(controlToWobble);
+  wobbleOscillator.start();
+  return wobbleOscillator;
+}
+
+/* Noise buffers are expensive to fill, so each colour is built once
+   and reused. "Colour" here means how the energy is spread across
+   frequencies: white is even, pink and brown lean progressively
+   further toward the low end. */
+const cachedNoiseBuffers = {};
+
+function getNoiseBuffer(noiseColour = "white", lengthInSeconds = 2.5){
+  if(cachedNoiseBuffers[noiseColour]) return cachedNoiseBuffers[noiseColour];
+
+  const sampleCount = Math.floor(audioContext.sampleRate * lengthInSeconds);
+  const buffer = audioContext.createBuffer(1, sampleCount, audioContext.sampleRate);
+  const samples = buffer.getChannelData(0);
+
+  // running state for the pink and brown filters
+  let pink0=0, pink1=0, pink2=0, pink3=0, pink4=0, pink5=0, pink6=0;
+  let previousBrownSample = 0;
+
+  for(let i = 0; i < sampleCount; i++){
+    const randomSample = Math.random() * 2 - 1;
+
+    if(noiseColour === "white"){
+      samples[i] = randomSample;
+
+    } else if(noiseColour === "pink"){         // Paul Kellet's filter
+      pink0 = 0.99886*pink0 + randomSample*0.0555179;
+      pink1 = 0.99332*pink1 + randomSample*0.0750759;
+      pink2 = 0.96900*pink2 + randomSample*0.1538520;
+      pink3 = 0.86650*pink3 + randomSample*0.3104856;
+      pink4 = 0.55000*pink4 + randomSample*0.5329522;
+      pink5 = -0.7616*pink5 - randomSample*0.0168980;
+      samples[i] = (pink0+pink1+pink2+pink3+pink4+pink5+pink6 + randomSample*0.5362) * 0.11;
+      pink6 = randomSample * 0.115926;
+
+    } else {                                    // brown
+      previousBrownSample = (previousBrownSample + 0.02*randomSample) / 1.02;
+      samples[i] = previousBrownSample * 3.5;
+    }
+  }
+
+  cachedNoiseBuffers[noiseColour] = buffer;
+  return buffer;
+}
+
+/* A player for one of those noise buffers, set to loop forever. */
+function makeLoopingNoiseSource(noiseColour){
+  const noisePlayer = audioContext.createBufferSource();
+  noisePlayer.buffer = getNoiseBuffer(noiseColour);
+  noisePlayer.loop = true;
+  return noisePlayer;
+}
+
+/* An impulse response: a recording of how a room answers a single
+   clap. A ConvolverNode uses it to make anything sound like it is in
+   that room. This one is faked with noise that fades away. */
+function makeReverbImpulseResponse(lengthInSeconds = 2.2, decaySteepness = 3){
+  const sampleCount = Math.floor(audioContext.sampleRate * lengthInSeconds);
+  const impulseBuffer = audioContext.createBuffer(2, sampleCount, audioContext.sampleRate);
+
+  for(let channel = 0; channel < 2; channel++){
+    const samples = impulseBuffer.getChannelData(channel);
+    for(let i = 0; i < sampleCount; i++){
+      const fadeAmount = Math.pow(1 - i/sampleCount, decaySteepness);
+      samples[i] = (Math.random()*2 - 1) * fadeAmount;
+    }
+  }
+  return impulseBuffer;
+}
+
+/* A WaveShaperNode maps every incoming sample through a lookup table.
+   This table bends loud samples flat — the maths of overdrive. */
+function makeDistortionCurve(driveAmount){
+  const tableSize = 1024;
+  const curve = new Float32Array(tableSize);
+  for(let i = 0; i < tableSize; i++){
+    const inputSample = i*2/tableSize - 1;   // walk from -1 to +1
+    curve[i] = (1 + driveAmount) * inputSample / (1 + driveAmount * Math.abs(inputSample));
+  }
+  return curve;
+}
+
+/* Same idea, but the table snaps values to a few levels instead of
+   smoothing them — the sound of too few bits. */
+function makeBitCrushCurve(numberOfSteps){
+  const tableSize = 1024;
+  const curve = new Float32Array(tableSize);
+  for(let i = 0; i < tableSize; i++){
+    const inputSample = i*2/tableSize - 1;
+    curve[i] = Math.round(inputSample * numberOfSteps) / numberOfSteps;
+  }
+  return curve;
+}
+
+
+/* ------------------------------------------------------------
+   Percussion hits. Each builds a short sound that starts at
+   startTime and cleans itself up — they are fired repeatedly by
+   the rhythm pads rather than held.
+   ------------------------------------------------------------ */
+
+function playKickDrum(destinationNode, startTime){
+  const toneOscillator = makeOscillator("sine", 150);
+  const hitEnvelope    = audioContext.createGain();
+
+  toneOscillator.frequency.setValueAtTime(150, startTime);
+  toneOscillator.frequency.exponentialRampToValueAtTime(45, startTime + 0.13);
+
+  hitEnvelope.gain.setValueAtTime(0.9, startTime);
+  hitEnvelope.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.35);
+
+  toneOscillator.connect(hitEnvelope);
+  hitEnvelope.connect(destinationNode);
+  toneOscillator.start(startTime);
+  toneOscillator.stop(startTime + 0.4);
+}
+
+function playSnareDrum(destinationNode, startTime){
+  // the rattle
+  const noisePlayer   = makeLoopingNoiseSource("white");
+  const rattleFilter  = audioContext.createBiquadFilter();
+  const rattleEnvelope = audioContext.createGain();
+
+  rattleFilter.type = "highpass";
+  rattleFilter.frequency.value = 1200;
+  rattleEnvelope.gain.setValueAtTime(0.5, startTime);
+  rattleEnvelope.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.18);
+
+  noisePlayer.connect(rattleFilter);
+  rattleFilter.connect(rattleEnvelope);
+  rattleEnvelope.connect(destinationNode);
+  noisePlayer.start(startTime);
+  noisePlayer.stop(startTime + 0.2);
+
+  // the body of the drum underneath it
+  const bodyOscillator = makeOscillator("triangle", 190);
+  const bodyEnvelope   = audioContext.createGain();
+  bodyEnvelope.gain.setValueAtTime(0.4, startTime);
+  bodyEnvelope.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.11);
+
+  bodyOscillator.connect(bodyEnvelope);
+  bodyEnvelope.connect(destinationNode);
+  bodyOscillator.start(startTime);
+  bodyOscillator.stop(startTime + 0.12);
+}
+
+function playHiHat(destinationNode, startTime, isOpenHat){
+  const noisePlayer  = makeLoopingNoiseSource("white");
+  const sizzleFilter = audioContext.createBiquadFilter();
+  const hitEnvelope  = audioContext.createGain();
+
+  sizzleFilter.type = "highpass";
+  sizzleFilter.frequency.value = 7000;
+
+  const hitLength = isOpenHat ? 0.3 : 0.05;
+  hitEnvelope.gain.setValueAtTime(0.28, startTime);
+  hitEnvelope.gain.exponentialRampToValueAtTime(0.0001, startTime + hitLength);
+
+  noisePlayer.connect(sizzleFilter);
+  sizzleFilter.connect(hitEnvelope);
+  hitEnvelope.connect(destinationNode);
+  noisePlayer.start(startTime);
+  noisePlayer.stop(startTime + hitLength + 0.02);
+}
+
+function playBlip(destinationNode, startTime, frequencyInHz){
+  const blipOscillator = makeOscillator("square", frequencyInHz);
+  const blipEnvelope   = audioContext.createGain();
+
+  blipEnvelope.gain.setValueAtTime(0.25, startTime);
+  blipEnvelope.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.09);
+
+  blipOscillator.connect(blipEnvelope);
+  blipEnvelope.connect(destinationNode);
+  blipOscillator.start(startTime);
+  blipOscillator.stop(startTime + 0.1);
+}
+
+/* Repeats a hit for as long as the pad is held.
+
+   The trick worth noticing: setInterval only wakes us up often
+   enough to plan ahead. The actual hits are booked against the audio
+   clock 150 ms into the future, so a busy page delays the planning
+   but never the sound. Returns the function that stops it. */
+function repeatWhileHeld(destinationNode, secondsBetweenHits, playOneHit){
+  const busNode = audioContext.createGain();
+  busNode.gain.value = 1;
+  busNode.connect(destinationNode);
+
+  let timeOfNextHit = currentAudioTime() + 0.02;
+  let hitNumber = 0;
+
+  const scheduleUpcomingHits = () => {
+    while(timeOfNextHit < currentAudioTime() + 0.15){
+      playOneHit(busNode, timeOfNextHit, hitNumber++);
+      timeOfNextHit += secondsBetweenHits;
+    }
+  };
+
+  scheduleUpcomingHits();
+  const plannerTimerId = setInterval(scheduleUpcomingHits, 50);
+
+  return () => {
+    clearInterval(plannerTimerId);
+    setTimeout(() => { try { busNode.disconnect(); } catch(ignored){} }, 1200);
+  };
+}
+
+/* Builds a real one-second .wav file in memory, byte by byte, so the
+   media-element pad has something to load. 440 whole cycles in one
+   second means the loop point is seamless. */
+let cachedWavDataUri = null;
+
+function buildOneSecondWavDataUri(){
+  if(cachedWavDataUri) return cachedWavDataUri;
+
+  const sampleRate  = 44100;
+  const sampleCount = sampleRate;
+  const fileBytes   = new ArrayBuffer(44 + sampleCount*2); // 44-byte header, then 16-bit samples
+  const fileWriter  = new DataView(fileBytes);
+
+  const writeAscii = (offset, text) => {
+    for(let i = 0; i < text.length; i++) fileWriter.setUint8(offset + i, text.charCodeAt(i));
+  };
+
+  writeAscii(0, "RIFF");
+  fileWriter.setUint32(4, 36 + sampleCount*2, true);
+  writeAscii(8, "WAVEfmt ");
+  fileWriter.setUint32(16, 16, true);          // header length
+  fileWriter.setUint16(20, 1, true);           // uncompressed PCM
+  fileWriter.setUint16(22, 1, true);           // mono
+  fileWriter.setUint32(24, sampleRate, true);
+  fileWriter.setUint32(28, sampleRate*2, true);
+  fileWriter.setUint16(32, 2, true);           // bytes per sample frame
+  fileWriter.setUint16(34, 16, true);          // bits per sample
+  writeAscii(36, "data");
+  fileWriter.setUint32(40, sampleCount*2, true);
+
+  for(let i = 0; i < sampleCount; i++){
+    const sampleValue = Math.sin(2*Math.PI * 440 * i/sampleRate) * 0.4;
+    fileWriter.setInt16(44 + i*2, sampleValue * 32767, true);
+  }
+
+  let binaryString = "";
+  const byteArray = new Uint8Array(fileBytes);
+  for(let i = 0; i < byteArray.length; i++) binaryString += String.fromCharCode(byteArray[i]);
+
+  cachedWavDataUri = "data:audio/wav;base64," + btoa(binaryString);
+  return cachedWavDataUri;
+}
+
+/* A short phrase rendered into a buffer once, then treated as a
+   recorded sample the way a real sampler would treat one. */
+let cachedSampleBuffer = null;
+
+function getRenderedSampleBuffer(){
+  if(cachedSampleBuffer) return cachedSampleBuffer;
+
+  const sampleCount = Math.floor(audioContext.sampleRate * 1.2);
+  cachedSampleBuffer = audioContext.createBuffer(1, sampleCount, audioContext.sampleRate);
+  const samples = cachedSampleBuffer.getChannelData(0);
+  const noteFrequencies = [523.25, 659.25, 783.99, 1046.5];
+
+  for(let i = 0; i < sampleCount; i++){
+    const secondsIn      = i / audioContext.sampleRate;
+    const noteIndex      = Math.min(3, Math.floor(secondsIn / 0.3));
+    const secondsIntoNote = secondsIn - noteIndex*0.3;
+    const fadeAmount     = Math.exp(-secondsIntoNote * 9);
+    samples[i] = Math.sin(2*Math.PI * noteFrequencies[noteIndex] * secondsIn) * fadeAmount * 0.6;
+  }
+  return cachedSampleBuffer;
+}
+
+
+/* ============================================================
+   3. THE SOUNDS
+   ------------------------------------------------------------
+   Every pad is one object:
+     name        what the pad says
+     caption     the small print under the name
+     signalPath  the node chain, printed under the scope on press
+     start()     builds and starts the sound, and returns the
+                 function that tears it back down on release
+   ============================================================ */
+
+const SOUND_RACKS = [
+
+{ title:"Raw oscillators",
+  subtitle:"The four built-in waveforms. Everything else is these, bent.",
+  pads:[
+
+  { name:"Sine", caption:"220 Hz · one pure frequency, no harmonics",
+    signalPath:"OscillatorNode(sine) → GainNode(gate) → destination",
+    start(destination){
+      const volumeGate = openVolumeGate(destination, 0.3);
+      const oscillator = makeOscillator("sine", 220);
+      oscillator.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+
+  { name:"Square", caption:"220 Hz · odd harmonics, hollow and buzzy",
+    signalPath:"OscillatorNode(square) → GainNode(gate) → destination",
+    start(destination){
+      const volumeGate = openVolumeGate(destination, 0.16);
+      const oscillator = makeOscillator("square", 220);
+      oscillator.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+
+  { name:"Sawtooth", caption:"110 Hz · every harmonic, the brightest one",
+    signalPath:"OscillatorNode(sawtooth) → GainNode(gate) → destination",
+    start(destination){
+      const volumeGate = openVolumeGate(destination, 0.16);
+      const oscillator = makeOscillator("sawtooth", 110);
+      oscillator.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+
+  { name:"Triangle", caption:"330 Hz · odd harmonics but faint, soft flute",
+    signalPath:"OscillatorNode(triangle) → GainNode(gate) → destination",
+    start(destination){
+      const volumeGate = openVolumeGate(destination, 0.3);
+      const oscillator = makeOscillator("triangle", 330);
+      oscillator.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+
+  { name:"Beating pair", caption:"220 + 221.5 Hz · the 1.5 Hz wobble is interference",
+    signalPath:"2 × OscillatorNode(sine) → GainNode(gate) → destination",
+    start(destination){
+      const volumeGate     = openVolumeGate(destination, 0.2);
+      const lowerOscillator = makeOscillator("sine", 220);
+      const upperOscillator = makeOscillator("sine", 221.5);
+      lowerOscillator.connect(volumeGate);
+      upperOscillator.connect(volumeGate);
+      lowerOscillator.start();
+      upperOscillator.start();
+      return () => stopVoice(volumeGate, [lowerOscillator, upperOscillator]);
+    }},
+
+  { name:"Custom wave", caption:"harmonics you specify by hand, not a preset",
+    signalPath:"OscillatorNode(setPeriodicWave) → GainNode(gate) → destination",
+    start(destination){
+      // one number per harmonic: how loud the 1st, 2nd, 3rd… overtone is
+      const cosineAmplitudes = new Float32Array([0,0,0,0,0,0,0,0,0,0]);
+      const sineAmplitudes   = new Float32Array([0,1,0,0.6,0,0.4,0,0.25,0,0.15]);
+      const customWaveform   = audioContext.createPeriodicWave(cosineAmplitudes, sineAmplitudes);
+
+      const volumeGate = openVolumeGate(destination, 0.22);
+      const oscillator = audioContext.createOscillator();
+      oscillator.setPeriodicWave(customWaveform);
+      oscillator.frequency.value = 165;
+      oscillator.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+]},
+
+{ title:"Noise",
+  subtitle:"Random samples, shaped. The raw material for wind, breath, cymbals, surf.",
+  pads:[
+
+  { name:"White noise", caption:"equal energy per frequency · hissy",
+    signalPath:"AudioBufferSourceNode(random, looped) → GainNode(gate) → destination",
+    start(destination){
+      const volumeGate  = openVolumeGate(destination, 0.13);
+      const noisePlayer = makeLoopingNoiseSource("white");
+      noisePlayer.connect(volumeGate);
+      noisePlayer.start();
+      return () => stopVoice(volumeGate, [noisePlayer]);
+    }},
+
+  { name:"Pink noise", caption:"−3 dB per octave · what a waterfall sounds like",
+    signalPath:"AudioBufferSourceNode(pink) → GainNode(gate) → destination",
+    start(destination){
+      const volumeGate  = openVolumeGate(destination, 0.25);
+      const noisePlayer = makeLoopingNoiseSource("pink");
+      noisePlayer.connect(volumeGate);
+      noisePlayer.start();
+      return () => stopVoice(volumeGate, [noisePlayer]);
+    }},
+
+  { name:"Brown noise", caption:"−6 dB per octave · deep rumble, no hiss",
+    signalPath:"AudioBufferSourceNode(brown) → GainNode(gate) → destination",
+    start(destination){
+      const volumeGate  = openVolumeGate(destination, 0.3);
+      const noisePlayer = makeLoopingNoiseSource("brown");
+      noisePlayer.connect(volumeGate);
+      noisePlayer.start();
+      return () => stopVoice(volumeGate, [noisePlayer]);
+    }},
+
+  { name:"Wind", caption:"noise squeezed through a moving narrow filter",
+    signalPath:"BufferSource(white) → BiquadFilter(bandpass, Q=6) ← LFO(0.25 Hz) → gate",
+    start(destination){
+      const volumeGate   = openVolumeGate(destination, 0.7);
+      const noisePlayer  = makeLoopingNoiseSource("white");
+      const gustFilter   = audioContext.createBiquadFilter();
+
+      gustFilter.type = "bandpass";        // let only a narrow band through
+      gustFilter.frequency.value = 700;
+      gustFilter.Q.value = 6;              // Q = how narrow that band is
+
+      const gustWobble = makeSlowWobble(0.25, 450, gustFilter.frequency);
+
+      noisePlayer.connect(gustFilter);
+      gustFilter.connect(volumeGate);
+      noisePlayer.start();
+      return () => stopVoice(volumeGate, [noisePlayer, gustWobble]);
+    }},
+]},
+
+{ title:"Filters and modulation",
+  subtitle:"One source, then something that changes it over time. This is most of synthesis.",
+  pads:[
+
+  { name:"Filter sweep", caption:"saw through a lowpass that opens as you hold",
+    signalPath:"Osc(saw) → BiquadFilter(lowpass, 200→6000 Hz) → gate → destination",
+    start(destination){
+      const volumeGate  = openVolumeGate(destination, 0.2);
+      const oscillator  = makeOscillator("sawtooth", 110);
+      const sweepFilter = audioContext.createBiquadFilter();
+
+      sweepFilter.type = "lowpass";        // keep lows, discard highs above cutoff
+      sweepFilter.frequency.setValueAtTime(200, currentAudioTime());
+      sweepFilter.frequency.exponentialRampToValueAtTime(6000, currentAudioTime() + 2.5);
+
+      oscillator.connect(sweepFilter);
+      sweepFilter.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+
+  { name:"Resonant squelch", caption:"same sweep with Q=22 · the filter nearly sings",
+    signalPath:"Osc(saw) → BiquadFilter(lowpass, Q=22) → gate → destination",
+    start(destination){
+      const volumeGate  = openVolumeGate(destination, 0.12);
+      const oscillator  = makeOscillator("sawtooth", 82);
+      const sweepFilter = audioContext.createBiquadFilter();
+
+      sweepFilter.type = "lowpass";
+      sweepFilter.Q.value = 22;            // a big peak right at the cutoff
+      sweepFilter.frequency.setValueAtTime(180, currentAudioTime());
+      sweepFilter.frequency.exponentialRampToValueAtTime(3500, currentAudioTime() + 1.6);
+
+      oscillator.connect(sweepFilter);
+      sweepFilter.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+
+  { name:"Highpass hollow", caption:"the same saw with its bottom removed",
+    signalPath:"Osc(saw) → BiquadFilter(highpass, 1800 Hz) → gate → destination",
+    start(destination){
+      const volumeGate     = openVolumeGate(destination, 0.25);
+      const oscillator     = makeOscillator("sawtooth", 110);
+      const highpassFilter = audioContext.createBiquadFilter();
+
+      highpassFilter.type = "highpass";
+      highpassFilter.frequency.value = 1800;
+      highpassFilter.Q.value = 1;
+
+      oscillator.connect(highpassFilter);
+      highpassFilter.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+
+  { name:"Tremolo", caption:"volume wobbling 6× a second",
+    signalPath:"Osc(sine) → GainNode ← LFO(6 Hz) → gate → destination",
+    start(destination){
+      const volumeGate    = openVolumeGate(destination, 0.3);
+      const oscillator    = makeOscillator("sine", 330);
+      const tremoloVolume = audioContext.createGain();
+
+      tremoloVolume.gain.value = 0.5;                                  // midpoint
+      const tremoloWobble = makeSlowWobble(6, 0.5, tremoloVolume.gain); // swings 0 → 1
+
+      oscillator.connect(tremoloVolume);
+      tremoloVolume.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator, tremoloWobble]);
+    }},
+
+  { name:"Vibrato", caption:"pitch wobbling instead of volume",
+    signalPath:"Osc(sine).frequency ← LFO(5.5 Hz, ±12 Hz) → gate → destination",
+    start(destination){
+      const volumeGate = openVolumeGate(destination, 0.3);
+      const oscillator = makeOscillator("sine", 440);
+      const pitchWobble = makeSlowWobble(5.5, 12, oscillator.frequency);
+
+      oscillator.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator, pitchWobble]);
+    }},
+
+  { name:"Ring mod", caption:"two tones multiplied · clangorous, metallic",
+    signalPath:"Osc(220) → GainNode.gain ← Osc(157) → gate → destination",
+    start(destination){
+      const volumeGate         = openVolumeGate(destination, 0.3);
+      const carrierOscillator  = makeOscillator("sine", 220);
+      const modulatorOscillator = makeOscillator("sine", 157);
+      const multiplierNode     = audioContext.createGain();
+
+      // Feeding audio into a gain control multiplies the two signals.
+      multiplierNode.gain.value = 0;
+      modulatorOscillator.connect(multiplierNode.gain);
+      carrierOscillator.connect(multiplierNode);
+      multiplierNode.connect(volumeGate);
+
+      carrierOscillator.start();
+      modulatorOscillator.start();
+      return () => stopVoice(volumeGate, [carrierOscillator, modulatorOscillator]);
+    }},
+
+  { name:"Distortion", caption:"waveshaper bends the curve until it clips",
+    signalPath:"Osc(saw) → WaveShaperNode(curve) → BiquadFilter(lowpass) → gate",
+    start(destination){
+      const volumeGate    = openVolumeGate(destination, 0.12);
+      const oscillator    = makeOscillator("sawtooth", 110);
+      const overdriveNode = audioContext.createWaveShaper();
+      const toneFilter    = audioContext.createBiquadFilter();
+
+      overdriveNode.curve = makeDistortionCurve(80);
+      overdriveNode.oversample = "4x";      // reduces the harsh aliasing artefacts
+      toneFilter.type = "lowpass";
+      toneFilter.frequency.value = 3000;
+
+      oscillator.connect(overdriveNode);
+      overdriveNode.connect(toneFilter);
+      toneFilter.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+
+  { name:"Bit crush", caption:"waveshaper quantised to a few steps · lo-fi grit",
+    signalPath:"Osc(sine) → WaveShaperNode(step curve) → gate → destination",
+    start(destination){
+      const volumeGate   = openVolumeGate(destination, 0.16);
+      const oscillator   = makeOscillator("sine", 220);
+      const crusherNode  = audioContext.createWaveShaper();
+
+      crusherNode.curve = makeBitCrushCurve(3);
+
+      oscillator.connect(crusherNode);
+      crusherNode.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+]},
+
+{ title:"Synth voices",
+  subtitle:"Several nodes arranged into something that reads as an instrument.",
+  pads:[
+
+  { name:"FM bell", caption:"one oscillator modulating another's pitch",
+    signalPath:"Osc(mod 640 Hz) → Gain(index 700) → Osc(carrier).frequency → gate",
+    start(destination){
+      const volumeGate          = openVolumeGate(destination, 0.22, 0.005);
+      const carrierOscillator   = makeOscillator("sine", 320);
+      const modulatorOscillator = makeOscillator("sine", 640);
+      const modulationDepth     = audioContext.createGain();
+
+      // Depth starts wide (clangy strike) and narrows (pure tail).
+      modulationDepth.gain.value = 700;
+      modulationDepth.gain.exponentialRampToValueAtTime(20, currentAudioTime() + 2.4);
+
+      modulatorOscillator.connect(modulationDepth);
+      modulationDepth.connect(carrierOscillator.frequency);
+      carrierOscillator.connect(volumeGate);
+
+      carrierOscillator.start();
+      modulatorOscillator.start();
+      return () => stopVoice(volumeGate, [carrierOscillator, modulatorOscillator]);
+    }},
+
+  { name:"Organ", caption:"5 sines at harmonic ratios · additive synthesis",
+    signalPath:"5 × OscillatorNode(sine) → GainNode(gate) → destination",
+    start(destination){
+      const volumeGate       = openVolumeGate(destination, 0.22);
+      const rootFrequency    = 220;
+      const harmonicRatios   = [1, 2, 3, 4, 6];
+      const harmonicLevels   = [1, .5, .35, .25, .15];
+
+      const harmonicOscillators = harmonicRatios.map((ratio, index) => {
+        const oscillator  = makeOscillator("sine", rootFrequency * ratio);
+        const harmonicMix = audioContext.createGain();
+        harmonicMix.gain.value = harmonicLevels[index];
+        oscillator.connect(harmonicMix);
+        harmonicMix.connect(volumeGate);
+        oscillator.start();
+        return oscillator;
+      });
+
+      return () => stopVoice(volumeGate, harmonicOscillators);
+    }},
+
+  { name:"Supersaw pad", caption:"7 detuned saws through a soft filter",
+    signalPath:"7 × Osc(saw, ±18 cents) → BiquadFilter(lowpass) → gate → destination",
+    start(destination){
+      const volumeGate    = openVolumeGate(destination, 0.1, 0.4); // slow 0.4 s swell
+      const smoothFilter  = audioContext.createBiquadFilter();
+      smoothFilter.type = "lowpass";
+      smoothFilter.frequency.value = 1800;
+      smoothFilter.connect(volumeGate);
+
+      const detuningsInCents = [-18, -12, -6, 0, 6, 12, 18]; // 100 cents = 1 semitone
+      const stackedOscillators = detuningsInCents.map(cents => {
+        const oscillator = makeOscillator("sawtooth", 110);
+        oscillator.detune.value = cents;
+        oscillator.connect(smoothFilter);
+        oscillator.start();
+        return oscillator;
+      });
+
+      return () => stopVoice(volumeGate, stackedOscillators, null, 0.6);
+    }},
+
+  { name:"Major chord", caption:"three voices at once · polyphony is just more nodes",
+    signalPath:"3 × Osc(triangle) → GainNode(gate) → destination",
+    start(destination){
+      const volumeGate      = openVolumeGate(destination, 0.16);
+      const chordFrequencies = [261.63, 329.63, 392];  // middle C, E, G
+      const chordOscillators = chordFrequencies.map(frequency => {
+        const oscillator = makeOscillator("triangle", frequency);
+        oscillator.connect(volumeGate);
+        oscillator.start();
+        return oscillator;
+      });
+      return () => stopVoice(volumeGate, chordOscillators);
+    }},
+
+  { name:"Pluck", caption:"noise burst in a feedback delay · Karplus-Strong",
+    signalPath:"BufferSource(burst) → DelayNode(1/f) ⟲ Gain(0.97) + lowpass → gate",
+    start(destination){
+      const volumeGate = openVolumeGate(destination, 0.5, 0.002);
+
+      // A very short delay fed back on itself behaves like a string:
+      // the delay length sets the pitch, the filter makes it decay.
+      const stringDelay    = audioContext.createDelay(0.05);
+      const stringFeedback = audioContext.createGain();
+      const stringDamping  = audioContext.createBiquadFilter();
+
+      stringDelay.delayTime.value = 1/196;   // 196 Hz ≈ G below middle C
+      stringFeedback.gain.value = 0.972;     // how long the string rings
+      stringDamping.type = "lowpass";
+      stringDamping.frequency.value = 3500;
+
+      stringDelay.connect(stringDamping);
+      stringDamping.connect(stringFeedback);
+      stringFeedback.connect(stringDelay);   // the loop
+      stringDelay.connect(volumeGate);
+
+      // the pluck itself: 6 ms of noise fired into the loop
+      const noiseBurst      = audioContext.createBufferSource();
+      const noiseBurstLevel = audioContext.createGain();
+      noiseBurst.buffer = getNoiseBuffer("white");
+      noiseBurstLevel.gain.setValueAtTime(0.6, currentAudioTime());
+      noiseBurstLevel.gain.setValueAtTime(0, currentAudioTime() + 0.006);
+
+      noiseBurst.connect(noiseBurstLevel);
+      noiseBurstLevel.connect(stringDelay);
+      noiseBurst.start();
+      noiseBurst.stop(currentAudioTime() + 0.05);
+
+      return () => stopVoice(volumeGate, [], () => { stringFeedback.gain.value = 0; }, 0.35);
+    }},
+
+  { name:"Siren", caption:"pitch ramped by automation, not by JS timers",
+    signalPath:"Osc(square).frequency.setValueCurveAtTime → gate → destination",
+    start(destination){
+      const volumeGate = openVolumeGate(destination, 0.1);
+      const oscillator = makeOscillator("square", 400);
+
+      // Hand the audio thread the whole pitch shape up front, and it
+      // plays it out perfectly regardless of what JavaScript is doing.
+      const pitchCurve = new Float32Array(64);
+      for(let i = 0; i < 64; i++){
+        pitchCurve[i] = 400 + 400 * Math.sin(i/64 * Math.PI * 4);
+      }
+      try { oscillator.frequency.setValueCurveAtTime(pitchCurve, currentAudioTime(), 4); }
+      catch(ignored){}
+
+      oscillator.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator]);
+    }},
+]},
+
+{ title:"Space and stereo",
+  subtitle:"Where the sound seems to be, and what room it's in.",
+  pads:[
+
+  { name:"Reverb", caption:"clicks fed through a generated impulse response",
+    signalPath:"pulse → ConvolverNode(2.2 s impulse) → gate → destination",
+    start(destination){
+      const volumeGate   = openVolumeGate(destination, 0.9, 0.005);
+      const reverbNode   = audioContext.createConvolver();
+      reverbNode.buffer  = makeReverbImpulseResponse(2.2, 3);
+      reverbNode.connect(volumeGate);
+
+      const stopRepeating = repeatWhileHeld(reverbNode, 0.55,
+        (busNode, startTime) => playBlip(busNode, startTime, 880));
+
+      return () => stopVoice(volumeGate, [], stopRepeating, 0.9);
+    }},
+
+  { name:"Echo", caption:"delay line feeding itself at 60% · repeats decay",
+    signalPath:"pulse → DelayNode(0.26 s) ⟲ Gain(0.6) → gate → destination",
+    start(destination){
+      const volumeGate   = openVolumeGate(destination, 0.9, 0.005);
+      const echoDelay    = audioContext.createDelay(1);
+      const echoFeedback = audioContext.createGain();
+
+      echoFeedback.gain.value = 0.6;    // each repeat is 60% of the last
+      echoDelay.connect(echoFeedback);
+      echoFeedback.connect(echoDelay);
+      echoDelay.connect(volumeGate);
+
+      const stopRepeating = repeatWhileHeld(echoDelay, 1.2,
+        (busNode, startTime) => playBlip(busNode, startTime, 660));
+
+      return () => stopVoice(volumeGate, [], () => {
+        stopRepeating();
+        echoFeedback.gain.value = 0;    // kill the loop or it rings forever
+      }, 0.6);
+    }},
+
+  { name:"Auto-pan", caption:"left↔right at 1.2 Hz · headphones help",
+    signalPath:"Osc(sine) → StereoPannerNode.pan ← LFO(1.2 Hz) → gate",
+    start(destination){
+      const volumeGate = openVolumeGate(destination, 0.25);
+      const oscillator = makeOscillator("sine", 330);
+      const stereoPanner = audioContext.createStereoPanner();
+
+      const panWobble = makeSlowWobble(1.2, 1, stereoPanner.pan); // pan runs −1 to +1
+
+      oscillator.connect(stereoPanner);
+      stereoPanner.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, [oscillator, panWobble]);
+    }},
+
+  { name:"Fly-by", caption:"a source moving in 3D space around your head",
+    signalPath:"Osc(saw) → PannerNode(HRTF).positionX ← LFO(0.4 Hz) → gate",
+    start(destination){
+      const volumeGate     = openVolumeGate(destination, 0.2);
+      const oscillator     = makeOscillator("sawtooth", 180);
+      const spatialPanner  = audioContext.createPanner();
+
+      spatialPanner.panningModel  = "HRTF";     // models how ears actually hear direction
+      spatialPanner.distanceModel = "inverse";
+
+      let positionWobble = null;
+      if(spatialPanner.positionX){
+        spatialPanner.positionZ.value = -1;     // one metre in front
+        positionWobble = makeSlowWobble(0.4, 6, spatialPanner.positionX);
+      } else {
+        spatialPanner.setPosition(0, 0, -1);    // older browsers
+      }
+
+      oscillator.connect(spatialPanner);
+      spatialPanner.connect(volumeGate);
+      oscillator.start();
+      return () => stopVoice(volumeGate, positionWobble ? [oscillator, positionWobble] : [oscillator]);
+    }},
+]},
+
+{ title:"Rhythm — repeats while held",
+  subtitle:"Each hit is booked against the audio clock a fraction of a second early, so the timing doesn't drift.",
+  pads:[
+
+  { name:"Kick", caption:"sine dropping 150→45 Hz in 130 ms",
+    signalPath:"scheduler → Osc(sine) + pitch envelope → destination",
+    start(destination){
+      return repeatWhileHeld(destination, 0.5,
+        (busNode, startTime) => playKickDrum(busNode, startTime));
+    }},
+
+  { name:"Snare", caption:"noise burst plus a short body tone",
+    signalPath:"BufferSource(noise) → highpass + Osc(triangle) → destination",
+    start(destination){
+      return repeatWhileHeld(destination, 0.5,
+        (busNode, startTime) => playSnareDrum(busNode, startTime));
+    }},
+
+  { name:"Hi-hat", caption:"noise above 7 kHz, 50 ms long",
+    signalPath:"BufferSource(noise) → BiquadFilter(highpass 7 kHz) → destination",
+    start(destination){
+      return repeatWhileHeld(destination, 0.25,
+        (busNode, startTime) => playHiHat(busNode, startTime, false));
+    }},
+
+  { name:"Full pattern", caption:"four voices on one shared clock",
+    signalPath:"one scheduler → kick / snare / hat / blip on a 16th grid",
+    start(destination){
+      return repeatWhileHeld(destination, 0.125, (busNode, startTime, hitNumber) => {
+        const stepInBar = hitNumber % 8;
+        if(stepInBar === 0 || stepInBar === 6) playKickDrum(busNode, startTime);
+        if(stepInBar === 4) playSnareDrum(busNode, startTime);
+        playHiHat(busNode, startTime, stepInBar === 7);
+        if(stepInBar === 2) playBlip(busNode, startTime, 880);
+      });
+    }},
+]},
+
+{ title:"Other browser paths",
+  subtitle:"Sound that doesn't come from the Web Audio API at all — or only joins it halfway.",
+  pads:[
+
+  { name:"Media element", caption:"a real .wav file, generated in JS and played by <audio>",
+    signalPath:"HTMLAudioElement(data: URI) → MediaElementAudioSourceNode → gate",
+    start(destination){
+      const volumeGate  = openVolumeGate(destination, 0.9, 0.02);
+      const audioPlayer = new Audio(buildOneSecondWavDataUri());
+      audioPlayer.loop = true;
+
+      // Bridging an <audio> element into the node graph, so it shows
+      // up on the scope like everything else.
+      try {
+        const bridgeNode = audioContext.createMediaElementSource(audioPlayer);
+        bridgeNode.connect(volumeGate);
+      } catch(bridgeFailed){
+        audioPlayer.volume = 0.4;   // fall back to plain playback
+      }
+      audioPlayer.play().catch(() => {});
+
+      return () => stopVoice(volumeGate, [], () => {
+        audioPlayer.pause();
+        audioPlayer.src = "";
+      });
+    }},
+
+  { name:"Speech", caption:"a separate API — never reaches the scope",
+    signalPath:"SpeechSynthesisUtterance → speechSynthesis.speak() → device output",
+    start(){
+      if(!("speechSynthesis" in window)) return () => {};
+
+      const spokenLine = new SpeechSynthesisUtterance(
+        "This is the speech synthesis API. It is not part of Web Audio, so you cannot filter it, place it in space, or see it on the oscilloscope.");
+      spokenLine.rate = 0.95;
+
+      speechSynthesis.cancel();
+      speechSynthesis.speak(spokenLine);
+      return () => speechSynthesis.cancel();
+    }},
+
+  { name:"Sample playback", caption:"a rendered buffer replayed at half speed",
+    signalPath:"rendered AudioBuffer → AudioBufferSourceNode(rate 0.5) → gate",
+    start(destination){
+      const volumeGate   = openVolumeGate(destination, 0.5);
+      const samplePlayer = audioContext.createBufferSource();
+
+      samplePlayer.buffer = getRenderedSampleBuffer();
+      samplePlayer.loop = true;
+      samplePlayer.playbackRate.value = 0.5;   // half speed drops it an octave
+
+      samplePlayer.connect(volumeGate);
+      samplePlayer.start();
+      return () => stopVoice(volumeGate, [samplePlayer]);
+    }},
+]},
+
+];
+
+
+/* ============================================================
+   4. BUILDING THE PADS
+   ============================================================ */
+
+const allRacksElement = byId("all-racks");
+
+SOUND_RACKS.forEach(rack => {
+  const rackSection = document.createElement("section");
+  rackSection.className = "plate";
+  rackSection.style.padding = "16px 18px 18px";
+  rackSection.innerHTML =
+    `<h2>${rack.title}</h2><p class="rack-note">${rack.subtitle}</p>`;
+
+  const padGrid = document.createElement("div");
+  padGrid.className = "pads";
+
+  rack.pads.forEach(soundDefinition => {
+    const padButton = document.createElement("button");
+    padButton.className = "pad";
+    padButton.type = "button";
+    padButton.innerHTML =
+      `<span class="dot"></span>
+       <span class="name">${soundDefinition.name}</span>
+       <span class="note">${soundDefinition.caption}</span>`;
+
+    wirePadToSound(padButton, soundDefinition);
+    padGrid.appendChild(padButton);
+  });
+
+  rackSection.appendChild(padGrid);
+  allRacksElement.appendChild(rackSection);
+});
+
+/* Press and hold starts the sound; every way of letting go stops it.
+   stopThisVoice doubles as the "is it currently sounding?" flag. */
+function wirePadToSound(padButton, soundDefinition){
+  let stopThisVoice = null;
+
+  const onPress = () => {
+    if(stopThisVoice) return;               // already held
+    startAudioEngineIfNeeded();
+
+    byId("signal-path-readout").innerHTML =
+      `<b>signal path —</b> ${soundDefinition.signalPath}`;
+
+    try {
+      stopThisVoice = soundDefinition.start(masterVolumeNode) || (() => {});
+    } catch(buildError){
+      byId("signal-path-readout").innerHTML = `<b>failed —</b> ${buildError.message}`;
+      stopThisVoice = () => {};
+    }
+
+    namesOfPadsCurrentlyHeld.add(soundDefinition.name);
+    padButton.classList.add("live");
+    refreshReadouts();
+  };
+
+  const onRelease = () => {
+    if(!stopThisVoice) return;              // wasn't sounding
+    try { stopThisVoice(); } catch(ignored){}
+    stopThisVoice = null;
+
+    namesOfPadsCurrentlyHeld.delete(soundDefinition.name);
+    padButton.classList.remove("live");
+    refreshReadouts();
+  };
+
+  padButton.addEventListener("pointerdown", pointerEvent => {
+    pointerEvent.preventDefault();
+    // Capture means the release still reaches this pad even if the
+    // cursor has wandered off it by then.
+    padButton.setPointerCapture(pointerEvent.pointerId);
+    onPress();
+  });
+  padButton.addEventListener("pointerup", onRelease);
+  padButton.addEventListener("pointercancel", onRelease);
+  padButton.addEventListener("lostpointercapture", onRelease);
+
+  padButton.addEventListener("keydown", keyEvent => {
+    if(keyEvent.key === " " || keyEvent.key === "Enter"){ keyEvent.preventDefault(); onPress(); }
+  });
+  padButton.addEventListener("keyup", keyEvent => {
+    if(keyEvent.key === " " || keyEvent.key === "Enter"){ keyEvent.preventDefault(); onRelease(); }
+  });
+  padButton.addEventListener("blur", onRelease);
+}
+
+// Leaving the tab mid-hold shouldn't leave a note ringing.
+window.addEventListener("blur", () => {
+  document.querySelectorAll(".pad.live").forEach(livePad => {
+    livePad.dispatchEvent(new Event("pointerup"));
+  });
+});
+
+
+/* ============================================================
+   5. THE SCOPE
+   Waveform on top (shape over time), spectrum below (energy per
+   frequency). Both read from the same analyser node.
+   ============================================================ */
+
+function startDrawingScope(){
+  const canvas = byId("scope-canvas");
+  const paint  = canvas.getContext("2d");
+
+  const waveformSamples = new Uint8Array(scopeAnalyserNode.fftSize);
+  const spectrumLevels  = new Uint8Array(scopeAnalyserNode.frequencyBinCount);
+
+  function matchCanvasToScreen(){
+    const cssSize = canvas.getBoundingClientRect();
+    const pixelRatio = window.devicePixelRatio || 1;
+    canvas.width  = cssSize.width  * pixelRatio;
+    canvas.height = cssSize.height * pixelRatio;
+    paint.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+  }
+  matchCanvasToScreen();
+  window.addEventListener("resize", matchCanvasToScreen);
+
+  function drawOneFrame(){
+    requestAnimationFrame(drawOneFrame);
+
+    const width  = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const waveformHeight = height * 0.58;
+    const spectrumTop    = waveformHeight + 8;
+
+    paint.clearRect(0, 0, width, height);
+
+    // graticule (the grid behind the trace)
+    paint.strokeStyle = "rgba(240,169,59,.10)";
+    paint.lineWidth = 1;
+    paint.beginPath();
+    for(let x = 0; x < width; x += width/12){ paint.moveTo(x, 0); paint.lineTo(x, waveformHeight); }
+    for(let y = 0; y < waveformHeight; y += waveformHeight/4){ paint.moveTo(0, y); paint.lineTo(width, y); }
+    paint.stroke();
+
+    // waveform: 128 is silence, 0 and 255 are the extremes
+    scopeAnalyserNode.getByteTimeDomainData(waveformSamples);
+    paint.strokeStyle = "#f0a93b";
+    paint.lineWidth = 1.6;
+    paint.shadowColor = "rgba(240,169,59,.55)";
+    paint.shadowBlur = 6;
+    paint.beginPath();
+    for(let i = 0; i < waveformSamples.length; i++){
+      const x = i / waveformSamples.length * width;
+      const y = waveformHeight/2 + ((waveformSamples[i] - 128)/128) * (waveformHeight/2 - 6);
+      i ? paint.lineTo(x, y) : paint.moveTo(x, y);
+    }
+    paint.stroke();
+    paint.shadowBlur = 0;
+
+    // spectrum, spaced roughly logarithmically so low notes aren't crushed left
+    scopeAnalyserNode.getByteFrequencyData(spectrumLevels);
+    const barCount = 96;
+    const spectrumHeight = height - spectrumTop;
+    const barWidth = width / barCount;
+
+    for(let barIndex = 0; barIndex < barCount; barIndex++){
+      const bin = Math.floor(Math.pow(barIndex/barCount, 1.9) * spectrumLevels.length * 0.7);
+      const level = spectrumLevels[bin] / 255;
+      const barHeight = Math.max(1, level * spectrumHeight);
+      paint.fillStyle = `rgba(240,169,59,${0.25 + level*0.7})`;
+      paint.fillRect(barIndex * barWidth, height - barHeight, barWidth - 1.5, barHeight);
+    }
+
+    paint.fillStyle = "rgba(240,169,59,.30)";
+    paint.fillRect(0, spectrumTop - 5, width, 1);
+  }
+
+  drawOneFrame();
+}
+
+// Keep the state lamp honest if the browser suspends us behind our back.
+setInterval(() => { if(audioContext) refreshReadouts(); }, 1000);
+</script>
+</body>
+</html>
