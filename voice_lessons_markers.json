@@ -1656,6 +1656,432 @@
           "favorite": false
         }
       ]
+    },
+    {
+      "file": "Voice 260820_153306_voice_lesson_bonnie",
+      "duration": "58:00",
+      "source_file": "Voice 260820_153306_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20260820_153306_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice260820.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "start",
+          "tags": [],
+          "seconds": 0.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:01:16.000000",
+          "note": "trust - what does the body remember",
+          "tags": [],
+          "seconds": 76.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:01:48.000000",
+          "note": "no negatives, voice feels good",
+          "tags": [],
+          "seconds": 108.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:02:33.000000",
+          "note": "EC assessment of self",
+          "tags": [],
+          "seconds": 153.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:05:34.000000",
+          "note": "BZ suggestion to throw new song 'into the mix'",
+          "tags": [],
+          "seconds": 334.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:07:34.000000",
+          "note": "ex: 1358531 Lip trill",
+          "tags": [],
+          "seconds": 454.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:07:44.000000",
+          "note": "ti: bleed from note to note",
+          "tags": [],
+          "seconds": 464.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:09:49.000000",
+          "note": "lu: woow, woow, woow throw sound around",
+          "tags": [],
+          "seconds": 589.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:09:57.000000",
+          "note": "ex: Woow 8888531 like a siren",
+          "tags": [],
+          "seconds": 597.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:10:27.000000",
+          "note": "ti: Throw the sound away",
+          "tags": [],
+          "seconds": 627.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:11:04.000000",
+          "note": "ti: Sadder and dopier",
+          "tags": [],
+          "seconds": 664.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:11:42.000000",
+          "note": "ex: wha, wha, wha, 1358888531",
+          "tags": [],
+          "seconds": 702.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:12:01.000000",
+          "note": "ti: at top expand into a yawn",
+          "tags": [],
+          "seconds": 721.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:13:35.000000",
+          "note": "ex: Nuh, Nuh 1358888531 love on the n",
+          "tags": [],
+          "seconds": 815.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:14:20.000000",
+          "note": "ti: cry instead of trying to place it",
+          "tags": [],
+          "seconds": 860.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:14:49.000000",
+          "note": "ex: Nuh 851358531 throw sound away",
+          "tags": [],
+          "seconds": 889.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:15:37.000000",
+          "note": "ti: cry on 'n'",
+          "tags": [],
+          "seconds": 937.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:16:32.000000",
+          "note": "ex: Gee, Gee, Gee Long Scale - like Geek, dumb and pouty",
+          "tags": [],
+          "seconds": 992.0,
+          "favorite": false
+        },
+        {
+          "id": "M19",
+          "time": "0:17:42.000000",
+          "note": "ti: watch bottom, low larynx sound",
+          "tags": [],
+          "seconds": 1062.0,
+          "favorite": false
+        },
+        {
+          "id": "M20",
+          "time": "0:18:39.000000",
+          "note": "ex: 8888531 Ghee, pouty at top",
+          "tags": [],
+          "seconds": 1119.0,
+          "favorite": false
+        },
+        {
+          "id": "M21",
+          "time": "0:19:23.000000",
+          "note": "ti: BZ says be hooty and throw it away",
+          "tags": [],
+          "seconds": 1163.0,
+          "favorite": false
+        },
+        {
+          "id": "M22",
+          "time": "0:20:01.000000",
+          "note": "ex: Gih long scale",
+          "tags": [],
+          "seconds": 1201.0,
+          "favorite": false
+        },
+        {
+          "id": "M23",
+          "time": "0:23:23.000000",
+          "note": "ex: (Bib) 135888 (Bah) 8888531",
+          "tags": [],
+          "seconds": 1403.0,
+          "favorite": false
+        },
+        {
+          "id": "M24",
+          "time": "0:25:26.000000",
+          "note": "ex: wi and wah 12588888531",
+          "tags": [],
+          "seconds": 1526.0,
+          "favorite": false
+        },
+        {
+          "id": "M25",
+          "time": "0:27:51.000000",
+          "note": "ti: continent should not throw you off BZ method explain",
+          "tags": [],
+          "seconds": 1671.0,
+          "favorite": false
+        },
+        {
+          "id": "M26",
+          "time": "0:31:22.000000",
+          "note": "Balancing airflow",
+          "tags": [],
+          "seconds": 1882.0,
+          "favorite": false
+        },
+        {
+          "id": "M27",
+          "time": "0:32:14.000000",
+          "note": "ex: wah long scale",
+          "tags": [],
+          "seconds": 1934.0,
+          "favorite": false
+        },
+        {
+          "id": "M28",
+          "time": "0:33:05.000000",
+          "note": "ti: speak bottom notes, don't place",
+          "tags": [],
+          "seconds": 1985.0,
+          "favorite": false
+        },
+        {
+          "id": "M29",
+          "time": "0:33:52.000000",
+          "note": "ti: yawn at top ' hootie yawn'",
+          "tags": [],
+          "seconds": 2032.0,
+          "favorite": false
+        },
+        {
+          "id": "M30",
+          "time": "0:34:25.000000",
+          "note": "ex: woo long scale throw it away don't 'sing'",
+          "tags": [],
+          "seconds": 2065.0,
+          "favorite": false
+        },
+        {
+          "id": "M31",
+          "time": "0:35:15.000000",
+          "note": "ti: draw figure eight or infinity sign to stay loose",
+          "tags": [],
+          "seconds": 2115.0,
+          "favorite": false
+        },
+        {
+          "id": "M32",
+          "time": "0:35:49.000000",
+          "note": "ex: foo long scale",
+          "tags": [],
+          "seconds": 2149.0,
+          "favorite": false
+        },
+        {
+          "id": "M33",
+          "time": "0:36:38.000000",
+          "note": "I'm working too hard",
+          "tags": [],
+          "seconds": 2198.0,
+          "favorite": false
+        },
+        {
+          "id": "M34",
+          "time": "0:37:52.000000",
+          "note": "EC assessment of self and BZ story to relate",
+          "tags": [],
+          "seconds": 2272.0,
+          "favorite": false
+        },
+        {
+          "id": "M35",
+          "time": "0:39:46.000000",
+          "note": "Somewhere only we know",
+          "tags": [],
+          "seconds": 2386.0,
+          "favorite": false
+        },
+        {
+          "id": "M36",
+          "time": "0:40:12.000000",
+          "note": "Hooked on a feeling",
+          "tags": [],
+          "seconds": 2412.0,
+          "favorite": false
+        },
+        {
+          "id": "M37",
+          "time": "0:41:02.000000",
+          "note": "BZ roadmap 'when in doubt do less'",
+          "tags": [],
+          "seconds": 2462.0,
+          "favorite": false
+        },
+        {
+          "id": "M38",
+          "time": "0:44:21.000000",
+          "note": "BZ assessment of my performance",
+          "tags": [],
+          "seconds": 2661.0,
+          "favorite": false
+        },
+        {
+          "id": "M39",
+          "time": "0:45:08.000000",
+          "note": "ex: Oh simp, oh simp, oh simple thing walk up",
+          "tags": [],
+          "seconds": 2708.0,
+          "favorite": false
+        },
+        {
+          "id": "M40",
+          "time": "0:45:27.000000",
+          "note": "ti: also use pout",
+          "tags": [],
+          "seconds": 2727.0,
+          "favorite": false
+        },
+        {
+          "id": "M41",
+          "time": "0:45:55.000000",
+          "note": "ex: wiw, wiw",
+          "tags": [],
+          "seconds": 2755.0,
+          "favorite": false
+        },
+        {
+          "id": "M42",
+          "time": "0:46:55.000000",
+          "note": "ex: mmm pout behind it",
+          "tags": [],
+          "seconds": 2815.0,
+          "favorite": false
+        },
+        {
+          "id": "M43",
+          "time": "0:46:57.000000",
+          "note": "Listen to this for future, my activation tendency",
+          "tags": [],
+          "seconds": 2817.0,
+          "favorite": false
+        },
+        {
+          "id": "M44",
+          "time": "0:47:23.000000",
+          "note": "EC good moment",
+          "tags": [],
+          "seconds": 2843.0,
+          "favorite": false
+        },
+        {
+          "id": "M45",
+          "time": "0:47:45.000000",
+          "note": "Relying on sad quality BZ good explain",
+          "tags": [],
+          "seconds": 2865.0,
+          "favorite": false
+        },
+        {
+          "id": "M46",
+          "time": "0:48:57.000000",
+          "note": "BZ what happens if you do less",
+          "tags": [],
+          "seconds": 2937.0,
+          "favorite": false
+        },
+        {
+          "id": "M47",
+          "time": "0:50:22.000000",
+          "note": "Sat by the river, hootie lighter, throw it away",
+          "tags": [],
+          "seconds": 3022.0,
+          "favorite": false
+        },
+        {
+          "id": "M48",
+          "time": "0:51:07.000000",
+          "note": "BZ suggestion. Thing to theng",
+          "tags": [],
+          "seconds": 3067.0,
+          "favorite": false
+        },
+        {
+          "id": "M49",
+          "time": "0:53:52.000000",
+          "note": "Eh, eh, eh. Not thing, theng",
+          "tags": [],
+          "seconds": 3232.0,
+          "favorite": false
+        },
+        {
+          "id": "M50",
+          "time": "0:54:01.000000",
+          "note": "Me asking BZ how she is demonstrating inefficiency",
+          "tags": [],
+          "seconds": 3241.0,
+          "favorite": false
+        },
+        {
+          "id": "M51",
+          "time": "0:54:19.000000",
+          "note": "BZ answer so overthick that it's thinning me",
+          "tags": [],
+          "seconds": 3259.0,
+          "favorite": false
+        },
+        {
+          "id": "M52",
+          "time": "0:57:36.000000",
+          "note": "End",
+          "tags": [],
+          "seconds": 3456.0,
+          "favorite": false
+        }
+      ]
     }
   ]
 }
