@@ -2412,6 +2412,1521 @@
           "favorite": false
         }
       ]
+    },
+    {
+      "file": "Voice 260910_115634_voice_lesson_bonnie",
+      "duration": "36:21",
+      "source_file": "Voice 260910_115634_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20260910_115634_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice260910.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Start",
+          "tags": [],
+          "seconds": 0.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:00:15.000000",
+          "note": "How Im feeling",
+          "tags": [],
+          "seconds": 15.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:01:34.000000",
+          "note": "BZ nasal glides great equilizers",
+          "tags": [],
+          "seconds": 94.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:03:24.000000",
+          "note": "EC projection feels unsafe",
+          "tags": [],
+          "seconds": 204.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:04:23.000000",
+          "note": "EC I purposely get in my way so I don't want my voice heard",
+          "tags": [],
+          "seconds": 263.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:09:30.000000",
+          "note": "BZ thinks she is a pingy singer",
+          "tags": [],
+          "seconds": 570.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:10:45.000000",
+          "note": "EC introducing 'The Scientist' by Coldplay",
+          "tags": [],
+          "seconds": 645.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:11:49.000000",
+          "note": "ex: Mmm 12345 (sustain) Mum 54321",
+          "tags": [],
+          "seconds": 709.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:12:25.000000",
+          "note": "ti: don't put anything fancy",
+          "tags": [],
+          "seconds": 745.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:17:50.000000",
+          "note": "ex: straw work 1358 sus 531",
+          "tags": [],
+          "seconds": 1070.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:18:22.000000",
+          "note": "ti: muddy and slide between pitches",
+          "tags": [],
+          "seconds": 1102.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:19:36.000000",
+          "note": "ti: puff cheeks up",
+          "tags": [],
+          "seconds": 1176.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:20:11.000000",
+          "note": "ti: BZ comment. There's your mix",
+          "tags": [],
+          "seconds": 1211.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:23:23.000000",
+          "note": "ti: BZ discovery",
+          "tags": [],
+          "seconds": 1403.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:26:18.000000",
+          "note": "Ec first sing of 'The Scientist'",
+          "tags": [],
+          "seconds": 1578.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:28:57.000000",
+          "note": "End of song",
+          "tags": [],
+          "seconds": 1737.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:28:59.000000",
+          "note": "'Nobody said' we just need a whimper",
+          "tags": [],
+          "seconds": 1739.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:29:11.000000",
+          "note": "Less pout, more wimper",
+          "tags": [],
+          "seconds": 1751.0,
+          "favorite": false
+        },
+        {
+          "id": "M19",
+          "time": "0:29:25.000000",
+          "note": "lu: channel inner sad dog",
+          "tags": [],
+          "seconds": 1765.0,
+          "favorite": false
+        },
+        {
+          "id": "M20",
+          "time": "0:30:55.000000",
+          "note": "lu: pout bottom lip and furl your brow",
+          "tags": [],
+          "seconds": 1855.0,
+          "favorite": false
+        },
+        {
+          "id": "M21",
+          "time": "0:31:14.000000",
+          "note": "ti: let the creak in",
+          "tags": [],
+          "seconds": 1874.0,
+          "favorite": false
+        },
+        {
+          "id": "M22",
+          "time": "0:31:32.000000",
+          "note": "EC had projection",
+          "tags": [],
+          "seconds": 1892.0,
+          "favorite": false
+        },
+        {
+          "id": "M23",
+          "time": "0:33:21.000000",
+          "note": "End remind BZ to explore first passage",
+          "tags": [],
+          "seconds": 2001.0,
+          "favorite": false
+        }
+      ]
+    },
+    {
+      "file": "Voice 260917_120610_voice_lesson_bonnie",
+      "duration": "29:30",
+      "source_file": "Voice 260917_120610_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20260917_120610_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice260917.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Start",
+          "tags": [],
+          "seconds": 0.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:03:06.000000",
+          "note": "lu: assessment on 5 tone Ah",
+          "tags": [],
+          "seconds": 186.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:04:28.000000",
+          "note": "ex: assessment on 5 tone scale 123454321 Ah",
+          "tags": [],
+          "seconds": 268.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:07:05.000000",
+          "note": "BZ hearing (2) things",
+          "tags": [],
+          "seconds": 425.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:07:37.000000",
+          "note": "Tremor detected",
+          "tags": [],
+          "seconds": 457.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:08:20.000000",
+          "note": "lu: diagnostic",
+          "tags": [],
+          "seconds": 500.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:08:27.000000",
+          "note": "ex: Ah, Ah, Ah braty straight tone no vibrato",
+          "tags": [],
+          "seconds": 507.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:09:53.000000",
+          "note": "'Bratty' successful",
+          "tags": [],
+          "seconds": 593.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:11:06.000000",
+          "note": "Story about BZ female student",
+          "tags": [],
+          "seconds": 666.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:12:21.000000",
+          "note": "What it felt like for me",
+          "tags": [],
+          "seconds": 741.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:13:49.000000",
+          "note": "ex: Peeling it back, put creak. Least amnt of effort to train",
+          "tags": [],
+          "seconds": 829.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:14:44.000000",
+          "note": "Creak demo",
+          "tags": [],
+          "seconds": 884.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:15:07.000000",
+          "note": "Progress of v fold adduction from fry to full sound",
+          "tags": [],
+          "seconds": 907.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:16:26.000000",
+          "note": "More creak demo",
+          "tags": [],
+          "seconds": 986.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:16:53.000000",
+          "note": "Be the creaky door",
+          "tags": [],
+          "seconds": 1013.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:17:19.000000",
+          "note": "Try on 'E'. Go bratty.",
+          "tags": [],
+          "seconds": 1039.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:18:50.000000",
+          "note": "Think about Nasality coming from nasel area not throat",
+          "tags": [],
+          "seconds": 1130.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:19:20.000000",
+          "note": "BZ needs creak to be there",
+          "tags": [],
+          "seconds": 1160.0,
+          "favorite": false
+        },
+        {
+          "id": "M19",
+          "time": "0:19:44.000000",
+          "note": "Explain about fold training",
+          "tags": [],
+          "seconds": 1184.0,
+          "favorite": false
+        },
+        {
+          "id": "M20",
+          "time": "0:19:59.000000",
+          "note": "From here start exercise",
+          "tags": [],
+          "seconds": 1199.0,
+          "favorite": false
+        },
+        {
+          "id": "M21",
+          "time": "0:22:31.000000",
+          "note": "ex: 4321111 Na descending bratty",
+          "tags": [],
+          "seconds": 1351.0,
+          "favorite": false
+        },
+        {
+          "id": "M22",
+          "time": "0:22:46.000000",
+          "note": "Tweak",
+          "tags": [],
+          "seconds": 1366.0,
+          "favorite": false
+        },
+        {
+          "id": "M23",
+          "time": "0:23:25.000000",
+          "note": "Unhinged jaw",
+          "tags": [],
+          "seconds": 1405.0,
+          "favorite": false
+        },
+        {
+          "id": "M24",
+          "time": "0:23:39.000000",
+          "note": "Think of whining, more rather than trying to sing",
+          "tags": [],
+          "seconds": 1419.0,
+          "favorite": false
+        },
+        {
+          "id": "M25",
+          "time": "0:24:23.000000",
+          "note": "Transitioning to Neh to get back to neutral",
+          "tags": [],
+          "seconds": 1463.0,
+          "favorite": false
+        },
+        {
+          "id": "M26",
+          "time": "0:28:55.000000",
+          "note": "End",
+          "tags": [],
+          "seconds": 1735.0,
+          "favorite": false
+        }
+      ]
+    },
+    {
+      "file": "Voice 260924_115928_voice_lesson_bonnie",
+      "duration": "37:00",
+      "source_file": "Voice 260924_115928_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20260924_115928_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice260924.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:32.000000",
+          "note": "Start",
+          "tags": [],
+          "seconds": 32.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:01:06.000000",
+          "note": "Admitting the BS ornament vibrato I was adding",
+          "tags": [],
+          "seconds": 66.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:02:30.000000",
+          "note": "How the work feels from day to day",
+          "tags": [],
+          "seconds": 150.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:02:38.000000",
+          "note": "Feeling like your sound is more dense",
+          "tags": [],
+          "seconds": 158.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:02:55.000000",
+          "note": "BZ airflow was culprit and tremor in sound",
+          "tags": [],
+          "seconds": 175.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:03:35.000000",
+          "note": "Voice feeling like a six or seven",
+          "tags": [],
+          "seconds": 215.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:03:44.000000",
+          "note": "ex: chewing on mmm 12321",
+          "tags": [],
+          "seconds": 224.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:04:02.000000",
+          "note": "ti: Go a little bit nasal",
+          "tags": [],
+          "seconds": 242.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:05:08.000000",
+          "note": "BZ - Reminder to keep straight sound - sheet of ice",
+          "tags": [],
+          "seconds": 308.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:05:43.000000",
+          "note": "Use pauses more effectively",
+          "tags": [],
+          "seconds": 343.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:06:37.000000",
+          "note": "BZ Hearing and exasperation of air",
+          "tags": [],
+          "seconds": 397.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:06:53.000000",
+          "note": "ex: open to an E creaky",
+          "tags": [],
+          "seconds": 413.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:07:11.000000",
+          "note": "Bonnie does not want to hear air being lost",
+          "tags": [],
+          "seconds": 431.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:07:26.000000",
+          "note": "Creaky E BZ demonstration",
+          "tags": [],
+          "seconds": 446.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:10:11.000000",
+          "note": "BZ creaky demo",
+          "tags": [],
+          "seconds": 611.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:10:39.000000",
+          "note": "BZ creaky demo 2 bratty",
+          "tags": [],
+          "seconds": 639.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:11:37.000000",
+          "note": "Change to creaky Ae",
+          "tags": [],
+          "seconds": 697.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:11:53.000000",
+          "note": "BZ demo",
+          "tags": [],
+          "seconds": 713.0,
+          "favorite": false
+        },
+        {
+          "id": "M19",
+          "time": "0:13:30.000000",
+          "note": "BZ explain 'body is fighting'",
+          "tags": [],
+          "seconds": 810.0,
+          "favorite": false
+        },
+        {
+          "id": "M20",
+          "time": "0:14:19.000000",
+          "note": "ex: 8888531111 Nay",
+          "tags": [],
+          "seconds": 859.0,
+          "favorite": false
+        },
+        {
+          "id": "M21",
+          "time": "0:15:29.000000",
+          "note": "ex: 1358531111 Nay",
+          "tags": [],
+          "seconds": 929.0,
+          "favorite": false
+        },
+        {
+          "id": "M22",
+          "time": "0:15:56.000000",
+          "note": "ti: lean into bottom",
+          "tags": [],
+          "seconds": 956.0,
+          "favorite": false
+        },
+        {
+          "id": "M23",
+          "time": "0:16:44.000000",
+          "note": "ex: Na 1258531111",
+          "tags": [],
+          "seconds": 1004.0,
+          "favorite": false
+        },
+        {
+          "id": "M24",
+          "time": "0:17:12.000000",
+          "note": "ti: don't try to sing it. Think note in speaking voice",
+          "tags": [],
+          "seconds": 1032.0,
+          "favorite": false
+        },
+        {
+          "id": "M25",
+          "time": "0:17:50.000000",
+          "note": "ti: your mad at someone",
+          "tags": [],
+          "seconds": 1070.0,
+          "favorite": false
+        },
+        {
+          "id": "M26",
+          "time": "0:18:52.000000",
+          "note": "ti: increase brattiness",
+          "tags": [],
+          "seconds": 1132.0,
+          "favorite": false
+        },
+        {
+          "id": "M27",
+          "time": "0:19:21.000000",
+          "note": "ti: BZ demo pull vol back, increase bratty",
+          "tags": [],
+          "seconds": 1161.0,
+          "favorite": false
+        },
+        {
+          "id": "M28",
+          "time": "0:19:31.000000",
+          "note": "ti: EC good attempt",
+          "tags": [],
+          "seconds": 1171.0,
+          "favorite": false
+        },
+        {
+          "id": "M29",
+          "time": "0:19:36.000000",
+          "note": "ti: BZ asked how I felt and discussion",
+          "tags": [],
+          "seconds": 1176.0,
+          "favorite": false
+        },
+        {
+          "id": "M30",
+          "time": "0:20:26.000000",
+          "note": "ti: the air was HELPING vs. coming through the adduction",
+          "tags": [],
+          "seconds": 1226.0,
+          "favorite": false
+        },
+        {
+          "id": "M31",
+          "time": "0:20:55.000000",
+          "note": "ti: BZ demo",
+          "tags": [],
+          "seconds": 1255.0,
+          "favorite": false
+        },
+        {
+          "id": "M32",
+          "time": "0:21:48.000000",
+          "note": "Songwork Section - the scientist",
+          "tags": [],
+          "seconds": 1308.0,
+          "favorite": false
+        },
+        {
+          "id": "M33",
+          "time": "0:24:16.000000",
+          "note": "Addressing verses",
+          "tags": [],
+          "seconds": 1456.0,
+          "favorite": false
+        },
+        {
+          "id": "M34",
+          "time": "0:24:53.000000",
+          "note": "BZ sound, frequency, calculus explain",
+          "tags": [],
+          "seconds": 1493.0,
+          "favorite": false
+        },
+        {
+          "id": "M35",
+          "time": "0:27:19.000000",
+          "note": "ex: Ah word replace on verse notes",
+          "tags": [],
+          "seconds": 1639.0,
+          "favorite": false
+        },
+        {
+          "id": "M36",
+          "time": "0:27:37.000000",
+          "note": "ex: neh replace on verse notes",
+          "tags": [],
+          "seconds": 1657.0,
+          "favorite": false
+        },
+        {
+          "id": "M37",
+          "time": "0:27:39.000000",
+          "note": "ti: channel yr speaking voice",
+          "tags": [],
+          "seconds": 1659.0,
+          "favorite": false
+        },
+        {
+          "id": "M38",
+          "time": "0:28:45.000000",
+          "note": "ti: speak on pitches",
+          "tags": [],
+          "seconds": 1725.0,
+          "favorite": false
+        },
+        {
+          "id": "M39",
+          "time": "0:29:45.000000",
+          "note": "ti: bz noticed I trusted my chest voice",
+          "tags": [],
+          "seconds": 1785.0,
+          "favorite": false
+        },
+        {
+          "id": "M40",
+          "time": "0:29:51.000000",
+          "note": "Eh, neh, Aa, open vowel with optional glottal",
+          "tags": [],
+          "seconds": 1791.0,
+          "favorite": false
+        },
+        {
+          "id": "M41",
+          "time": "0:31:54.000000",
+          "note": "End",
+          "tags": [],
+          "seconds": 1914.0,
+          "favorite": false
+        }
+      ]
+    },
+    {
+      "file": "Voice 261001_115828_voice_lesson_bonnie",
+      "duration": "1:05:35",
+      "source_file": "Voice 261001_115828_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20261001_115828_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice261001.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Start of lesson and recap of work",
+          "tags": [],
+          "seconds": 0.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:04:20.000000",
+          "note": "End of recap",
+          "tags": [],
+          "seconds": 260.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:04:27.000000",
+          "note": "About methodology",
+          "tags": [],
+          "seconds": 267.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:07:14.000000",
+          "note": "ex: straw warmup 123212321",
+          "tags": [],
+          "seconds": 434.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:07:48.000000",
+          "note": "ti: objective get sound and airflow constant and consistent",
+          "tags": [],
+          "seconds": 468.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:07:54.000000",
+          "note": "ti: movement of pitches does not change that",
+          "tags": [],
+          "seconds": 474.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:08:59.000000",
+          "note": "ti: use the pauses",
+          "tags": [],
+          "seconds": 539.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:09:10.000000",
+          "note": "EC explain about air fall in could be creating challenge",
+          "tags": [],
+          "seconds": 550.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:10:47.000000",
+          "note": "Bracket for breathing",
+          "tags": [],
+          "seconds": 647.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:14:07.000000",
+          "note": "ex: straw 1358531",
+          "tags": [],
+          "seconds": 847.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:14:29.000000",
+          "note": "ti: lean into buzz nothing fancy",
+          "tags": [],
+          "seconds": 869.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:14:33.000000",
+          "note": "ti: EC good attempt",
+          "tags": [],
+          "seconds": 873.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:14:34.000000",
+          "note": "ti: EC strain attempt follows",
+          "tags": [],
+          "seconds": 874.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:14:51.000000",
+          "note": "ti: Go dumber",
+          "tags": [],
+          "seconds": 891.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:15:09.000000",
+          "note": "ti: think sad and cry",
+          "tags": [],
+          "seconds": 909.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:18:40.000000",
+          "note": "ex: woo 1358531",
+          "tags": [],
+          "seconds": 1120.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:19:09.000000",
+          "note": "ti: let jaw go",
+          "tags": [],
+          "seconds": 1149.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:22:01.000000",
+          "note": "Important Discussion",
+          "tags": [],
+          "seconds": 1321.0,
+          "favorite": false
+        },
+        {
+          "id": "M19",
+          "time": "0:29:01.000000",
+          "note": "BZ Whitney Houston",
+          "tags": [],
+          "seconds": 1741.0,
+          "favorite": false
+        },
+        {
+          "id": "M20",
+          "time": "0:29:52.000000",
+          "note": "ex: wah 1358888531",
+          "tags": [],
+          "seconds": 1792.0,
+          "favorite": false
+        },
+        {
+          "id": "M21",
+          "time": "0:30:58.000000",
+          "note": "ex: woo 1358888531",
+          "tags": [],
+          "seconds": 1858.0,
+          "favorite": false
+        },
+        {
+          "id": "M22",
+          "time": "0:32:25.000000",
+          "note": "ex: foo 1358888531",
+          "tags": [],
+          "seconds": 1945.0,
+          "favorite": false
+        },
+        {
+          "id": "M23",
+          "time": "0:34:58.000000",
+          "note": "ex: nu as in nut 8531358531 with a pout",
+          "tags": [],
+          "seconds": 2098.0,
+          "favorite": false
+        },
+        {
+          "id": "M24",
+          "time": "0:36:42.000000",
+          "note": "ti: sprinkle in oh as in no",
+          "tags": [],
+          "seconds": 2202.0,
+          "favorite": false
+        },
+        {
+          "id": "M25",
+          "time": "0:38:43.000000",
+          "note": "Song Mode; 'The Scientist' by Coldplay",
+          "tags": [],
+          "seconds": 2323.0,
+          "favorite": false
+        },
+        {
+          "id": "M26",
+          "time": "0:38:52.000000",
+          "note": "I introduced Dan Callaway",
+          "tags": [],
+          "seconds": 2332.0,
+          "favorite": false
+        },
+        {
+          "id": "M27",
+          "time": "0:39:58.000000",
+          "note": "Song run through to id challenges",
+          "tags": [],
+          "seconds": 2398.0,
+          "favorite": false
+        },
+        {
+          "id": "M28",
+          "time": "0:40:14.000000",
+          "note": "What does the body naturally do",
+          "tags": [],
+          "seconds": 2414.0,
+          "favorite": false
+        },
+        {
+          "id": "M29",
+          "time": "0:40:21.000000",
+          "note": "BZ asked me to stand",
+          "tags": [],
+          "seconds": 2421.0,
+          "favorite": false
+        },
+        {
+          "id": "M30",
+          "time": "0:43:28.000000",
+          "note": "End of song run through",
+          "tags": [],
+          "seconds": 2608.0,
+          "favorite": false
+        },
+        {
+          "id": "M31",
+          "time": "0:43:29.000000",
+          "note": "BZ comments",
+          "tags": [],
+          "seconds": 2609.0,
+          "favorite": false
+        },
+        {
+          "id": "M32",
+          "time": "0:43:34.000000",
+          "note": "Onset to chorus needs to be lighter 'no' in nobody",
+          "tags": [],
+          "seconds": 2614.0,
+          "favorite": false
+        },
+        {
+          "id": "M33",
+          "time": "0:44:08.000000",
+          "note": "BZ provides an example",
+          "tags": [],
+          "seconds": 2648.0,
+          "favorite": false
+        },
+        {
+          "id": "M34",
+          "time": "0:45:29.000000",
+          "note": "ex: woo, woo, woo, woo 8888531",
+          "tags": [],
+          "seconds": 2729.0,
+          "favorite": false
+        },
+        {
+          "id": "M35",
+          "time": "0:47:13.000000",
+          "note": "ex: noo 8888531",
+          "tags": [],
+          "seconds": 2833.0,
+          "favorite": false
+        },
+        {
+          "id": "M36",
+          "time": "0:47:38.000000",
+          "note": "ti: separate teeth",
+          "tags": [],
+          "seconds": 2858.0,
+          "favorite": false
+        },
+        {
+          "id": "M37",
+          "time": "0:47:57.000000",
+          "note": "ti: put a little pout",
+          "tags": [],
+          "seconds": 2877.0,
+          "favorite": false
+        },
+        {
+          "id": "M38",
+          "time": "0:48:16.000000",
+          "note": "ex: no, no, no 8888531 dumb, sad feeling",
+          "tags": [],
+          "seconds": 2896.0,
+          "favorite": false
+        },
+        {
+          "id": "M39",
+          "time": "0:48:25.000000",
+          "note": "ti: let it be free, let it fly, let it feel hooty",
+          "tags": [],
+          "seconds": 2905.0,
+          "favorite": false
+        },
+        {
+          "id": "M40",
+          "time": "0:49:42.000000",
+          "note": "ti: bring it back from an 8,9,10 to a 5 to mold it",
+          "tags": [],
+          "seconds": 2982.0,
+          "favorite": false
+        },
+        {
+          "id": "M41",
+          "time": "0:50:00.000000",
+          "note": "ti: 'still think sad' throw it away",
+          "tags": [],
+          "seconds": 3000.0,
+          "favorite": false
+        },
+        {
+          "id": "M42",
+          "time": "0:50:14.000000",
+          "note": "ex: change it to woh, woh, woh 8888531",
+          "tags": [],
+          "seconds": 3014.0,
+          "favorite": false
+        },
+        {
+          "id": "M43",
+          "time": "0:50:23.000000",
+          "note": "ti: let the top 'go'",
+          "tags": [],
+          "seconds": 3023.0,
+          "favorite": false
+        },
+        {
+          "id": "M44",
+          "time": "0:50:44.000000",
+          "note": "BZ how did that feel",
+          "tags": [],
+          "seconds": 3044.0,
+          "favorite": false
+        },
+        {
+          "id": "M45",
+          "time": "0:51:01.000000",
+          "note": "BZ the way vfolds are adducting are giving us sound we want",
+          "tags": [],
+          "seconds": 3061.0,
+          "favorite": false
+        },
+        {
+          "id": "M46",
+          "time": "0:51:03.000000",
+          "note": "BZ in some we have a larynx that is fighting us and raising",
+          "tags": [],
+          "seconds": 3063.0,
+          "favorite": false
+        },
+        {
+          "id": "M47",
+          "time": "0:51:27.000000",
+          "note": "ex: from song chorus woh, woh etc",
+          "tags": [],
+          "seconds": 3087.0,
+          "favorite": false
+        },
+        {
+          "id": "M48",
+          "time": "0:51:55.000000",
+          "note": "ti: throw it around w yawnlike space",
+          "tags": [],
+          "seconds": 3115.0,
+          "favorite": false
+        },
+        {
+          "id": "M49",
+          "time": "0:52:51.000000",
+          "note": "ex: adding the words",
+          "tags": [],
+          "seconds": 3171.0,
+          "favorite": false
+        },
+        {
+          "id": "M50",
+          "time": "0:53:00.000000",
+          "note": "ti: make 'said' dumb 'eh'",
+          "tags": [],
+          "seconds": 3180.0,
+          "favorite": false
+        },
+        {
+          "id": "M51",
+          "time": "0:53:26.000000",
+          "note": "EC thoughts, reflection and further discussion",
+          "tags": [],
+          "seconds": 3206.0,
+          "favorite": false
+        },
+        {
+          "id": "M52",
+          "time": "0:55:20.000000",
+          "note": "Discussion about the past exercise progression",
+          "tags": [],
+          "seconds": 3320.0,
+          "favorite": false
+        },
+        {
+          "id": "M53",
+          "time": "0:56:30.000000",
+          "note": "BZ said that I'm a consistent student",
+          "tags": [],
+          "seconds": 3390.0,
+          "favorite": false
+        },
+        {
+          "id": "M54",
+          "time": "0:56:52.000000",
+          "note": "ex: foo on 'Nobody said...'",
+          "tags": [],
+          "seconds": 3412.0,
+          "favorite": false
+        },
+        {
+          "id": "M55",
+          "time": "0:57:53.000000",
+          "note": "Woo as Wound and woa as in Wood are favorable",
+          "tags": [],
+          "seconds": 3473.0,
+          "favorite": false
+        },
+        {
+          "id": "M56",
+          "time": "0:58:20.000000",
+          "note": "BZ talk sing suggestion to deliver less effort. Level 5",
+          "tags": [],
+          "seconds": 3500.0,
+          "favorite": false
+        },
+        {
+          "id": "M57",
+          "time": "0:59:26.000000",
+          "note": "BZ comment so much better",
+          "tags": [],
+          "seconds": 3566.0,
+          "favorite": false
+        },
+        {
+          "id": "M58",
+          "time": "0:59:33.000000",
+          "note": "I'm a tri-hard",
+          "tags": [],
+          "seconds": 3573.0,
+          "favorite": false
+        },
+        {
+          "id": "M59",
+          "time": "0:59:55.000000",
+          "note": "BZ add some cry to hit the note and stay in tune",
+          "tags": [],
+          "seconds": 3595.0,
+          "favorite": false
+        },
+        {
+          "id": "M60",
+          "time": "1:00:31.000000",
+          "note": "EC final attempt",
+          "tags": [],
+          "seconds": 3631.0,
+          "favorite": false
+        },
+        {
+          "id": "M61",
+          "time": "1:01:06.000000",
+          "note": "BZ don't go to extreme effort",
+          "tags": [],
+          "seconds": 3666.0,
+          "favorite": false
+        },
+        {
+          "id": "M62",
+          "time": "1:01:22.000000",
+          "note": "Dan Callaway and email post about listening to yourself",
+          "tags": [],
+          "seconds": 3682.0,
+          "favorite": false
+        },
+        {
+          "id": "M63",
+          "time": "1:03:41.000000",
+          "note": "End",
+          "tags": [],
+          "seconds": 3821.0,
+          "favorite": false
+        }
+      ]
+    },
+    {
+      "file": "Voice 261008_120119_voice_lesson_bonnie",
+      "duration": "55:02",
+      "source_file": "Voice 261008_120119_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20261008_120119_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice261008.csv",
+      "note": "Combined from two recordings; part 2 offset by 44:04",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:07.000000",
+          "note": "Start",
+          "tags": [],
+          "seconds": 7.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:00:25.000000",
+          "note": "BZ read article",
+          "tags": [],
+          "seconds": 25.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:02:31.000000",
+          "note": "Explain I hit high notes. Waiting for girl and Peace of mind",
+          "tags": [],
+          "seconds": 151.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:03:24.000000",
+          "note": "Pretty singing not serving me",
+          "tags": [],
+          "seconds": 204.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:04:45.000000",
+          "note": "lu: hum chew 12321",
+          "tags": [],
+          "seconds": 285.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:04:51.000000",
+          "note": "ti: connect to the buzz",
+          "tags": [],
+          "seconds": 291.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:05:32.000000",
+          "note": "ex: hum chew 12321",
+          "tags": [],
+          "seconds": 332.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:07:19.000000",
+          "note": "ti: BZ nasal release noticed, too much air",
+          "tags": [],
+          "seconds": 439.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:08:12.000000",
+          "note": "ex: tiny bratty na",
+          "tags": [],
+          "seconds": 492.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:08:16.000000",
+          "note": "ti: BZ demo",
+          "tags": [],
+          "seconds": 496.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:09:03.000000",
+          "note": "ti: focus on jaw",
+          "tags": [],
+          "seconds": 543.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:10:54.000000",
+          "note": "ti: BZ demo of bratty",
+          "tags": [],
+          "seconds": 654.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:12:08.000000",
+          "note": "ex: na 1358888531",
+          "tags": [],
+          "seconds": 728.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:13:20.000000",
+          "note": "ti: let jaw continue to flap",
+          "tags": [],
+          "seconds": 800.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:14:41.000000",
+          "note": "ex: hey you na, na, ba, na 888531",
+          "tags": [],
+          "seconds": 881.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:15:29.000000",
+          "note": "ti: add layer of relaxed jaw and face",
+          "tags": [],
+          "seconds": 929.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:16:31.000000",
+          "note": "ti: throw away first two",
+          "tags": [],
+          "seconds": 991.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:17:36.000000",
+          "note": "ti: more bratty",
+          "tags": [],
+          "seconds": 1056.0,
+          "favorite": false
+        },
+        {
+          "id": "M19",
+          "time": "0:20:32.000000",
+          "note": "Discussion about being at a '10' with everything",
+          "tags": [],
+          "seconds": 1232.0,
+          "favorite": false
+        },
+        {
+          "id": "M20",
+          "time": "0:31:27.000000",
+          "note": "ex: mum long scale",
+          "tags": [],
+          "seconds": 1887.0,
+          "favorite": false
+        },
+        {
+          "id": "M21",
+          "time": "0:32:44.000000",
+          "note": "ti: tremor being noticed again",
+          "tags": [],
+          "seconds": 1964.0,
+          "favorite": false
+        },
+        {
+          "id": "M22",
+          "time": "0:36:07.000000",
+          "note": "ex: mum 1358888531",
+          "tags": [],
+          "seconds": 2167.0,
+          "favorite": false
+        },
+        {
+          "id": "M23",
+          "time": "0:36:31.000000",
+          "note": "ti: get sadder",
+          "tags": [],
+          "seconds": 2191.0,
+          "favorite": false
+        },
+        {
+          "id": "M24",
+          "time": "0:36:48.000000",
+          "note": "ti: pouty or dumb to create resistance",
+          "tags": [],
+          "seconds": 2208.0,
+          "favorite": false
+        },
+        {
+          "id": "M25",
+          "time": "0:44:04.000000",
+          "note": "ex: neh, neh, neh",
+          "tags": [],
+          "seconds": 2644.0,
+          "favorite": false
+        },
+        {
+          "id": "M26",
+          "time": "0:44:40.000000",
+          "note": "ti: go for creak to stay nasal",
+          "tags": [],
+          "seconds": 2680.0,
+          "favorite": false
+        },
+        {
+          "id": "M27",
+          "time": "0:45:30.000000",
+          "note": "ti: go nasty",
+          "tags": [],
+          "seconds": 2730.0,
+          "favorite": false
+        },
+        {
+          "id": "M28",
+          "time": "0:47:49.000000",
+          "note": "ex: 12321 he",
+          "tags": [],
+          "seconds": 2869.0,
+          "favorite": false
+        },
+        {
+          "id": "M29",
+          "time": "0:48:40.000000",
+          "note": "ex: we, we, we 12321",
+          "tags": [],
+          "seconds": 2920.0,
+          "favorite": false
+        },
+        {
+          "id": "M30",
+          "time": "0:49:13.000000",
+          "note": "ti: find the bratty",
+          "tags": [],
+          "seconds": 2953.0,
+          "favorite": false
+        }
+      ]
     }
   ]
 }
