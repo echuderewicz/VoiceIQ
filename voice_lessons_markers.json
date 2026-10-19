@@ -3927,6 +3927,320 @@
           "favorite": false
         }
       ]
+    },
+    {
+      "file": "Voice 261015_120636_voice_lesson_bonnie",
+      "duration": "26:56",
+      "source_file": "Voice 261015_120636_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20261015_120636_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice261015.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:06.000000",
+          "note": "Recap",
+          "tags": [],
+          "seconds": 6.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:00:19.000000",
+          "note": "BZ telling me i'm way more consistent",
+          "tags": [],
+          "seconds": 19.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:00:42.000000",
+          "note": "EC going over process leading into discussion about process",
+          "tags": [],
+          "seconds": 42.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:02:14.000000",
+          "note": "EC expressing what he thinks are the challenges",
+          "tags": [],
+          "seconds": 134.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:04:08.000000",
+          "note": "BZ years of practice",
+          "tags": [],
+          "seconds": 248.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:04:32.000000",
+          "note": "Patches where bonnie didn't work on her voice",
+          "tags": [],
+          "seconds": 272.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:05:26.000000",
+          "note": "BZ entered CE courses",
+          "tags": [],
+          "seconds": 326.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:06:46.000000",
+          "note": "Acting and singing",
+          "tags": [],
+          "seconds": 406.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:08:35.000000",
+          "note": "BZ explain of lead role and coming down with a cold",
+          "tags": [],
+          "seconds": 515.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:11:35.000000",
+          "note": "ex: Eeow 54321",
+          "tags": [],
+          "seconds": 695.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:12:08.000000",
+          "note": "ti: if you feel silly, you're doing it right",
+          "tags": [],
+          "seconds": 728.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:12:52.000000",
+          "note": "ti: i start pushing at this point",
+          "tags": [],
+          "seconds": 772.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:13:07.000000",
+          "note": "ti: too much in my opinion",
+          "tags": [],
+          "seconds": 787.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:13:20.000000",
+          "note": "lu: meow like a cat",
+          "tags": [],
+          "seconds": 800.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:13:25.000000",
+          "note": "lu: demonstration meow 12321",
+          "tags": [],
+          "seconds": 805.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:14:06.000000",
+          "note": "lu: being fluid is the objective as well",
+          "tags": [],
+          "seconds": 846.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:14:16.000000",
+          "note": "lu: notice when you start to engage as you move higher",
+          "tags": [],
+          "seconds": 856.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:14:44.000000",
+          "note": "lu: BZ demo",
+          "tags": [],
+          "seconds": 884.0,
+          "favorite": false
+        },
+        {
+          "id": "M19",
+          "time": "0:14:46.000000",
+          "note": "ex: meow 12321",
+          "tags": [],
+          "seconds": 886.0,
+          "favorite": false
+        },
+        {
+          "id": "M20",
+          "time": "0:16:00.000000",
+          "note": "ti: see if you can get more bratty on the top",
+          "tags": [],
+          "seconds": 960.0,
+          "favorite": false
+        },
+        {
+          "id": "M21",
+          "time": "0:16:19.000000",
+          "note": "ti: same level of effort",
+          "tags": [],
+          "seconds": 979.0,
+          "favorite": false
+        },
+        {
+          "id": "M22",
+          "time": "0:17:05.000000",
+          "note": "lu: BZ demo mah 1358888531",
+          "tags": [],
+          "seconds": 1025.0,
+          "favorite": false
+        },
+        {
+          "id": "M23",
+          "time": "0:17:14.000000",
+          "note": "ex: mah 1358888531",
+          "tags": [],
+          "seconds": 1034.0,
+          "favorite": false
+        },
+        {
+          "id": "M24",
+          "time": "0:17:35.000000",
+          "note": "ti: BZ compliment",
+          "tags": [],
+          "seconds": 1055.0,
+          "favorite": false
+        },
+        {
+          "id": "M25",
+          "time": "0:18:14.000000",
+          "note": "ex: nay 1358888531",
+          "tags": [],
+          "seconds": 1094.0,
+          "favorite": false
+        },
+        {
+          "id": "M26",
+          "time": "0:18:20.000000",
+          "note": "ti: sing between goalposts",
+          "tags": [],
+          "seconds": 1100.0,
+          "favorite": false
+        },
+        {
+          "id": "M27",
+          "time": "0:19:11.000000",
+          "note": "ti: when you get to the top scrunch, your nose",
+          "tags": [],
+          "seconds": 1151.0,
+          "favorite": false
+        },
+        {
+          "id": "M28",
+          "time": "0:20:06.000000",
+          "note": "ex: neh 1358888531",
+          "tags": [],
+          "seconds": 1206.0,
+          "favorite": false
+        },
+        {
+          "id": "M29",
+          "time": "0:21:08.000000",
+          "note": "ex: nuh 1358888531",
+          "tags": [],
+          "seconds": 1268.0,
+          "favorite": false
+        },
+        {
+          "id": "M30",
+          "time": "0:21:21.000000",
+          "note": "ti: leave nasty scrunchy at top only rather than all the way",
+          "tags": [],
+          "seconds": 1281.0,
+          "favorite": false
+        },
+        {
+          "id": "M31",
+          "time": "0:22:39.000000",
+          "note": "EC mentions new song readiness",
+          "tags": [],
+          "seconds": 1359.0,
+          "favorite": false
+        },
+        {
+          "id": "M32",
+          "time": "0:23:15.000000",
+          "note": "EC mentions, he might want to do guitar for next recital",
+          "tags": [],
+          "seconds": 1395.0,
+          "favorite": false
+        },
+        {
+          "id": "M33",
+          "time": "0:24:13.000000",
+          "note": "I feel like Im getting better at executing what BZ is adter",
+          "tags": [],
+          "seconds": 1453.0,
+          "favorite": false
+        },
+        {
+          "id": "M34",
+          "time": "0:24:15.000000",
+          "note": "Having better accuracy at creating the vocal sound",
+          "tags": [],
+          "seconds": 1455.0,
+          "favorite": false
+        },
+        {
+          "id": "M35",
+          "time": "0:24:40.000000",
+          "note": "Previous lesson review gameplan - goal to find gems",
+          "tags": [],
+          "seconds": 1480.0,
+          "favorite": false
+        },
+        {
+          "id": "M36",
+          "time": "0:24:56.000000",
+          "note": "BZ Practice Approach Advise 'go through cumulatively",
+          "tags": [],
+          "seconds": 1496.0,
+          "favorite": false
+        },
+        {
+          "id": "M37",
+          "time": "0:25:13.000000",
+          "note": "Find one or two things from each of the previous lessons",
+          "tags": [],
+          "seconds": 1513.0,
+          "favorite": false
+        },
+        {
+          "id": "M38",
+          "time": "0:26:33.000000",
+          "note": "End",
+          "tags": [],
+          "seconds": 1593.0,
+          "favorite": false
+        }
+      ]
     }
   ]
 }
