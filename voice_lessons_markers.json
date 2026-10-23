@@ -4241,6 +4241,336 @@
           "favorite": false
         }
       ]
+    },
+    {
+      "file": "Voice 261022_120348_voice_lesson_bonnie",
+      "duration": "1:02:42",
+      "source_file": "Voice 261022_120348_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20261022_120348_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice261022.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Start",
+          "tags": [],
+          "seconds": 0.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:01:56.000000",
+          "note": "Marillion Easter discussion",
+          "tags": [],
+          "seconds": 116.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:03:31.000000",
+          "note": "Hooked on a feeling discussion and transposing",
+          "tags": [],
+          "seconds": 211.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:05:15.000000",
+          "note": "Discussion regarding warmup and exercise",
+          "tags": [],
+          "seconds": 315.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:05:27.000000",
+          "note": "BZ singing on a cold voice",
+          "tags": [],
+          "seconds": 327.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:08:55.000000",
+          "note": "Marillion Easter mentioned to BZ first time",
+          "tags": [],
+          "seconds": 535.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:11:11.000000",
+          "note": "Discussion on Don't stop believing and Steve Perry",
+          "tags": [],
+          "seconds": 671.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:11:34.000000",
+          "note": "Ego and singing in original key",
+          "tags": [],
+          "seconds": 694.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:12:49.000000",
+          "note": "Mentalities encroaching on voice",
+          "tags": [],
+          "seconds": 769.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:13:34.000000",
+          "note": "More discussion about transposing",
+          "tags": [],
+          "seconds": 814.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:14:24.000000",
+          "note": "Relativity in voice adapting to transposed song",
+          "tags": [],
+          "seconds": 864.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:17:42.000000",
+          "note": "When I talk my voice can get warn out",
+          "tags": [],
+          "seconds": 1062.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:18:55.000000",
+          "note": "I'm trying to sing at a level of a five",
+          "tags": [],
+          "seconds": 1135.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:19:28.000000",
+          "note": "ex: mum 1234321",
+          "tags": [],
+          "seconds": 1168.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:20:49.000000",
+          "note": "ex: Lip trill on long scale",
+          "tags": [],
+          "seconds": 1249.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:21:02.000000",
+          "note": "ti: rock knees side to side",
+          "tags": [],
+          "seconds": 1262.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:22:52.000000",
+          "note": "ti: when you get to the top sadder and dumber",
+          "tags": [],
+          "seconds": 1372.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:24:27.000000",
+          "note": "lu: wall alignment with arms",
+          "tags": [],
+          "seconds": 1467.0,
+          "favorite": false
+        },
+        {
+          "id": "M19",
+          "time": "0:25:38.000000",
+          "note": "ti: make sure not to slouch",
+          "tags": [],
+          "seconds": 1538.0,
+          "favorite": false
+        },
+        {
+          "id": "M20",
+          "time": "0:25:57.000000",
+          "note": "Ya 1358888531 while shoulder blades on wall, arms moving",
+          "tags": [],
+          "seconds": 1557.0,
+          "favorite": false
+        },
+        {
+          "id": "M21",
+          "time": "0:30:09.000000",
+          "note": "Car singing",
+          "tags": [],
+          "seconds": 1809.0,
+          "favorite": false
+        },
+        {
+          "id": "M22",
+          "time": "0:32:44.000000",
+          "note": "ex: gug 13531",
+          "tags": [],
+          "seconds": 1964.0,
+          "favorite": false
+        },
+        {
+          "id": "M23",
+          "time": "0:33:08.000000",
+          "note": "ti: make it like speech",
+          "tags": [],
+          "seconds": 1988.0,
+          "favorite": false
+        },
+        {
+          "id": "M24",
+          "time": "0:34:45.000000",
+          "note": "ex: gug 1358888531",
+          "tags": [],
+          "seconds": 2085.0,
+          "favorite": false
+        },
+        {
+          "id": "M25",
+          "time": "0:35:15.000000",
+          "note": "BZ demo",
+          "tags": [],
+          "seconds": 2115.0,
+          "favorite": false
+        },
+        {
+          "id": "M26",
+          "time": "0:37:06.000000",
+          "note": "ex: 8531358531 Bub",
+          "tags": [],
+          "seconds": 2226.0,
+          "favorite": false
+        },
+        {
+          "id": "M27",
+          "time": "0:38:11.000000",
+          "note": "ti: a little more yawn",
+          "tags": [],
+          "seconds": 2291.0,
+          "favorite": false
+        },
+        {
+          "id": "M28",
+          "time": "0:38:46.000000",
+          "note": "ex: bub 8888531",
+          "tags": [],
+          "seconds": 2326.0,
+          "favorite": false
+        },
+        {
+          "id": "M29",
+          "time": "0:40:19.000000",
+          "note": "ti: About opening the throat",
+          "tags": [],
+          "seconds": 2419.0,
+          "favorite": false
+        },
+        {
+          "id": "M30",
+          "time": "0:40:30.000000",
+          "note": "Discussion on lowering larynx",
+          "tags": [],
+          "seconds": 2430.0,
+          "favorite": false
+        },
+        {
+          "id": "M31",
+          "time": "0:42:05.000000",
+          "note": "BZ first listen to Easter",
+          "tags": [],
+          "seconds": 2525.0,
+          "favorite": false
+        },
+        {
+          "id": "M32",
+          "time": "0:46:28.000000",
+          "note": "Reminds BZ of Mr. Mister",
+          "tags": [],
+          "seconds": 2788.0,
+          "favorite": false
+        },
+        {
+          "id": "M33",
+          "time": "0:47:09.000000",
+          "note": "End of guitar solo and upcoming high sung part",
+          "tags": [],
+          "seconds": 2829.0,
+          "favorite": false
+        },
+        {
+          "id": "M34",
+          "time": "0:48:16.000000",
+          "note": "BZ says I would absolutely be able to do this",
+          "tags": [],
+          "seconds": 2896.0,
+          "favorite": false
+        },
+        {
+          "id": "M35",
+          "time": "0:48:24.000000",
+          "note": "BZ sings a little",
+          "tags": [],
+          "seconds": 2904.0,
+          "favorite": false
+        },
+        {
+          "id": "M36",
+          "time": "0:49:08.000000",
+          "note": "ex: bu on high part of Easter",
+          "tags": [],
+          "seconds": 2948.0,
+          "favorite": false
+        },
+        {
+          "id": "M37",
+          "time": "0:58:31.000000",
+          "note": "BZ continuing education institute for vocal advancement",
+          "tags": [],
+          "seconds": 3511.0,
+          "favorite": false
+        },
+        {
+          "id": "M38",
+          "time": "1:00:49.000000",
+          "note": "Sharon Erickson",
+          "tags": [],
+          "seconds": 3649.0,
+          "favorite": false
+        },
+        {
+          "id": "M39",
+          "time": "1:00:51.000000",
+          "note": "Lecture on the tongue",
+          "tags": [],
+          "seconds": 3651.0,
+          "favorite": false
+        },
+        {
+          "id": "M40",
+          "time": "1:02:32.000000",
+          "note": "End",
+          "tags": [],
+          "seconds": 3752.0,
+          "favorite": false
+        }
+      ]
     }
   ]
 }
