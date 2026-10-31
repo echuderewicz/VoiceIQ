@@ -4571,6 +4571,384 @@
           "favorite": false
         }
       ]
+    },
+    {
+      "file": "Voice 261029_120743_voice_lesson_bonnie",
+      "duration": "30:11",
+      "source_file": "Voice 261029_120743_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20261029_120743_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice261029.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Intro discussion",
+          "tags": [],
+          "seconds": 0.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:03:58.000000",
+          "note": "Tongue trill vs lip trill",
+          "tags": [],
+          "seconds": 238.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:05:57.000000",
+          "note": "ex: Tongue trill 1358 (sustain) 531",
+          "tags": [],
+          "seconds": 357.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:07:49.000000",
+          "note": "ex: Goo 8888531",
+          "tags": [],
+          "seconds": 469.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:09:12.000000",
+          "note": "ex: woo long scale, let jaw move",
+          "tags": [],
+          "seconds": 552.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:10:50.000000",
+          "note": "ti: BZ gives good demo",
+          "tags": [],
+          "seconds": 650.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:12:10.000000",
+          "note": "ex: Tongue hold with Gauze 'Humm Ah'",
+          "tags": [],
+          "seconds": 730.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:12:59.000000",
+          "note": "ti: Expression of Air and open space in our pallet",
+          "tags": [],
+          "seconds": 779.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:14:08.000000",
+          "note": "ti: BZ demo",
+          "tags": [],
+          "seconds": 848.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:14:18.000000",
+          "note": "ti: little more 'h'",
+          "tags": [],
+          "seconds": 858.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:14:40.000000",
+          "note": "EC explain of what I felt",
+          "tags": [],
+          "seconds": 880.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:15:00.000000",
+          "note": "I should have said it felt out of control",
+          "tags": [],
+          "seconds": 900.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:15:05.000000",
+          "note": "EC Lack of control can't possibly feel right",
+          "tags": [],
+          "seconds": 905.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:15:24.000000",
+          "note": "BZ explain",
+          "tags": [],
+          "seconds": 924.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:16:05.000000",
+          "note": "EC I would let BZ know if I was feeling discomfort",
+          "tags": [],
+          "seconds": 965.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:16:56.000000",
+          "note": "BZ Misconception of her students - overexertion",
+          "tags": [],
+          "seconds": 1016.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:17:17.000000",
+          "note": "BZ demo of oversinging",
+          "tags": [],
+          "seconds": 1037.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:17:43.000000",
+          "note": "Alicia K oversinging",
+          "tags": [],
+          "seconds": 1063.0,
+          "favorite": false
+        },
+        {
+          "id": "M19",
+          "time": "0:17:56.000000",
+          "note": "Most pop singers are not an accurate reprn of vocal health",
+          "tags": [],
+          "seconds": 1076.0,
+          "favorite": false
+        },
+        {
+          "id": "M20",
+          "time": "0:18:30.000000",
+          "note": "Country singers most sustainability",
+          "tags": [],
+          "seconds": 1110.0,
+          "favorite": false
+        },
+        {
+          "id": "M21",
+          "time": "0:19:23.000000",
+          "note": "lu: Neutralize my sound, get back to normalcy",
+          "tags": [],
+          "seconds": 1163.0,
+          "favorite": false
+        },
+        {
+          "id": "M22",
+          "time": "0:19:42.000000",
+          "note": "ex: Mum long scale",
+          "tags": [],
+          "seconds": 1182.0,
+          "favorite": false
+        },
+        {
+          "id": "M23",
+          "time": "0:20:28.000000",
+          "note": "ex: Muh long scale",
+          "tags": [],
+          "seconds": 1228.0,
+          "favorite": false
+        },
+        {
+          "id": "M24",
+          "time": "0:20:44.000000",
+          "note": "ti: little sadder to lower larynx",
+          "tags": [],
+          "seconds": 1244.0,
+          "favorite": false
+        },
+        {
+          "id": "M25",
+          "time": "0:21:09.000000",
+          "note": "Easter by Marillion work",
+          "tags": [],
+          "seconds": 1269.0,
+          "favorite": false
+        },
+        {
+          "id": "M26",
+          "time": "0:21:29.000000",
+          "note": "EC challenges my own self assess",
+          "tags": [],
+          "seconds": 1289.0,
+          "favorite": false
+        },
+        {
+          "id": "M27",
+          "time": "0:21:55.000000",
+          "note": "BZ response. Adjust it for my voice",
+          "tags": [],
+          "seconds": 1315.0,
+          "favorite": false
+        },
+        {
+          "id": "M28",
+          "time": "0:23:03.000000",
+          "note": "Song start",
+          "tags": [],
+          "seconds": 1383.0,
+          "favorite": false
+        },
+        {
+          "id": "M29",
+          "time": "0:24:04.000000",
+          "note": "EC run through",
+          "tags": [],
+          "seconds": 1444.0,
+          "favorite": false
+        },
+        {
+          "id": "M30",
+          "time": "0:24:42.000000",
+          "note": "Working it out, addressing what we heard",
+          "tags": [],
+          "seconds": 1482.0,
+          "favorite": false
+        },
+        {
+          "id": "M31",
+          "time": "0:24:47.000000",
+          "note": "ex: pouty buh on end lyric part",
+          "tags": [],
+          "seconds": 1487.0,
+          "favorite": false
+        },
+        {
+          "id": "M32",
+          "time": "0:24:53.000000",
+          "note": "ti: really pout on it",
+          "tags": [],
+          "seconds": 1493.0,
+          "favorite": false
+        },
+        {
+          "id": "M33",
+          "time": "0:25:23.000000",
+          "note": "ti: Translate sensation from doing buh to lyrics the approach",
+          "tags": [],
+          "seconds": 1523.0,
+          "favorite": false
+        },
+        {
+          "id": "M34",
+          "time": "0:25:33.000000",
+          "note": "ti: EC attempt",
+          "tags": [],
+          "seconds": 1533.0,
+          "favorite": false
+        },
+        {
+          "id": "M35",
+          "time": "0:25:56.000000",
+          "note": "Exercise yoga ball bounce",
+          "tags": [],
+          "seconds": 1556.0,
+          "favorite": false
+        },
+        {
+          "id": "M36",
+          "time": "0:26:22.000000",
+          "note": "ex: Figure eight with hips, standing and lyrics",
+          "tags": [],
+          "seconds": 1582.0,
+          "favorite": false
+        },
+        {
+          "id": "M37",
+          "time": "0:26:55.000000",
+          "note": "ti: EC something nice happened on 'stone'",
+          "tags": [],
+          "seconds": 1615.0,
+          "favorite": false
+        },
+        {
+          "id": "M38",
+          "time": "0:27:01.000000",
+          "note": "ti: BZ demo instruction to put cry",
+          "tags": [],
+          "seconds": 1621.0,
+          "favorite": false
+        },
+        {
+          "id": "M39",
+          "time": "0:27:19.000000",
+          "note": "ti: little bit of 'b' vs 'p'",
+          "tags": [],
+          "seconds": 1639.0,
+          "favorite": false
+        },
+        {
+          "id": "M40",
+          "time": "0:27:27.000000",
+          "note": "ti: buh first then warmup",
+          "tags": [],
+          "seconds": 1647.0,
+          "favorite": false
+        },
+        {
+          "id": "M41",
+          "time": "0:27:48.000000",
+          "note": "ti: like the cry you bled out while alert a cyclist - lookout",
+          "tags": [],
+          "seconds": 1668.0,
+          "favorite": false
+        },
+        {
+          "id": "M42",
+          "time": "0:28:08.000000",
+          "note": "ti: EC good attempt BZ acknowledge",
+          "tags": [],
+          "seconds": 1688.0,
+          "favorite": false
+        },
+        {
+          "id": "M43",
+          "time": "0:28:11.000000",
+          "note": "ti: BZ demo of sensation we need to find",
+          "tags": [],
+          "seconds": 1691.0,
+          "favorite": false
+        },
+        {
+          "id": "M44",
+          "time": "0:28:28.000000",
+          "note": "ti: go sad",
+          "tags": [],
+          "seconds": 1708.0,
+          "favorite": false
+        },
+        {
+          "id": "M45",
+          "time": "0:29:01.000000",
+          "note": "ti: BZ says Im in fantastic shape",
+          "tags": [],
+          "seconds": 1741.0,
+          "favorite": false
+        },
+        {
+          "id": "M46",
+          "time": "0:29:26.000000",
+          "note": "I will bring yoga ball",
+          "tags": [],
+          "seconds": 1766.0,
+          "favorite": false
+        }
+      ]
     }
   ]
 }
