@@ -4949,6 +4949,160 @@
           "favorite": false
         }
       ]
+    },
+    {
+      "file": "Voice 261105_120254_voice_lesson_bonnie",
+      "duration": "23:14",
+      "source_file": "Voice 261105_120254_voice_lesson_bonnie.mp3",
+      "source_url": "https://pub-e2b6b7a19d5e4fd2819cdbac5a0bc7b4.r2.dev/Voice%20261105_120254_voice_lesson_bonnie.mp3",
+      "csv": "regions_markers_voice261105.csv",
+      "tags": [],
+      "markers": [
+        {
+          "id": "M1",
+          "time": "0:00:00.000000",
+          "note": "Start",
+          "tags": [],
+          "seconds": 0.0,
+          "favorite": false
+        },
+        {
+          "id": "M2",
+          "time": "0:02:15.000000",
+          "note": "Resistance",
+          "tags": [],
+          "seconds": 135.0,
+          "favorite": false
+        },
+        {
+          "id": "M3",
+          "time": "0:02:24.000000",
+          "note": "BZ explain - calling it 'belly aching'",
+          "tags": [],
+          "seconds": 144.0,
+          "favorite": false
+        },
+        {
+          "id": "M4",
+          "time": "0:03:15.000000",
+          "note": "Objectives of using exercise ball",
+          "tags": [],
+          "seconds": 195.0,
+          "favorite": false
+        },
+        {
+          "id": "M5",
+          "time": "0:03:32.000000",
+          "note": "Approximation of ball work in car",
+          "tags": [],
+          "seconds": 212.0,
+          "favorite": false
+        },
+        {
+          "id": "M6",
+          "time": "0:06:02.000000",
+          "note": "ex: blowfish 151",
+          "tags": [],
+          "seconds": 362.0,
+          "favorite": false
+        },
+        {
+          "id": "M7",
+          "time": "0:07:30.000000",
+          "note": "ti: try again. BZ demo",
+          "tags": [],
+          "seconds": 450.0,
+          "favorite": false
+        },
+        {
+          "id": "M8",
+          "time": "0:09:00.000000",
+          "note": "ex: 8888531 Foot",
+          "tags": [],
+          "seconds": 540.0,
+          "favorite": false
+        },
+        {
+          "id": "M9",
+          "time": "0:09:44.000000",
+          "note": "ti: 'there is yr mix'",
+          "tags": [],
+          "seconds": 584.0,
+          "favorite": false
+        },
+        {
+          "id": "M10",
+          "time": "0:10:41.000000",
+          "note": "ex: long scale foo",
+          "tags": [],
+          "seconds": 641.0,
+          "favorite": false
+        },
+        {
+          "id": "M11",
+          "time": "0:16:18.000000",
+          "note": "Child's pose mention and grounding breath lower",
+          "tags": [],
+          "seconds": 978.0,
+          "favorite": false
+        },
+        {
+          "id": "M12",
+          "time": "0:17:41.000000",
+          "note": "ex: bub 1358531",
+          "tags": [],
+          "seconds": 1061.0,
+          "favorite": false
+        },
+        {
+          "id": "M13",
+          "time": "0:18:07.000000",
+          "note": "ti: try more narrowing",
+          "tags": [],
+          "seconds": 1087.0,
+          "favorite": false
+        },
+        {
+          "id": "M14",
+          "time": "0:18:21.000000",
+          "note": "ti: good result",
+          "tags": [],
+          "seconds": 1101.0,
+          "favorite": false
+        },
+        {
+          "id": "M15",
+          "time": "0:18:59.000000",
+          "note": "ex: 1358888531 Bub",
+          "tags": [],
+          "seconds": 1139.0,
+          "favorite": false
+        },
+        {
+          "id": "M16",
+          "time": "0:19:16.000000",
+          "note": "ti: vowel narrower",
+          "tags": [],
+          "seconds": 1156.0,
+          "favorite": false
+        },
+        {
+          "id": "M17",
+          "time": "0:21:27.000000",
+          "note": "ti: give more bellyache",
+          "tags": [],
+          "seconds": 1287.0,
+          "favorite": false
+        },
+        {
+          "id": "M18",
+          "time": "0:22:09.000000",
+          "note": "ex: ball work....stopped recording last part of lesson",
+          "tags": [],
+          "seconds": 1329.0,
+          "favorite": false
+        }
+      ]
     }
   ]
 }
